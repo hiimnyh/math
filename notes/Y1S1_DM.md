@@ -1,73 +1,3 @@
-Year 1 sem 1 discrete math
-
-* $\lnot$ is a **operator**, not a connective.
-
-* conjuction
-  * denoted as $\land$
-  * **"but"** in natural language also consider conjuction in mathematic.
-
-* disjuction
-  * denoted as $\lor$
-
-* exclusive or 
-  * only true if **exactly** one of the statement is true.
-  * denoted as $\oplus$
-
-* Implication
-  * denoted as $\to$
-* Biconditional
-  * $P \iff Q$
-
-to prove two proposition are equivalent, show that the boconditional form is always tautology.
-
-different kind of position of $P \to Q$
-
-* Converse
-  * $Q\to P$
-* Inverse 
-  * $\lnot P\to \lnot Q$
-* Contrapositive
-  * $\lnot Q \to \lnot P$
-
-note that
-$$P\to Q\equiv \lnot Q \to \lnot P$$
-in the same time,
-$$P\to Q \equiv \lnot P \lor Q$$
-
-* Tautology
-  * a proposition is always **true**
-* Contradiction
-  * a proposition is always **false**
-
-A **converse** and **inverse** of a proposition are equivalent,
-since inverse is just the contrapositive form of the converse.
-
-Uniqueness quantifier
-$$\exist !x,P(x)$$
-means there is **one and only one** in the domain of discourse that make P(x) is true.
-
-A statement of the form $P(x_1,x_2...x_n)$ is the value of the proposition function P at the n-tuple. And P is called **n-ary predicate**.
-
-Check with **Quantifiers with Restricted Domains**!!!(lecturer note)
-
-There are 2 type of Logical Equivalences Involving Quantifiers.
-
-1. for quantifier "$\forall$"
-$$\forall x (P(x)\land Q(x))\equiv \forall x P(x)\land \forall xQ(x)$$
-1. for quantifier "$\exist$"
-$$\exist x (P(x)\lor Q(x))\equiv \exist x P(x)\lor \exist x Q(x)$$
-
-think how to prove it, or just refer to lecturer note. 
-
-The sequance of quantifiers in nested quantifier is matter.
-
-check out with the rule of logical inference(try to memorize all the name?), and also the way that write the answer.
-
-when doing argument inference, start with existential arguement first.
-
-when your proof encounter some "for all", can use "Given" in your proof.
-
-
 # Chap 1
 
 * write down the truth table of exclusive or
@@ -89,6 +19,7 @@ when your proof encounter some "for all", can use "Given" in your proof.
 * list down 4 rule of inference of quantified statement
 * what is vacuous proof
 * what is exhaustive proof
+* **"but"** in natural language also consider conjuction in mathematic.
 * Show that if A and B are sets in a universe U then A ⊆ B
 if and only if $\bar{A}$ ∪ B = U.
 
@@ -147,6 +78,7 @@ if and only if $\bar{A}$ ∪ B = U.
   * $P(\mathbb{Z}),P(\mathbb{Z^+})$
 * Prove or disprove: There exists a countably infinite subset of the set of irrational numbers.
 * Describe a partition of N that divides N into ℵ0 countably infinite subsets.
+* when your proof encounter some "for all", can use "Given" in your proof.
 
 
 * **exercise** textbook
