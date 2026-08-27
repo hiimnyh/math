@@ -5,6 +5,7 @@ $$\text{Average Count} = P(x_1 \text{ occurs}) + P(x_2 \text{ occurs}) + \dots +
 * when try to prove some operation is valid for all n, may use induction, strong induction (ex. n $\to$ n+4) 
 * $n!\equiv (1-p)(2-p)\dots (n-p) \mod{p}$
 * $p(a + h) = p(a) + p'(a)h + \frac{p''(a)}{2!}h^2 + \frac{p'''(a)}{3!}h^3 + \dots$,notice that we can also treat a,h as another function.
+* $\underbrace{11\dots1}_{a}  = R_a $, where we can write $R_a = \frac{10^a - 1}{9}$
 
 
 # algebra

@@ -1,0 +1,499 @@
+\documentclass{natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\title{Discrete Mathematics: Concept Checklist}
+\author{Discrete Mathematics (Y1S1)}
+\subtitle{Active-Recall \& Self-Testing Revision Guide}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}[1][]{%
+    \begin{bluebox}[#1]\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}[1][]{%
+    \begin{greenbox}[#1]\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}[1][]{%
+    \begin{redbox}[#1]\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}[1][]{\begin{whitebox}[#1]\textbf{Conventions \& Exam Pitfalls. }}{\end{whitebox}}
+\newenvironment{reviewbox}[1][]{\begin{whitebox}[#1]\textbf{Textbook Exercise Checklist. }}{\end{whitebox}}
+
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+\newcommand{\xor}{\oplus}
+\newcommand{\Tval}{\mathbf{T}}
+\newcommand{\Fval}{\mathbf{F}}
+
+\begin{document}
+
+% =========================================================================
+% CHAPTER 1: PROPOSITIONAL LOGIC, QUANTIFIERS, AND PROOFS
+% =========================================================================
+\section{Logic, Quantifiers, and Proof Methods}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Linguistic Conjunction:} In mathematical logic, the word \emph{\textquotedblleft but\textquotedblright} functions as conjunction ($\land$). Example: \textquotedblleft$p$ is true but $q$ is false\textquotedblright\ $\equiv p \land \neg q$.
+        \citem \textbf{Inference Declarations:} When doing formal inference, always explicitly state what propositions each variable $p, q, r$ represents.
+        \citem \textbf{Universal Proofs:} When proving $\forall x \in S$, begin with \textquotedblleft\emph{Given an arbitrary $x \in S$}\textquotedblright\ or \textquotedblleft\emph{Let $x \in S$ be arbitrary}\textquotedblright.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Exclusive OR ($\xor$):} Write down the full truth table of $p \xor q$. Express $p \xor q$ in terms of $\land, \lor, \neg$.
+        \citem \textbf{Conditional Statement ($p \implies q$):} List at least 8 equivalent English phrasings of $p \implies q$, including:
+        \begin{itemize}
+            \item \textquotedblleft$q$ follows from $p$\textquotedblright
+            \item \textquotedblleft$q$ unless $\neg p$\textquotedblright
+            \item \textquotedblleft$p$ only if $q$\textquotedblright, \textquotedblleft$p$ is sufficient for $q$\textquotedblright, \textquotedblleft$q$ is necessary for $p$\textquotedblright, etc.
+        \end{itemize}
+        \citem \textbf{Variants of Conditional:} State the Converse ($q \implies p$), Contrapositive ($\neg q \implies \neg p$), and Inverse ($\neg p \implies \neg q$). Which are logically equivalent?
+        \citem \textbf{Quantifiers with Restricted Domains:} State the logical expansion for:
+        \begin{align*}
+            \forall x < 0 \, P(x) \quad \text{and} \quad \exists x > 0 \, Q(x).
+        \end{align*}
+        \citem \textbf{Nested Quantifiers:} Explain why the order of quantifiers matters. Compare $\forall x \exists y \, P(x, y)$ vs. $\exists y \forall x \, P(x, y)$ with an example. (Review Assignment 1 nested quantifier problems).
+        \citem \textbf{Special Proof Methods:}
+        \begin{itemize}
+            \item What is a \emph{vacuous proof}? When does it apply?
+            \item What is a \emph{trivial proof}?
+            \item What is an \emph{exhaustive proof} (proof by cases)?
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Core Logic Laws:} State De Morgan's laws, Distributive laws, Absorption laws, and Conditional equivalence.
+        \citem \textbf{8 Rules of Inference for Propositional Logic:} List all 8 rules and write their tautological forms:
+        \begin{itemize}
+            \item Modus Ponens, Modus Tollens, Hypothetical Syllogism, Disjunctive Syllogism
+            \item Addition, Simplification, Conjunction, Resolution
+        \end{itemize}
+        \citem \textbf{4 Rules of Inference for Quantified Statements:} State Universal Instantiation (UI), Universal Generalization (UG), Existential Instantiation (EI), and Existential Generalization (EG).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Quantifier Distribution (Proofs):}
+        \begin{enumerate}
+            \item Prove: $\forall x \, (P(x) \land Q(x)) \equiv \forall x \, P(x) \land \forall x \, Q(x)$.
+            \item Prove: $\exists x \, (P(x) \lor Q(x)) \equiv \exists x \, P(x) \lor \exists x \, Q(x)$.
+        \end{enumerate}
+        \citem \textbf{Quantifier Distribution (Disproofs \& Counterexamples):}
+        \begin{enumerate}
+            \item Disprove: $\forall x \, (P(x) \lor Q(x)) \equiv \forall x \, P(x) \lor \forall x \, Q(x)$.
+            \item Disprove: $\exists x \, (P(x) \land Q(x)) \equiv \exists x \, P(x) \land \exists x \, Q(x)$.
+        \end{enumerate}
+        \citem \textbf{Set Identity Proof via Logic:} Let $A, B \subseteq U$. Prove that $A \subseteq B \iff \ol{A} \cup B = U$ by translating to propositional equivalences.
+    \end{itemize}
+\end{challengebox}
+
+
+% =========================================================================
+% CHAPTER 2: SETS, FUNCTIONS, AND CARDINALITY
+% =========================================================================
+\section{Sets, Functions, and Cardinality}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Natural Numbers Convention:} In this course, $\N = \set{0, 1, 2, 3, \dots}$. $\Z^+ = \set{1, 2, 3, \dots}$.
+        \citem \textbf{Set $\leftrightarrow$ Logic Translation:} $U \leftrightarrow \Tval$ (True), $\emp \leftrightarrow \Fval$ (False), $\cup \leftrightarrow \lor$, $\cap \leftrightarrow \land$, $\ol{A} \leftrightarrow \neg A$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Set Terminology:} Define singleton set, proper subset ($A \subsetneq B$), power set $\scr{P}(A)$, and Cartesian product $A \times B$.
+        \citem \textbf{Set Operations:} State formal set-builder definitions of $A \cup B$, $A \cap B$, $A \setminus B$, and $\ol{A}$.
+        \citem \textbf{Function Classifications:} Define real-valued function vs. integer-valued function.
+        \citem \textbf{Image \& Preimage:} For $f: A \to B$, define $f(S)$ for $S \subseteq A$, and $f^{-1}(T)$ for $T \subseteq B$.
+        \citem \textbf{Injectivity, Surjectivity, Bijectivity:} Write the formal logical definitions of:
+        \begin{itemize}
+            \item Injective (one-to-one)
+            \item Surjective (onto)
+            \item Bijective (one-to-one correspondence)
+            \item Invertible function and inverse function $f^{-1}$
+        \end{itemize}
+        \citem \textbf{Floor \& Ceiling Characterizations:} State the fundamental bounding inequalities:
+        \begin{align*}
+            \lfloor x \rfloor \le x < \lfloor x \rfloor + 1 \quad \text{and} \quad \lceil x \rceil - 1 < x \le \lceil x \rceil.
+        \end{align*}
+        \citem \textbf{Rounding Function:} Express $\operatorname{round}(x)$ in terms of $\lfloor \cdot \rfloor$ and $\lceil \cdot \rceil$.
+        \citem \textbf{Countability Characterization:} State the three equivalent characterizations for a set $S \neq \emp$ to be countable.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Function Composition Properties ($f: A \to B, g: B \to C$):} State the 4 major composition theorems regarding injectivity and surjectivity of $g \circ f$.
+        \citem \textbf{Invertibility Theorem:} State the condition for $f$ to be invertible ($f$ invertible $\iff f$ bijective).
+        \citem \textbf{Injection-Surjection Duality:} Show that for non-empty sets, $(\exists \text{ injection } f: A \to B) \iff (\exists \text{ surjection } g: B \to A)$.
+        \citem \textbf{Countable Operations:} State the closure properties of countable sets under subsets, finite unions, countable unions, and Cartesian products.
+        \citem \textbf{Cantor's Theorem:} State Cantor's theorem comparing $|A|$ and $|\scr{P}(A)|$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Composition Inverses Counterexamples:}
+        \begin{enumerate}
+            \item Give an example where $g \circ f$ is injective, but $g$ is \emph{not} injective.
+            \item Give an example where $g \circ f$ is surjective, but $f$ is \emph{not} surjective.
+        \end{enumerate}
+        \citem \textbf{Countability Proofs:}
+        \begin{itemize}
+            \item Prove $\Z^+ \times \Z^+$ is countably infinite.
+            \item Prove $\Q$ is countably infinite.
+            \item Prove $\R$ is uncountable via Cantor's diagonal argument.
+            \item Prove $|A| < |\scr{P}(A)|$ for all sets $A$.
+        \end{itemize}
+        \citem \textbf{Function Space Bijection:} Let $S \neq \emp$ and $F_S = \set{f : S \to \set{1, 2}}$. Prove there is a bijection between $F_S$ and $\scr{P}(S)$.
+        \citem \textbf{Cardinality Computations ($|A| = m$):} Evaluate:
+        \begin{itemize}
+            \item $|\set{x \in \scr{P}(A) : |x| \le 1}|$
+            \item $|\set{x \subseteq \scr{P}(A) : |x| \le 1}|$
+        \end{itemize}
+        \citem \textbf{Equinumerosity Bijections:} Construct explicit bijections showing:
+        \begin{itemize}
+            \item $|\R| = |(0, \infty)|$
+            \item $|\R| = |(\sqrt{2}, \infty)|$
+            \item $|\R| = |(0, 1)|$
+            \item $|[0, 1]| = |(0, 1)|$
+            \item $|\scr{P}(\Z)| = |\scr{P}(\Z^+)|$
+        \end{itemize}
+        \citem \textbf{Subsets \& Partitions of Reals / Naturals:}
+        \begin{itemize}
+            \item Prove or disprove: There exists a countably infinite subset of the set of irrational numbers.
+            \item Describe a partition of $\N$ that divides $\N$ into $\aleph_0$ countably infinite subsets.
+        \end{itemize}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 2.1 & Problem 27 & $\square$ Done \\
+        Section 2.2 & Problem 17 & $\square$ Done \\
+        Section 2.3 & Problems 35, 45 & $\square$ Done \\
+        Section 2.5 & Problem 11 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 3: ASYMPTOTIC ANALYSIS & ALGORITHMS
+% =========================================================================
+\section{Algorithms and Asymptotic Analysis}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Logarithm Notation:} In this course, $\log x = \ln x$ unless specified otherwise.
+        \citem \textbf{Disproving Big-$O$ Strategy:} To prove $f(x) \neq O(g(x))$, use proof by contradiction: assume witnesses $C, k$ exist, and derive that an unbounded function is bounded.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Binary Search:} Explain the binary search mechanism and state its recurrence and asymptotic complexity.
+        \citem \textbf{Asymptotic Definitions:} State the formal definition of:
+        \begin{itemize}
+            \item Big-$O$ notation: $f(x) = O(g(x))$ with witnesses $C, k$.
+            \item Big-$\Omega$ notation: $f(x) = \Omega(g(x))$.
+            \item Big-$\Theta$ notation: $f(x) = \Theta(g(x))$.
+            \item Little-$o$ notation: $f(x) = o(g(x))$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Limit Criteria:} State the limit test for $O, \Omega, \Theta, o$ when $\DS L = \lim_{x\to\infty} \left|\frac{f(x)}{g(x)}\right|$.
+        \citem \textbf{Sum \& Product Rules:} State the sum rule $(f_1 + f_2)(x) = O(\max(|g_1|, |g_2|))$ and product rule $(f_1 f_2)(x) = O(g_1 g_2)$.
+        \citem \textbf{Symmetry of $\Theta$:} State why $f(x) = \Theta(g(x)) \iff g(x) = \Theta(f(x))$.
+        \citem \textbf{Duality of $O$ and $\Omega$:} State why $f(x) = O(g(x)) \iff g(x) = \Omega(f(x))$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Witness Finding:} Prove $f(x) = x^2 + 2x + 1$ is $O(x^2)$ by finding explicit constants $C$ and $k$.
+        \citem \textbf{Disproving Big-$O$:} Prove by contradiction that $n^2$ is not $O(n)$.
+        \citem \textbf{Growth Comparison Tasks:}
+        \begin{itemize}
+            \item Prove that for any $n \in \N$ and $a > 0$, the order of $x^n$ is smaller than $e^{ax}$ ($x^n = o(e^{ax})$).
+            \item Compare the asymptotic orders of $x^4$ and $x^3 \log^{100} x$.
+            \item Prove that $\log(n!) = \Theta(n \log n)$.
+        \end{itemize}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 3.2 & Problems 3, 4, 9, 20, 47, 67, 71, 73 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 4: NUMBER THEORY AND CRYPTOGRAPHY
+% =========================================================================
+\section{Number Theory and Cryptography}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Modular Inverses Requirement:} $a$ has an inverse modulo $m \iff \gcd(a, m) = 1$.
+        \citem \textbf{Euler's Totient Requirement:} $a^{\phi(n)} \equiv 1 \pmod n$ holds if and only if $\gcd(a, n) = 1$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Divisibility:} Define $a \mid b$. Define quotient and remainder in the Division Algorithm.
+        \citem \textbf{Congruence Modulo $m$:} Define $a \equiv b \pmod m$ and congruence class $[a]_m$.
+        \citem \textbf{Prime Concepts:} Define prime, composite, Mersenne prime, relatively prime, and pairwise relatively prime.
+        \citem \textbf{Sieve of Eratosthenes:} Briefly explain how the Sieve of Eratosthenes identifies all primes up to $N$.
+        \citem \textbf{GCD and LCM:} Write the definitions and characterizations of $\gcd(a, b)$ and $\operatorname{lcm}(a, b)$.
+        \citem \textbf{B\'ezout's Theorem:} State B\'ezout's identity for $\gcd(a, b)$.
+        \citem \textbf{Euler's Totient Function:} Define $\phi(n)$. State the formula for $\phi(n)$ and $\phi(pq)$ for distinct primes.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Divisibility Properties:} State linear combination divisibility: $a \mid b \land a \mid c \implies a \mid (mb + nc)$.
+        \citem \textbf{Division Algorithm:} State the formal existence and uniqueness theorem for $a = dq + r$.
+        \citem \textbf{Modular Arithmetic Properties:} State addition, multiplication, and cancellation rules modulo $m$.
+        \citem \textbf{Prime Factor Bound:} State the theorem: if $n$ is composite, it has a prime factor $p \le \sqrt{n}$.
+        \citem \textbf{Euclidean Reduction:} State $\gcd(a, b) = \gcd(b, r)$ where $a = bq + r$.
+        \citem \textbf{Euclid's Lemma:} If $a \mid bc$ and $\gcd(a, b) = 1$, then $a \mid c$.
+        \citem \textbf{Fundamental Theorem of Arithmetic:} State the unique prime factorization theorem.
+        \citem \textbf{GCD-LCM Product Theorem:} State $\gcd(a, b) \cdot \operatorname{lcm}(a, b) = |ab|$.
+        \citem \textbf{Chinese Remainder Theorem (CRT):} State the general CRT for pairwise coprime moduli $m_1, \dots, m_n$.
+        \citem \textbf{Fermat's Little Theorem \& Euler's Theorem:} State both theorems.
+        \citem \textbf{RSA Cryptosystem Principle:} State the RSA identity $m^{de} \equiv m \pmod n$ for $n = pq$ and $de \equiv 1 \pmod{\phi(n)}$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Number Theory Proofs:}
+        \begin{itemize}
+            \item Prove: If $a, b \neq 0$ and $a \mid b$, then $|a| \le |b|$.
+            \item Prove: $a \equiv b \pmod m \iff (a \bmod m) = (b \bmod m)$.
+            \item Prove that every integer $> 1$ has a prime factor.
+            \item Prove: If $2^m - 1$ is prime, then $m$ is prime.
+            \item Prove Euclid's Theorem: There are infinitely many primes.
+            \item Prove that if $p$ is prime, then either $p \mid a$ or $\gcd(a, p) = 1$.
+            \item Prove: If $a \mid bc$ and $\gcd(a, b) = 1$, then $a \mid c$.
+            \item Prove: $\gcd(k, mn) = 1 \iff \gcd(k, m) = 1 \land \gcd(k, n) = 1$.
+            \item Prove the Chinese Remainder Theorem.
+            \item Prove $\phi(pq) = (p-1)(q-1)$ for distinct primes $p, q$.
+            \item Prove: $\lceil n/k \rceil = \lfloor (n-1)/k \rfloor + 1$ for $n, k \in \Z^+$.
+        \end{itemize}
+        \citem \textbf{Calculations \& Algorithms:}
+        \begin{itemize}
+            \item Use the Euclidean Algorithm to compute $\gcd(1236, 2136)$.
+            \item Find the modular inverse of a number using the Extended Euclidean Algorithm.
+            \item Solve the system via CRT: $x \equiv 2 \pmod 3$, $x \equiv 3 \pmod 5$, $x \equiv 2 \pmod 7$.
+            \item Find all solutions to the quadratic congruence $x^2 \equiv 29 \pmod{35}$.
+        \end{itemize}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 4.1 & Problems 19, 21, 22, 23 & $\square$ Done \\
+        Section 4.3 & Problems 32, 43 & $\square$ Done \\
+        Section 4.4 & Problems 11, 21, 40, 65 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 5: INDUCTION AND RECURRENCE RELATIONS
+% =========================================================================
+\section{Induction and Recurrence Relations}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Induction Templates:} Outline the standard steps of:
+        \begin{itemize}
+            \item Principle of Mathematical Induction (Weak Induction).
+            \item Principle of Strong Mathematical Induction.
+        \end{itemize}
+        \citem \textbf{Well-Ordering Principle:} State the Well-Ordering Principle for non-negative integers.
+        \citem \textbf{Linear Recurrences Definitions:} Define Linear Homogeneous Recurrence Relations with Constant Coefficients (LHRRWCC) and their characteristic equations.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Distinct Roots Theorem:} State the general solution form for $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$ when characteristic roots $r_1, \dots, r_k$ are distinct.
+        \citem \textbf{Repeated Roots Theorem:} State the solution form when root $r_i$ has multiplicity $m_i$.
+        \citem \textbf{Linearity of Recurrence Solutions:} State the superposition principle for homogeneous recurrences.
+        \citem \textbf{Nonhomogeneous Solution Structure:} State why the general solution is $a_n = a_n^{(p)} + a_n^{(h)}$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Prime Factorization via Strong Induction:} Write the full inductive proof that every integer $n > 1$ can be factored into primes.
+        \citem \textbf{Superposition Proofs:}
+        \begin{itemize}
+            \item Prove that if $\set{a_n^{(1)}}, \set{a_n^{(2)}}$ solve the homogeneous recurrence, then $\alpha a_n^{(1)} + \beta a_n^{(2)}$ is also a solution.
+            \item Prove that if $\set{a_n^{(1)}}, \set{a_n^{(2)}}$ solve the nonhomogeneous recurrence, then $\set{a_n^{(1)} - a_n^{(2)}}$ solves the homogeneous equation.
+        \end{itemize}
+        \citem \textbf{Characteristic Root Equivalence:} Prove that $a_n = r^n$ ($r \neq 0$) is a solution to $a_n = \sum_{i=1}^k c_i a_{n-i} \iff r^k - \sum_{i=1}^k c_i r^{k-i} = 0$.
+        \citem \textbf{Recurrence Calculations:}
+        \begin{itemize}
+            \item Solve $a_n = 6a_{n-1} - 11a_{n-2} + 6a_{n-3}$ with $a_0 = 2, a_1 = 5, a_2 = 15$.
+            \item Solve $a_n = 6a_{n-1} - 12a_{n-2} + 8a_{n-3}$ with $a_0 = 1, a_1 = 4, a_2 = 28$.
+        \end{itemize}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 5.1 & Problems 19, 21, 22 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 6: COUNTING AND COMBINATORICS
+% =========================================================================
+\section{Counting and Combinatorics}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Basic Counting Principles:} State formulas for total functions $A \to B$ ($n^m$) and one-to-one functions $P(n, m)$.
+        \citem \textbf{Pigeonhole Principle:} State the basic and Generalized Pigeonhole Principle.
+        \citem \textbf{Permutations \& Combinations:} State formulas for $P(n, r)$, $\binom{n}{r}$, and multinomial coefficients $\binom{n}{n_1, \dots, n_k}$.
+        \citem \textbf{Derangements:} Define derangement ($D_n$) and state its summation formula.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Binomial Theorem:} State $(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$.
+        \citem \textbf{Combinatorial Identities to Know:}
+        \begin{itemize}
+            \item Pascal's Identity: $\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}$
+            \item Sum of Coefficients: $\sum_{k=0}^n \binom{n}{k} = 2^n$
+            \item Vandermonde's Identity: $\binom{m+n}{r} = \sum_{k=0}^r \binom{m}{r-k}\binom{n}{k}$
+            \item Sum of Squares: $\sum_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}$
+            \item Hockey-Stick Identity: $\sum_{k=r}^n \binom{k}{r} = \binom{n+1}{r+1}$
+        \end{itemize}
+        \citem \textbf{Principle of Inclusion-Exclusion (PIE):} State the general formula for $|\bigcup_{i=1}^n A_i|$.
+        \citem \textbf{Surjective Functions Count:} State formula for onto functions from size $m$ to size $n$: $\sum_{j=0}^n (-1)^j \binom{n}{j}(n-j)^m$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Combinatorial Proofs:}
+        \begin{itemize}
+            \item Provide an algebraic and a combinatorial proof for Pascal's Identity.
+            \item Give a combinatorial proof for the Hockey-Stick Identity.
+            \item Prove $\phi(mn) = \phi(m)\phi(n)$ for $\gcd(m, n) = 1$ using PIE.
+        \end{itemize}
+        \citem \textbf{Stars and Bars Problems:}
+        \begin{itemize}
+            \item Find non-negative integer triples $(x_1, x_2, x_3)$ satisfying $x_1 + x_2 + x_3 = 10$.
+            \item Find positive integer triples ($x_i \ge 1$) satisfying $x_1 + x_2 + x_3 = 10$.
+        \end{itemize}
+        \citem \textbf{Combinatorial Problems:}
+        \begin{itemize}
+            \item Calculate onto functions from a set of 6 elements to a set of 3 elements.
+            \item Calculate ways 5 friends in Secret Santa can draw names such that nobody draws their own name ($D_5$).
+            \item How many strictly alphabetical length-5 lists can be made from $\set{A, B, C, D, E, F, G, H, I}$?
+            \item How many permutations of $\set{A, B, C, D, E, F}$ have $D$ occurring before $A$?
+            \item Prove that for any $a \in \N$, there exist distinct $k, l \in \N$ such that $10 \mid (a^k - a^l)$ via Pigeonhole Principle.
+        \end{itemize}
+    \end{itemize}
+\end{challengebox}
+
+
+% =========================================================================
+% CHAPTER 7: RELATIONS AND PARTIAL ORDERS
+% =========================================================================
+\section{Relations, Equivalence Relations, and Posets}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Relation Definitions:} Define relation $R$ on set $A$. How many relations exist on an $n$-element set?
+        \citem \textbf{Relation Properties:} Write formal definitions of:
+        \begin{itemize}
+            \item Reflexive
+            \item Symmetric
+            \item Antisymmetric
+            \item Transitive
+        \end{itemize}
+        \citem \textbf{Representations:} Describe zero-one matrix representation $M_R$ and digraphs.
+        \citem \textbf{Composition \& Transitive Closure:} Define $S \circ R$, Boolean product $M_R \odot M_S$, and connectivity relation $R^*$.
+        \citem \textbf{Equivalence Relations:} Define equivalence relation and equivalence classes $[a]$.
+        \citem \textbf{Poset Fundamentals:} Define partial ordering ($\preceq$), comparability, total order (chain), and Hasse diagram.
+        \citem \textbf{Extremal Elements:} Define maximal, minimal, greatest, least, upper bound, lower bound, LUB (supremum), and GLB (infimum).
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Transitivity Criterion:} State $R$ is transitive $\iff R^n \subseteq R$ for all $n \ge 1 \iff R^2 \subseteq R$.
+        \citem \textbf{Fundamental Theorem of Equivalence Relations:} State the partition-equivalence duality theorem.
+        \citem \textbf{Equal-Class Cardinality Theorem:} State the relation $|R| = m |A|$ when all classes have size $m$.
+        \citem \textbf{Composition Monotonicity:} State $R_1 \subseteq R_2 \implies S \circ R_1 \subseteq S \circ R_2$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Properties Verification:} Determine whether $R = \set{(a, b) \in \Z \times \Z : a = b + 1}$ is antisymmetric.
+        \citem \textbf{Matrix Composition Proof:} Prove $M_{S \circ R} = M_R \odot M_S = [t_{ij}]$ where $t_{ij} = \bigvee_k (r_{ik} \land s_{kj})$.
+        \citem \textbf{Equal-Class Proof:} Prove that if every equivalence class of $R$ on $A$ has size $m$, then $|R| = m|A|$.
+        \citem \textbf{Poset Analysis:} In $(\scr{P}(\set{1, 2, 3}), \subseteq)$:
+        \begin{itemize}
+            \item Identify greatest and least elements.
+            \item Find upper bounds, lower bounds, LUB, and GLB for $A = \set{\set{1}, \set{2}}$.
+        \end{itemize}
+    \end{itemize}
+\end{challengebox}
+
+\end{document}
