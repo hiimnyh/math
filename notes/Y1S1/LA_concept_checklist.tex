@@ -1,0 +1,456 @@
+\documentclass{natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\title{Linear Algebra: Concept Checklist}
+\author{Linear Algebra (Y1S1)}
+\subtitle{Active-Recall \& Self-Testing Revision Guide}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}[1][]{%
+    \begin{bluebox}[#1]\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}[1][]{%
+    \begin{greenbox}[#1]\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}[1][]{%
+    \begin{redbox}[#1]\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}[1][]{\begin{whitebox}[#1]\textbf{Conventions \& Exam Pitfalls. }}{\end{whitebox}}
+\newenvironment{reviewbox}[1][]{\begin{whitebox}[#1]\textbf{Textbook Exercise Checklist. }}{\end{whitebox}}
+
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\Null}{\operatorname{Null}}
+\newcommand{\Row}{\operatorname{Row}}
+\newcommand{\Col}{\operatorname{Col}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\nullity}{\operatorname{nullity}}
+\newcommand{\Span}{\operatorname{span}}
+
+\begin{document}
+
+% =========================================================================
+% CHAPTER 1: SYSTEMS OF LINEAR EQUATIONS, MATRICES, AND TRANSFORMATIONS
+% =========================================================================
+\section{Systems of Linear Equations, Matrices, and Linear Transformations}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Echelon Uniqueness:} The row echelon form (REF) of a matrix is \emph{not} unique, but every matrix has a \emph{strictly unique} reduced row echelon form (RREF).
+        \citem \textbf{Parametric Solutions:} When expressing the solution of an underdetermined consistent system, always express the \emph{pivot (basic) variables} explicitly in terms of the \emph{free (non-basic) variables}.
+        \citem \textbf{Homogeneous Consistency:} A homogeneous linear system $Ax = 0$ is \emph{always consistent} because it invariably admits the trivial solution $x = 0$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Linear System Classifications:} Define a linear equation, a homogeneous linear equation, and a linear system. What does it mean for a system to be \emph{consistent} versus \emph{inconsistent}?
+        \citem \textbf{Solution Cardinality:} State the 3 mutually exclusive cases for the solution set of any linear system over $\R$ or $\C$ (no solution, unique solution, infinitely many solutions).
+        \citem \textbf{Matrix Representations:} Given a linear system with $m$ equations and $n$ unknowns:
+        \begin{align*}
+            \cases{
+                a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\
+                a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = b_2 \\
+                \quad\vdots \\
+                a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m
+            }
+        \end{align*}
+        Write down its coefficient matrix, its column vector of constants $b$, and its augmented matrix $[A \mid b]$.
+        \citem \textbf{Elementary Row Operations:} List the three types of elementary row operations that preserve the solution set of a linear system.
+        \citem \textbf{Row Echelon Forms:} State the defining rules of:
+        \begin{itemize}
+            \item Row Echelon Form (REF)
+            \item Reduced Row Echelon Form (RREF)
+        \end{itemize}
+        \citem \textbf{Elimination Algorithms:} Distinguish between \emph{Gaussian elimination} (forward elimination to REF + back-substitution) and \emph{Gauss-Jordan elimination} (reduction to RREF).
+        \citem \textbf{Variables Classification:} In an augmented matrix reduced to RREF:
+        \begin{align*}
+            \begin{bmatrix}
+                1 & 2 & 0 & 3 & 0 & 7 \\
+                0 & 0 & 1 & 0 & 0 & 1 \\
+                0 & 0 & 0 & 0 & 1 & 2
+            \end{bmatrix}
+        \end{align*}
+        Identify the pivot columns, pivot (basic) variables, and free (non-basic) variables. Express the general solution.
+        \citem \textbf{Matrix Multiplication Definitions:} Let $A \in \R^{m \times r}$ and $B \in \R^{r \times n}$.
+        \begin{itemize}
+            \item Write the index formula for the $(i, j)$-entry: $(AB)_{ij} = \sum_{k=1}^r a_{ik}b_{kj}$.
+            \item Express the $i$-th row of $AB$ using the standard basis row vector $e_i A$.
+            \item Express the $j$-th column of $AB$ using the standard basis vector $B e_j$.
+            \item Express the matrix-vector product $Ax$ as a linear combination of the column vectors of $A$.
+        \end{itemize}
+        \citem \textbf{Transpose and Trace:} Define the transpose $A^T$ and trace $\tr(A)$ of a square matrix $A$.
+        \citem \textbf{Matrix Invertibility:} Define an invertible (non-singular) matrix. State what it means for a matrix to be singular.
+        \citem \textbf{Symmetric and Skew-Symmetric Matrices:}
+        \begin{itemize}
+            \item Define a symmetric matrix ($A^T = A$) and a skew-symmetric matrix ($A^T = -A$).
+            \item Why must the main diagonal entries of any real skew-symmetric matrix be identically zero?
+        \end{itemize}
+        \citem \textbf{Matrix Transformations:} Define a matrix transformation $T_A: \R^n \to \R^m$ given by $T_A(x) = Ax$. State the two operational criteria for a mapping $T: \R^n \to \R^m$ to be a \emph{linear transformation}.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Affine Line of Solutions:} If $S = (s_1, \dots, s_n)$ and $N = (n_1, \dots, n_n)$ are two distinct solutions to a linear equation (or consistent linear system) $Ax = b$, then for any scalar $t \in \R$, $(1-t)S + tN$ is also a valid solution.
+        \citem \textbf{Zero Row / Column Singularity:} If an $n \times n$ matrix $A$ has an entire row or column of zeros, then $A$ is singular (non-invertible).
+        \citem \textbf{RREF Dichotomy for Square Matrices:} If $R$ is the RREF of an $n \times n$ matrix $A$, then either $R = I_n$ or $R$ contains at least one row of zeros.
+        \citem \textbf{Algebraic Properties of Transpose and Trace:}
+        \begin{itemize}
+            \item $(AB)^T = B^T A^T$
+            \item $\tr(A + B) = \tr(A) + \tr(B)$
+            \item $\tr(AB) = \tr(BA)$ for conformable matrices $A$ and $B$.
+        \end{itemize}
+        \citem \textbf{Invertibility Criteria \& One-Sided Inverses:}
+        \begin{itemize}
+            \item If $A$ is invertible, its inverse $A^{-1}$ is unique, and $(AB)^{-1} = B^{-1} A^{-1}$.
+            \item For square matrices of the same size, $AB = I \implies B = A^{-1}$ and $BA = I \implies B = A^{-1}$.
+        \end{itemize}
+        \citem \textbf{Symmetric Decomposition Theorem:} Any square matrix $A \in \R^{n \times n}$ can be uniquely decomposed as the sum of a symmetric matrix $S$ and a skew-symmetric matrix $K$:
+        \begin{align*}
+            A = \underbrace{\frac{A + A^T}{2}}_{\text{Symmetric}} + \underbrace{\frac{A - A^T}{2}}_{\text{Skew-Symmetric}}.
+        \end{align*}
+        \citem \textbf{Standard Matrix of Planar Rotation:} The standard matrix for the counter-clockwise rotation by an angle $\theta$ about the origin in $\R^2$ is:
+        \begin{align*}
+            [T] = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}.
+        \end{align*}
+        \citem \textbf{Composition of Linear Transformations:} If $T_A: \R^m \to \R^k$ and $T_B: \R^k \to \R^n$, then the composition is a linear transformation with standard matrix $T_B \circ T_A = T_{BA}$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Infinite Solutions Proof:} Prove that if a linear system $Ax = b$ over $\R$ has at least two distinct solutions, it must have infinitely many solutions.
+        \citem \textbf{Trace Commutativity Proof:} Prove that for any $A \in \R^{m \times n}$ and $B \in \R^{n \times m}$, $\tr(AB) = \tr(BA)$.
+        \citem \textbf{Symmetric Products Proof:} For any rectangular matrix $A \in \R^{m \times n}$, prove that $A A^T$ and $A^T A$ are both symmetric matrices.
+        \citem \textbf{Rotation Matrix Derivation:} Derive the standard matrix for rotating a vector $(x, y) \in \R^2$ by an angle $\theta$ about the origin using trigonometry and basis vectors $e_1, e_2$.
+        \citem \textbf{Unit Basis Row/Column Extraction:} Let $e_i = [0, \dots, 0, 1, 0, \dots, 0]$ be the $i$-th standard basis vector.
+        \begin{enumerate}
+            \item Prove that $e_i A = A_i$ (the $i$-th row of $A$).
+            \item Prove that $A e_j^T = A^j$ (the $j$-th column of $A$).
+        \end{enumerate}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Sections 1.1--1.3 & Problems 4, 5, 9, 19, 38--41, 45, 46, 53, 68, 74, 77--80, 84--86, 103 & $\square$ Done \\
+        Sections 1.4--1.7 & Problems 111, 123, 126, 127, 135, 162, 163, 172--175, 179--181, & $\square$ Done \\
+                         & 212--216, 218, 220 & \\
+        Section 1.8       & Problems 1, 2, 4, 12, 14, 22, 24, 26, 30, 32, 36, 46, 47 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 2: DETERMINANTS
+% =========================================================================
+\section{Determinants, Cofactor Expansion, and Cramer's Rule}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Minors and Cofactors:} For an $n \times n$ matrix $A = [a_{ij}]$:
+        \begin{itemize}
+            \item Define the minor $M_{ij}$ of the entry $a_{ij}$.
+            \item Define the cofactor $C_{ij} = (-1)^{i+j} M_{ij}$.
+        \end{itemize}
+        \citem \textbf{Determinant Definition via Cofactor Expansion:} State the cofactor expansion formula along the $i$-th row and along the $j$-th column.
+        \citem \textbf{Triangular Matrices:} State the determinant formula for an upper triangular, lower triangular, or diagonal matrix.
+        \citem \textbf{Adjoint Matrix:} Define the adjoint (adjugate) matrix $\operatorname{adj}(A)$ as the transpose of the cofactor matrix.
+        \citem \textbf{Cramer's Rule Formula:} Write down the explicit formula for solving $Ax = b$ using determinants when $\det(A) \neq 0$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Transpose Invariance:} $\det(A) = \det(A^T)$.
+        \citem \textbf{Elementary Matrix Determinants:} For any elementary matrix $E$, $\det(EA) = \det(E)\det(A)$.
+        \citem \textbf{Multiplicative Property of Determinants:} For any $n \times n$ matrices $A$ and $B$:
+        \begin{align*}
+            \det(AB) = \det(A)\det(B).
+        \end{align*}
+        \citem \textbf{Inverse Adjoint Formula:} If $\det(A) \neq 0$, then $A$ is invertible with:
+        \begin{align*}
+            A^{-1} = \frac{1}{\det(A)} \operatorname{adj}(A).
+        \end{align*}
+        \citem \textbf{Invertible Matrix Theorem (IMT / Fundamental Equivalent Theorem):} State the core equivalences for an $n \times n$ matrix $A$:
+        \begin{itemize}
+            \item $A$ is invertible.
+            \item $\det(A) \neq 0$.
+            \item The RREF of $A$ is $I_n$.
+            \item $Ax = 0$ has only the trivial solution $x = 0$.
+            \item $Ax = b$ is consistent with a unique solution for every $b \in \R^n$.
+            \item The column vectors (and row vectors) of $A$ are linearly independent and span $\R^n$.
+        \end{itemize}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Determinant of Elementary Products:} Prove that $\det(EA) = \det(E)\det(A)$ for each of the three types of elementary matrices $E$.
+        \citem \textbf{Multiplicative Determinant Proof:} Using elementary matrix factorizations of non-singular matrices, prove that $\det(AB) = \det(A)\det(B)$.
+        \citem \textbf{Cramer's Rule Derivation:} Derive Cramer's rule algebraically starting from the adjoint formula $x = A^{-1}b = \frac{1}{\det(A)} \operatorname{adj}(A) b$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Sections 2.1--2.3 & Problems 36, 61, 63, 65, 87, 93, 98, 104 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 3: EUCLIDEAN VECTOR SPACES
+% =========================================================================
+\section{Euclidean Vector Spaces ($\R^n$)}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Inner Product Matrix Form:} In $\R^n$, the dot product of two column vectors $u, v$ is strictly equivalent to the matrix product $u^T v$.
+        \citem \textbf{Scalar vs. Vector Projection:} The scalar projection $\operatorname{comp}_a u$ is a scalar, whereas the vector projection $\proj_a u$ is a vector in the direction of $a$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Vector Metrics in $\R^n$:} For vectors $u = (u_1, \dots, u_n)$ and $v = (v_1, \dots, v_n)$:
+        \begin{itemize}
+            \item Define Euclidean norm (magnitude) $\|u\| = \sqrt{\sum_{i=1}^n u_i^2}$.
+            \item Define unit vector and the normalization process $u / \|u\|$.
+            \item Define Euclidean distance $d(u, v) = \|u - v\|$.
+            \item Define dot product $u \cdot v = \sum_{i=1}^n u_i v_i = u^T v$.
+        \end{itemize}
+        \citem \textbf{Geometric Angle and Orthogonality:} State the formula for the angle $\theta$ between non-zero vectors $u, v$, and define orthogonality ($u \perp v \iff u \cdot v = 0$).
+        \citem \textbf{Lines and Planes in $\R^n$:}
+        \begin{itemize}
+            \item Point-normal equation of a hyperplane in $\R^n$: $n \cdot (x - x_0) = 0$.
+            \item Vector equation $r(t) = r_0 + t v$ and parametric equations of a line in $\R^n$.
+            \item Parameterization of a line segment connecting $x_0$ to $x_1$: $x(t) = (1-t)x_0 + t x_1$ for $t \in [0, 1]$.
+        \end{itemize}
+        \citem \textbf{Orthogonal Projections:} Define the orthogonal projection $\proj_a u$ of $u$ along $a \neq 0$ and the orthogonal component vector $\operatorname{perp}_a u$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Cauchy-Schwarz Inequality:} For all $u, v \in \R^n$:
+        \begin{align*}
+            |u \cdot v| \le \|u\| \|v\|,
+        \end{align*}
+        with equality holding if and only if $u$ and $v$ are collinear (linearly dependent).
+        \citem \textbf{Triangle Inequality:} For all $u, v \in \R^n$, $\|u + v\| \le \|u\| + \|v\|$.
+        \citem \textbf{Parallelogram Law:} $\|u + v\|^2 + \|u - v\|^2 = 2(\|u\|^2 + \|v\|^2)$.
+        \citem \textbf{Polarization Identity:} $u \cdot v = \frac{1}{4}\pr{\|u + v\|^2 - \|u - v\|^2}$.
+        \citem \textbf{Symmetric Matrix Inner Product Identity:} If $A \in \R^{n \times n}$ is symmetric ($A = A^T$), then for all $u, v \in \R^n$:
+        \begin{align*}
+            (Au) \cdot v = u \cdot (Av) = (Av) \cdot u.
+        \end{align*}
+        \citem \textbf{Orthogonal Projection Theorem:} Let $a \neq 0$. Any vector $u$ can be uniquely written as $u = w_1 + w_2$ where $w_1 = \proj_a u = \frac{u \cdot a}{\|a\|^2} a$ is parallel to $a$, and $w_2 = u - w_1$ is orthogonal to $a$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Geometric Identity Proofs:}
+        \begin{enumerate}
+            \item Prove the Triangle Inequality using the Cauchy-Schwarz inequality.
+            \item Prove the Parallelogram Law expanding the inner product norm definition.
+            \item Prove that $(Au) \cdot v = u \cdot (Av)$ when $A$ is symmetric.
+        \end{enumerate}
+        \citem \textbf{Lines and Planes Calculations:}
+        \begin{itemize}
+            \item Find the vector and parametric equations of the line in $\R^3$ passing through $(1, 2, -3)$ parallel to $(4, -5, 1)$.
+            \item Find the vector and parametric equations of the plane in $\R^3$ defined by $x - y + 2z = 5$.
+        \end{itemize}
+        \citem \textbf{Matrix Polynomial Inverse Challenge:} Let $A$ be a square matrix satisfying $A^2 + A - 5I = 0$. Find an explicit expression for $(A + 2I)^{-1}$ in terms of $A$ and $I$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Chapter 3 & Problems 73, 78, 82, 83, 88, 91, 96, 97, 101, 105, 112, 114, 116, & $\square$ Done \\
+                  & 118, 121, 122, 125, 126, 131, 133, 135 (Cross product skipped) & \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 4: GENERAL VECTOR SPACES
+% =========================================================================
+\section{General Vector Spaces, Subspaces, and Fundamental Spaces}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Vector Space and Subspace Axioms:} State the 10 vector space axioms and the 3-part test for a subset $W \subseteq V$ to be a \emph{subspace} (non-empty, closure under addition, closure under scalar multiplication).
+        \citem \textbf{Span of a Set:} Define linear combination and $\Span(S) = \set{\sum c_i v_i}$.
+        \citem \textbf{Linear Independence:} Define linear independence and linear dependence for a set $S = \set{v_1, \dots, v_r}$. What if $S = \set{v}$ is a singleton set?
+        \citem \textbf{Wronskian of Functions:} Define the Wronskian $W(f_1, \dots, f_n)(x)$ of $n$ differentiable functions.
+        \citem \textbf{Basis and Dimension:} Define a basis of a vector space $V$ (spans $V$ and linearly independent) and dimension $\dim(V)$.
+        \citem \textbf{Coordinates and Transition Matrices:}
+        \begin{itemize}
+            \item Define the coordinate vector $(v)_B$ relative to a basis $B = \set{u_1, \dots, u_n}$.
+            \item Define the transition matrix $P_{B \to B'} = \br{(u_1)_{B'} \mid \dots \mid (u_n)_{B'}}$ and state the relation $(v)_{B'} = P_{B \to B'} (v)_B$.
+        \end{itemize}
+        \citem \textbf{Fundamental Matrix Subspaces:} For an $m \times n$ matrix $A$:
+        \begin{itemize}
+            \item Define Row space $\Row(A) \subseteq \R^n$.
+            \item Define Column space $\Col(A) \subseteq \R^m$.
+            \item Define Null space $\Null(A) \subseteq \R^n$.
+            \item Define Rank ($\rank(A) = \dim(\Col(A)) = \dim(\Row(A))$) and Nullity ($\nullity(A) = \dim(\Null(A))$).
+        \end{itemize}
+        \citem \textbf{Orthogonal Complements:} Define the orthogonal complement $W^\perp$ of a subspace $W \subseteq \R^n$.
+        \citem \textbf{Linear Transformation Kernel and Range:} For $T: V \to W$, define $\ker(T)$ and the range $R(T)$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Intersection of Subspaces:} If $W_1, \dots, W_r$ are subspaces of $V$, then $\bigcap_{i=1}^r W_i$ is also a subspace of $V$.
+        \citem \textbf{Null Space as Subspace:} The solution set of any homogeneous system $Ax = 0$ is a subspace of $\R^n$.
+        \citem \textbf{Minimal Subspace Property of Span:} $\Span(S)$ is the smallest subspace of $V$ containing $S$.
+        \citem \textbf{Linear Dependence Bound in $\R^n$:} If a set $S \subset \R^n$ has $r > n$ vectors, then $S$ is linearly dependent.
+        \citem \textbf{Wronskian Independence Criterion:} If $W(f_1, \dots, f_n)(x_0) \neq 0$ for at least one $x_0 \in (a, b)$, then $\set{f_1, \dots, f_n}$ is linearly independent on $(a, b)$.
+        \citem \textbf{Uniqueness of Basis Representation:} Let $B = \set{v_1, \dots, v_n}$ be a basis of $V$. Every vector $v \in V$ can be expressed as a linear combination of $B$ in \emph{strictly one way}.
+        \citem \textbf{Equipotence of Bases:} All bases for a finite-dimensional vector space have the exact same number of vectors.
+        \citem \textbf{Transition Matrix Invertibility:} $P_{B \to B'}$ is always invertible with $P_{B \to B'}^{-1} = P_{B' \to B}$.
+        \citem \textbf{Consistency Theorem:} $Ax = b$ is consistent $\iff b \in \Col(A)$.
+        \citem \textbf{Affine Structure of General Solutions:} If $x_p$ is a particular solution to $Ax = b$, the general solution set is $x = x_p + x_h$ where $x_h \in \Null(A)$.
+        \citem \textbf{Invariance under Row Operations:} Elementary row operations preserve $\Row(A)$ and $\Null(A)$ (though they change $\Col(A)$).
+        \citem \textbf{Column Correspondence Principle:} Any linear dependency relation between the columns of $A$ is identically preserved among the columns of any matrix $B$ row-equivalent to $A$.
+        \citem \textbf{Dimension Theorem (Rank-Nullity):} For any $m \times n$ matrix $A$:
+        \begin{align*}
+            \rank(A) + \nullity(A) = n \quad (\text{number of columns}).
+        \end{align*}
+        \citem \textbf{Transpose Rank Invariance:} $\rank(A) = \rank(A^T) \le \min(m, n)$.
+        \citem \textbf{Fundamental Subspaces Orthogonality:}
+        \begin{itemize}
+            \item $\Null(A) = (\Row(A))^\perp$ in $\R^n$
+            \item $\Null(A^T) = (\Col(A))^\perp$ in $\R^m$
+        \end{itemize}
+        \citem \textbf{Kernel-Injectivity Equivalence:} A linear transformation $T$ is one-to-one (injective) $\iff \ker(T) = \set{0}$.
+        \citem \textbf{Sylvester's Rank Inequality / Zero Product Rank:} If $A \in \R^{m \times n}$, $B \in \R^{n \times s}$, and $AB = 0$, then $\rank(A) + \rank(B) \le n$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Subspace Intersection Proof:} Prove that if $W_1$ and $W_2$ are subspaces of $V$, then $W_1 \cap W_2$ is a subspace of $V$.
+        \citem \textbf{Linear Dependence for $r > n$:} Prove that any set of $r$ vectors in $\R^n$ with $r > n$ must be linearly dependent using homogeneous linear systems.
+        \citem \textbf{Wronskian Calculation:} Compute the Wronskian of $f_1(x) = e^x, f_2(x) = e^{2x}, f_3(x) = e^{3x}$ and prove they are linearly independent vectors in $C^\infty(\R)$.
+        \citem \textbf{Basis Uniqueness Proof:} Prove the uniqueness of coordinates relative to a basis.
+        \citem \textbf{Transition Matrix Procedure:} Outline the augmented reduction method $[B' \mid B] \xrightarrow{\text{RREF}} [I \mid P_{B \to B'}]$ to compute transition matrices.
+        \citem \textbf{Zero-Product Rank Proof:} Prove that if $AB = 0$ for $A \in \R^{m \times n}$ and $B \in \R^{n \times s}$, then $\rank(A) + \rank(B) \le n$ (Hint: show $\Col(B) \subseteq \Null(A)$).
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Sections 4.1--4.3 & Problems 34c, 37, 42, 45, 47, 48, 60, 64, 65 & $\square$ Done \\
+        Sections 4.4--4.5 & Problems 69, 74, 81, 82, 90, 95 & $\square$ Done \\
+        Sections 4.6--4.8 & Problems 108, 110, 113, 119, 125--127, 131--134, 137--139, & $\square$ Done \\
+                          & 141, 144, 150, 153, 154, 158, 162 & \\
+        Sections 4.7--4.11& Problems 163, 222 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 5: EIGENVALUES, EIGENVECTORS, AND DIAGONALIZATION
+% =========================================================================
+\section{Eigenvalues, Eigenvectors, and Diagonalization}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Eigenvalue and Eigenvector Definitions:} For an $n \times n$ matrix $A$, define an eigenvalue $\lambda$ and a corresponding non-zero eigenvector $x$ such that $Ax = \lambda x$.
+        \citem \textbf{Characteristic Equation:} Define the characteristic polynomial $p(\lambda) = \det(\lambda I - A)$ and characteristic equation $\det(\lambda I - A) = 0$.
+        \citem \textbf{Eigenspace:} Define the eigenspace $E_\lambda = \Null(\lambda I - A)$ associated with an eigenvalue $\lambda$.
+        \citem \textbf{Matrix Similarity:} Define what it means for matrix $B$ to be \emph{similar} to matrix $A$ ($B = P^{-1} A P$).
+        \citem \textbf{Diagonalizability:} Define what it means for a matrix $A$ to be \emph{diagonalizable}.
+        \citem \textbf{Multiplicities:} Define the \emph{Algebraic Multiplicity} (AM) and \emph{Geometric Multiplicity} (GM) of an eigenvalue $\lambda$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Diagonalizability Characterization:} An $n \times n$ matrix $A$ is diagonalizable $\iff A$ has $n$ linearly independent eigenvectors.
+        \citem \textbf{Powers of Matrices:} If $Ax = \lambda x$, then for any positive integer $k$, $A^k x = \lambda^k x$. If $A = P D P^{-1}$, then $A^k = P D^k P^{-1}$.
+        \citem \textbf{Geometric Multiplicity Bound:} For every eigenvalue $\lambda$, $1 \le \text{GM}(\lambda) \le \text{AM}(\lambda)$.
+        \citem \textbf{Full Diagonalizability Criterion:} An $n \times n$ matrix $A$ is diagonalizable over $\R$ $\iff$ all eigenvalues of $A$ are real and $\text{GM}(\lambda) = \text{AM}(\lambda)$ for every eigenvalue $\lambda$.
+        \citem \textbf{Spectral Trace and Determinant Relations:}
+        \begin{itemize}
+            \item $\tr(A) = \sum_{i=1}^n \lambda_i$
+            \item $\det(A) = \prod_{i=1}^n \lambda_i$
+        \end{itemize}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{$2 \times 2$ Eigensystem Calculation:} Find all eigenvalues and basis vectors for each eigenspace of:
+        \begin{align*}
+            A = \begin{bmatrix} 3 & 0 \\ 8 & -1 \end{bmatrix}.
+        \end{align*}
+        \citem \textbf{$3 \times 3$ Matrix Diagonalization:} Find an invertible matrix $P$ and a diagonal matrix $D$ such that $P^{-1} A P = D$ for:
+        \begin{align*}
+            A = \begin{bmatrix}
+                0 & 0 & -2 \\
+                1 & 2 & 1 \\
+                1 & 0 & 3
+            \end{bmatrix}.
+        \end{align*}
+        \citem \textbf{Matrix Power Computation:} Outline the full procedure to compute $A^k$ efficiently via diagonalization $A^k = P D^k P^{-1}$.
+        \citem \textbf{Eigenvalue Power Proof:} Prove by induction that if $\lambda$ is an eigenvalue of $A$ with eigenvector $x$, then $\lambda^k$ is an eigenvalue of $A^k$ with eigenvector $x$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Chapter 5 & Problems 3, 4, 5, 6, 7, 8, 13, 14, 16, 19, 28, 30--33, 34, 39, 45, 49, 51 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+\end{document}

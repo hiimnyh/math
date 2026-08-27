@@ -1,0 +1,491 @@
+\documentclass{natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\title{Advanced Algebra: Concept Checklist}
+\author{Advanced Algebra (Y1S1)}
+\subtitle{Active-Recall \& Self-Testing Revision Guide}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}[1][]{%
+    \begin{bluebox}[#1]\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}[1][]{%
+    \begin{greenbox}[#1]\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}[1][]{%
+    \begin{redbox}[#1]\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}[1][]{\begin{whitebox}[#1]\textbf{Conventions \& Exam Pitfalls. }}{\end{whitebox}}
+\newenvironment{reviewbox}[1][]{\begin{whitebox}[#1]\textbf{Textbook Exercise Checklist. }}{\end{whitebox}}
+
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\comp}{\operatorname{comp}}
+\newcommand{\proj}{\operatorname{proj}}
+
+\begin{document}
+
+% =========================================================================
+% CHAPTER 1: NUMBER SYSTEMS AND ARITHMETIC FOUNDATIONS
+% =========================================================================
+\section{Number Systems, Decimal Expansions, and Algebraic Numbers}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Natural Numbers \& Base Conversion:} Define natural numbers $\N$. Outline the algorithm to convert an integer between base $10$ and an arbitrary base $n$.
+        \citem \textbf{Decimal Representations:} Distinguish between finite decimal expansions, pure repeating decimals, and eventually repeating decimals.
+        \citem \textbf{Algebraic vs. Transcendental Numbers:} Define what it means for a number $\alpha \in \C$ to be an \emph{algebraic number} (root of a non-zero polynomial with rational coefficients) versus a \emph{transcendental number}.
+        \citem \textbf{Quaternion Algebra ($\H$):} Define the skew field of quaternions $\H = \set{a + bi + cj + dk : a, b, c, d \in \R}$ and state the fundamental multiplication rules:
+        \begin{align*}
+            i^2 = j^2 = k^2 = ijk = -1, \quad ij = k = -ji, \quad jk = i = -kj, \quad ki = j = -ik.
+        \end{align*}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Finite Decimal Expansion Characterization:} A rational number in lowest terms $\frac{p}{q}$ ($\gcd(p, q) = 1$) has a finite decimal expansion $\iff$ the denominator $q$ has no prime factors other than $2$ or $5$ (i.e., $q = 2^a 5^b$ for non-negative integers $a, b$).
+        \citem \textbf{Rational Decimal Representation Theorem:} A real number $x$ is rational ($\Q$) $\iff$ its decimal expansion is finite or eventually periodic (repeating).
+        \citem \textbf{Algebraic Number Field Properties:} If $\alpha$ and $\beta$ are algebraic numbers, then $\alpha + \beta$, $\alpha - \beta$, $\alpha\beta$, and $\alpha / \beta$ ($\beta \neq 0$) are all algebraic numbers.
+        \citem \textbf{Fundamental Theorem of Algebra:} Every non-constant polynomial $P(z) = a_n z^n + \dots + a_1 z + a_0$ with complex coefficients ($a_n \neq 0$) has at least one complex root, and exactly $n$ roots in $\C$ when counted with multiplicity.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Finite Decimal Proof:} Prove that $\frac{p}{q}$ (with $\gcd(p, q) = 1$) has a finite decimal expansion if and only if $q = 2^a 5^b$.
+        \citem \textbf{Repeating Decimal Characterization Proof:} Prove that every rational number $\frac{p}{q}$ can be written as a finite or repeating decimal using the Pigeonhole Principle on remainders during long division.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Chapter 1 & Problem 1 (Section 1.1), Problems 4, 5, 6 (Section 1.3) & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 2: POLYNOMIAL ALGEBRA AND FACTORIZATION
+% =========================================================================
+\section{Polynomial Algebra, Division Algorithm, and Interpolation}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Polynomial Degree Properties:} Let $f(x), g(x) \neq 0$ with $\deg(f) = m$ and $\deg(g) = n$.
+        \begin{itemize}
+            \item $\deg(f + g) \le \max\set{m, n}$ (with strict equality if $m \neq n$).
+            \item $\deg(fg) = m + n$.
+        \end{itemize}
+        \citem \textbf{Polynomial Division Algorithm:} State the formal existence and uniqueness theorem: for polynomials $f(x)$ and $g(x) \neq 0$, there exist unique polynomials $q(x)$ (quotient) and $r(x)$ (remainder) such that:
+        \begin{align*}
+            f(x) = q(x)g(x) + r(x), \quad \text{where } \deg(r) < \deg(g) \text{ or } r(x) = 0.
+        \end{align*}
+        \citem \textbf{Polynomial Greatest Common Divisor ($\gcd$):} Define $\gcd(f(x), g(x))$ as the monic polynomial of maximum degree dividing both $f(x)$ and $g(x)$.
+        \citem \textbf{Lagrange Interpolation Formula:} State the explicit formula for the unique polynomial $f(x)$ of degree at most $n$ passing through $n+1$ distinct points $(x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)$:
+        \begin{align*}
+            f(x) = \sum_{i=0}^n y_i \prod_{j \neq i} \frac{x - x_j}{x_i - x_j}.
+        \end{align*}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Rational Root Theorem (Rational Factor Theorem):} Let $p(x) = a_n x^n + \dots + a_1 x + a_0$ be a polynomial with integer coefficients. If $ax - b$ is a linear factor of $p(x)$ with $\gcd(a, b) = 1$, then $a \mid a_n$ and $b \mid a_0$.
+        \citem \textbf{Euclidean Reduction for Polynomials:} If $f(x) = q(x)g(x) + r(x)$, then $\gcd(f(x), g(x)) = \gcd(g(x), r(x))$.
+        \citem \textbf{B\'ezout's Identity for Polynomials:} For any non-zero polynomials $f(x), g(x)$, there exist polynomials $a(x), b(x)$ such that:
+        \begin{align*}
+            a(x)f(x) + b(x)g(x) = \gcd(f(x), g(x)).
+        \end{align*}
+        \citem \textbf{Euclid's Lemma for Polynomials:} If $f(x) \mid g(x)h(x)$ and $\gcd(f(x), g(x)) = 1$, then $f(x) \mid h(x)$.
+        \citem \textbf{Bounded-Degree Decomposition Theorem:} If $\gcd(f(x), g(x)) = 1$ and $h(x)$ is any polynomial with $\deg(h) < \deg(f) + \deg(g)$, there exist \emph{unique} polynomials $a(x)$ and $b(x)$ with $\deg(a) < \deg(g)$ and $\deg(b) < \deg(f)$ such that:
+        \begin{align*}
+            h(x) = a(x)f(x) + b(x)g(x).
+        \end{align*}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Polynomial Division Uniqueness Proof:} Prove the uniqueness of the quotient $q(x)$ and remainder $r(x)$ in the polynomial division algorithm.
+        \citem \textbf{Rational Root Theorem Proof:} Prove the Rational Root Theorem for integer polynomials.
+        \citem \textbf{High-Degree Remainder Calculation:} Find the exact remainder when $x^{99} + x^2 - 1$ is divided by $x^2 - x + 1$.
+        \citem \textbf{Lagrange Interpolation Construction:} Construct a polynomial $f(x)$ of degree at most $5$ satisfying:
+        \begin{align*}
+            f(-2) = 69, \quad f(-1) = 7, \quad f(0) = 1, \quad f(1) = 3, \quad f(2) = 11, \quad f(3) = 101.
+        \end{align*}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 2.2 & Problems 2, 4, 9, 10, 11 & $\square$ Done \\
+        Section 2.3 & Problems 3, 4, 6, 7, 8 & $\square$ Done \\
+        Section 2.4 & Problems 6, 7 & $\square$ Done \\
+        Section 2.5 & Problem 4 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTERS 3 & 4: LIMITS, POWER SERIES, AND PARTIAL FRACTIONS
+% =========================================================================
+\section{Limits, Generalized Binomial Series, and Partial Fractions}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Generalized Binomial Theorem:} State the binomial series expansion for $(1 + x)^\alpha$ where $\alpha \in \R$:
+        \begin{align*}
+            (1 + x)^\alpha = \sum_{k=0}^\infty \binom{\alpha}{k} x^k \quad \text{for } |x| < 1, \quad \text{where } \binom{\alpha}{k} = \frac{\alpha(\alpha-1)\cdots(\alpha-k+1)}{k!}.
+        \end{align*}
+        \citem \textbf{Partial Fraction Decomposition Templates:} Outline the partial fraction decomposition setup for rational functions $P(x)/Q(x)$ ($\deg P < \deg Q$):
+        \begin{itemize}
+            \item Distinct linear factors $(x - a)$: $\frac{A}{x - a}$.
+            \item Repeated linear factors $(x - a)^m$: $\sum_{j=1}^m \frac{A_j}{(x - a)^j}$.
+            \item Irreducible quadratic factors $(x^2 + px + q)$: $\frac{Bx + C}{x^2 + px + q}$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Polynomial vs. Exponential Dominance Limit:} For any real exponent $k \in \R$ and any base $|x| < 1$:
+        \begin{align*}
+            \lim_{n \to \infty} n^k x^n = 0.
+        \end{align*}
+        \citem \textbf{Geometric Series Identity:} For $|x| < 1$, $\DS \frac{1}{1 - x} = \sum_{k=0}^\infty x^k$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Partial Fraction Decompositions:} State the algebraic procedures to solve for unknown coefficients (Heaviside cover-up method and system of linear equations).
+        \citem \textbf{Binomial Series Expansion:} Expand $(1 - 2x)^{-1/2}$ up to the $x^4$ term using the generalized binomial coefficient formula.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 3.1 & Problems 2, 7c, 11, 12 & $\square$ Done \\
+        Section 3.2 & Problems 4, 5 & $\square$ Done \\
+        Section 3.3 & Problems 6, 8, 9 & $\square$ Done \\
+        Section 4.1 & Problems 1, 3 & $\square$ Done \\
+        Section 4.2 & Problem 15 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 5: COMPLEX NUMBERS AND ROOTS OF UNITY
+% =========================================================================
+\section{Complex Numbers, De Moivre's Theorem, and Polynomial Roots}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Complex Number Fundamentals:} For $z = a + bi \in \C$ ($a, b \in \R$):
+        \begin{itemize}
+            \item Define complex conjugate $\bar{z} = a - bi$.
+            \item Define modulus $|z| = \sqrt{a^2 + b^2} = \sqrt{z\bar{z}}$.
+            \item Define argument $\arg(z)$ and principal argument $\Arg(z) \in (-\pi, \pi]$.
+            \item Define trigonometric (polar) form $z = r(\cos\theta + i\sin\theta)$ and exponential form $z = re^{i\theta}$.
+        \end{itemize}
+        \citem \textbf{Euler's Formula \& De Moivre's Theorem:} State Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$ and De Moivre's identity:
+        \begin{align*}
+            (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta) \quad (\forall n \in \Z).
+        \end{align*}
+        \citem \textbf{Planar Rotation via Complex Numbers:} State the complex coordinate formula for rotating point $P(z_P)$ counter-clockwise by angle $\theta$ about center $A(z_A)$:
+        \begin{align*}
+            z' - z_A = e^{i\theta}(z_P - z_A).
+        \end{align*}
+        \citem \textbf{$n$-th Roots of a Complex Number:} State the formula for all $n$ distinct $n$-th roots of $z = re^{i\theta}$:
+        \begin{align*}
+            w_k = r^{1/n} \exp\pr{i \frac{\theta + 2k\pi}{n}}, \quad k = 0, 1, \dots, n-1.
+        \end{align*}
+        \citem \textbf{Vieta's Formulas:} For polynomial $P(z) = a_n z^n + a_{n-1}z^{n-1} + \dots + a_0$ with roots $z_1, \dots, z_n$, express the elementary symmetric sums $\sum z_i, \sum z_i z_j, \dots, \prod z_i$ in terms of coefficients $a_k$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Modulus-Conjugate Identity:} $|z|^2 = z\bar{z}$, $|\bar{z}| = |z|$, and $|z_1 z_2| = |z_1| |z_2|$.
+        \citem \textbf{Complex Conjugate Root Theorem:} Let $f(x) \in \R[x]$ be a polynomial with \emph{real} coefficients. If $z \in \C$ is a root ($f(z) = 0$), then its complex conjugate $\bar{z}$ is also a root ($f(\bar{z}) = 0$).
+        \citem \textbf{Fundamental Theorem of Algebra:} Every degree-$n$ complex polynomial factors completely into $n$ linear factors over $\C$: $P(z) = a_n \prod_{k=1}^n (z - z_k)$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Multiple-Angle Trigonometric Derivations:} Derive closed-form formulas for $\cos(nx)$ and $\sin(nx)$ in terms of powers of $\cos x$ and $\sin x$ by expanding $(\cos x + i\sin x)^n$ via Binomial Theorem.
+        \citem \textbf{Complex Conjugate Root Proof:} Prove that if $f(x) = \sum_{k=0}^n a_k x^k$ with $a_k \in \R$ and $f(z) = 0$, then $f(\bar{z}) = 0$.
+        \citem \textbf{Roots of Complex Numbers Calculation:}
+        \begin{enumerate}
+            \item Find all 5 distinct roots of $w^5 = -32i$.
+            \item Represent all 5 roots geometrically on the Argand diagram (complex plane).
+        \end{enumerate}
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 5.3 & Problems 6, 7, 9, 13, 14, 15, 16 & $\square$ Done \\
+        Section 5.4 & Problems 3, 5, 9, 12, 14, 15 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 6: ANALYTIC GEOMETRY AND CONIC SECTIONS
+% =========================================================================
+\section{Analytic Geometry, Axis Transformations, and Conic Sections}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Conic Discriminant Classification:} For the general quadratic curve $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$:
+        \begin{itemize}
+            \item $B^2 - 4AC < 0 \implies$ Ellipse (or circle / degenerate point / empty set).
+            \item $B^2 - 4AC = 0 \implies$ Parabola (or parallel lines).
+            \item $B^2 - 4AC > 0 \implies$ Hyperbola (or intersecting lines).
+        \end{itemize}
+        \citem \textbf{Rotation Angle Formula:} To eliminate the cross-product term $Bxy$, rotate through an angle $\theta$ satisfying $\cot(2\theta) = \frac{A - C}{B}$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Coordinate Transformations:}
+        \begin{itemize}
+            \item Translation to new origin $(h, k)$: $x' = x - h, y' = y - k$.
+            \item Counter-clockwise rotation by angle $\theta$: $x = x'\cos\theta - y'\sin\theta, y = x'\sin\theta + y'\cos\theta$.
+        \end{itemize}
+        \citem \textbf{Parametric Plane Curves:} Define a plane curve given by $x = f(t), y = g(t)$ for $t \in [a, b]$. Define initial point, terminal point, closed curve, and simple curve.
+        \citem \textbf{Weierstrass Universal Substitution:} State the half-angle parameterization formulas for $t = \tan(\theta/2)$:
+        \begin{align*}
+            \sin\theta = \frac{2t}{1 + t^2}, \quad \cos\theta = \frac{1 - t^2}{1 + t^2}, \quad d\theta = \frac{2\,dt}{1 + t^2}.
+        \end{align*}
+        \citem \textbf{Conic Eccentricity Definition:} Define a conic section by the ratio $e = \frac{|PF|}{|PL|}$ (distance to focus $F$ over distance to directrix line $L$). Classify by eccentricity value ($e = 0, 0 < e < 1, e = 1, e > 1$).
+        \citem \textbf{Standard Equations of Conics:} Write standard equations, foci, directrix, vertices, center, and asymptotes for:
+        \begin{itemize}
+            \item Parabola ($y^2 = 4px$ or $x^2 = 4py$)
+            \item Ellipse ($\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $c^2 = a^2 - b^2$, $e = c/a$)
+            \item Hyperbola ($\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$, $c^2 = a^2 + b^2$, $e = c/a$, asymptotes $y = \pm \frac{b}{a}x$)
+        \end{itemize}
+        \citem \textbf{Tangent Line Formulas:} State the tangent line equation to the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ at point $(x_0, y_0)$: $\frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Focal Distance Sum for Ellipse:} For any point $P$ on an ellipse with foci $F_1, F_2$, $|PF_1| + |PF_2| = 2a$.
+        \citem \textbf{Focal Distance Difference for Hyperbola:} For any point $P$ on a hyperbola with foci $F_1, F_2$, $||PF_1| - |PF_2|| = 2a$.
+        \citem \textbf{Conic Invariant Theorem:} The quantity $B^2 - 4AC$ is invariant under rigid rotations and translations of the coordinate axes.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Axis Translation Calculation:} Find the new coordinates of $P(6, 5)$ after a translation of axes to a new origin at $(2, 4)$.
+        \citem \textbf{Weierstrass Half-Angle Derivation:} Derive the formulas $\sin\theta = \frac{2t}{1+t^2}$ and $\cos\theta = \frac{1-t^2}{1+t^2}$ where $t = \tan(\theta/2)$ using double-angle trigonometric identities.
+        \citem \textbf{Tangent Line Derivation:} Derive the tangent line equation $\frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1$ for an ellipse at $(x_0, y_0)$ using implicit differentiation.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Source \& Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Varberg Sec 10.1 & Problems 15, 30, 32, 37, 38, 39 & $\square$ Done \\
+        Varberg Sec 10.2 & Problems 43, 51 & $\square$ Done \\
+        Varberg Sec 10.3 & Problems 29, 35, 39, 41, 42, 46, 67 & $\square$ Done \\
+        Varberg Sec 10.4 & Problem 58 & $\square$ Done \\
+        Stewart Sec 10.5 & Problems 33, 45, 48, 57 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 7: POLAR COORDINATES
+% =========================================================================
+\section{Polar Coordinates and Polar Curves}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Polar-Cartesian Conversion:} State the conversion equations between $(r, \theta)$ and $(x, y)$:
+        \begin{align*}
+            x = r\cos\theta, \quad y = r\sin\theta, \quad r^2 = x^2 + y^2, \quad \tan\theta = \frac{y}{x}.
+        \end{align*}
+        \citem \textbf{Standard Polar Graphs:} Define and sketch the general forms of:
+        \begin{itemize}
+            \item Lima\c{c}ons: $r = a \pm b\cos\theta$ and $r = a \pm b\sin\theta$.
+            \item Cardioids: $r = a(1 \pm \cos\theta)$ and $r = a(1 \pm \sin\theta)$ ($a = b$).
+            \item Lemniscates: $r^2 = a^2\cos(2\theta)$ and $r^2 = a^2\sin(2\theta)$.
+            \item Rose curves: $r = a\cos(k\theta)$ and $r = a\sin(k\theta)$ (determine the number of petals for odd vs. even $k$).
+            \item Spiral of Archimedes: $r = a\theta$.
+        \end{itemize}
+        \citem \textbf{Polar Lines and Circles:} Write the polar equation of a line $r\cos(\theta - \alpha) = d$ and a circle passing through the pole $r = 2a\cos\theta$ or $r = 2a\sin\theta$.
+        \citem \textbf{Unified Polar Equation of Conics:} State the unified polar equation of a conic with a focus at the pole and directrix $x = \pm d$ or $y = \pm d$:
+        \begin{align*}
+            r = \frac{ed}{1 \pm e\cos\theta} \quad \text{or} \quad r = \frac{ed}{1 \pm e\sin\theta}.
+        \end{align*}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Rose Curve Petal Count Theorem:}
+        \begin{align*}
+            \text{Number of petals of } r = a\cos(k\theta) = \cases{
+                k & \text{if } k \text{ is odd} \\
+                2k & \text{if } k \text{ is even}
+            }
+        \end{align*}
+        \citem \textbf{Polar Rotation Invariance:} Replacing $\theta$ by $\theta - \alpha$ rotates the entire polar graph counter-clockwise by an angle $\alpha$. (Specifically, $\cos\theta \to \sin\theta$ represents a $+90^\circ$ rotation).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Polar-Cartesian Transformations:} Convert $r = \frac{6}{2 - 3\cos\theta}$ to standard Cartesian form and identify the conic section.
+        \citem \textbf{Unified Conic Polar Derivation:} Derive $r = \frac{ed}{1 + e\cos\theta}$ from the geometric eccentricity definition $|PF| = e|PL|$ with focus at the origin and directrix $x = d$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Source \& Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Stewart Sec 10.3 & Problems 11, 18 & $\square$ Done \\
+        Stewart Sec 10.6 & Problems 1, 3, 5, 7, 13 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 8: THREE-DIMENSIONAL ANALYTIC GEOMETRY & VECTORS
+% =========================================================================
+\section{Three-Dimensional Space, Vector Geometry, Lines, and Planes}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{3D Metrics and Angles:}
+        \begin{itemize}
+            \item Distance formula $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$ and midpoint formula.
+            \item Direction angles $\alpha, \beta, \gamma$ and direction cosines $(\cos\alpha, \cos\beta, \cos\gamma)$.
+            \item Scalar projection $\comp_b a = \frac{a \cdot b}{\|b\|}$ and vector projection $\proj_b a = \frac{a \cdot b}{\|b\|^2} b$.
+        \end{itemize}
+        \citem \textbf{Cross Product and Triple Products:}
+        \begin{itemize}
+            \item Cross product determinant formula: $a \times b = \begin{vmatrix} i & j & k \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}$.
+            \item Scalar triple product: $a \cdot (b \times c) = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}$.
+            \item Vector triple product: $a \times (b \times c)$.
+        \end{itemize}
+        \citem \textbf{Lines and Planes in 3D:}
+        \begin{itemize}
+            \item Vector, parametric, and symmetric equations of a line through $r_0$ with direction vector $v = (a, b, c)$:
+            \begin{align*}
+                \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}.
+            \end{align*}
+            \item Point-normal equation of a plane through $(x_0, y_0, z_0)$ with normal $n = (A, B, C)$:
+            \begin{align*}
+                A(x - x_0) + B(y - y_0) + C(z - z_0) = 0.
+            \end{align*}
+        \end{itemize}
+        \citem \textbf{Skew Lines:} Define skew lines (non-parallel, non-intersecting lines in $\R^3$).
+        \citem \textbf{Curvilinear Coordinates:}
+        \begin{itemize}
+            \item Cylindrical coordinates $(r, \theta, z)$: $x = r\cos\theta, y = r\sin\theta, z = z$.
+            \item Spherical coordinates $(\rho, \theta, \phi)$: $x = \rho\sin\phi\cos\theta, y = \rho\sin\phi\sin\theta, z = \rho\cos\phi$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Direction Cosines Identity:} $\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$.
+        \citem \textbf{BAC-CAB Identity (Vector Triple Product):}
+        \begin{align*}
+            a \times (b \times c) = (a \cdot c)b - (a \cdot b)c.
+        \end{align*}
+        \citem \textbf{Parallelepiped Volume Theorem:} The volume of the parallelepiped determined by vectors $a, b, c$ is $V = |a \cdot (b \times c)|$.
+        \citem \textbf{Coplanarity Theorem:} Three vectors $a, b, c \in \R^3$ are coplanar $\iff a \cdot (b \times c) = 0 \iff \det([a \mid b \mid c]) = 0$.
+        \citem \textbf{Distance from Point to Plane:} The distance from $P_0(x_0, y_0, z_0)$ to the plane $Ax + By + Cz + D = 0$ is:
+        \begin{align*}
+            d = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}.
+        \end{align*}
+        \citem \textbf{Distance Between Two Skew Lines:} The distance between lines $L_1(r_1 + t v_1)$ and $L_2(r_2 + s v_2)$ is:
+        \begin{align*}
+            d = \frac{|(r_2 - r_1) \cdot (v_1 \times v_2)|}{\|v_1 \times v_2\|}.
+        \end{align*}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Coplanarity Characterizations:} Show that three vectors $a, b, c \in \R^3$ are coplanar using:
+        \begin{enumerate}
+            \item Vector geometry and scalar triple products ($a \cdot (b \times c) = 0$).
+            \item Linear algebra matrix rank and determinants ($\det([a \mid b \mid c]) = 0$).
+        \end{enumerate}
+        \citem \textbf{Plane Intersection Symmetric Equations:} Find the symmetric equations of the line of intersection of the two planes $x + y - z = 2$ and $2x - y + 3z = 1$.
+        \citem \textbf{Angle Between Two Planes:} Calculate the acute angle between planes $x + 2y - 2z = 5$ and $3x - 4y + z = 2$ using their normal vectors.
+        \citem \textbf{Skew Lines Distance Calculation:} Find the shortest distance between skew lines $L_1: \frac{x-1}{2} = \frac{y+1}{3} = \frac{z}{1}$ and $L_2: \frac{x+2}{1} = \frac{y-3}{-2} = \frac{z-1}{4}$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Source \& Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Stewart Sec 12.1 & Problem 15 & $\square$ Done \\
+        Stewart Sec 12.5 & Problems 31, 51 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+\end{document}

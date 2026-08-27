@@ -1,0 +1,530 @@
+\documentclass{natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\title{Calculus: Concept Checklist}
+\author{Calculus I (Y1S1)}
+\subtitle{Active-Recall \& Self-Testing Revision Guide}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}[1][]{%
+    \begin{bluebox}[#1]\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}[1][]{%
+    \begin{greenbox}[#1]\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}[1][]{%
+    \begin{redbox}[#1]\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}[1][]{\begin{whitebox}[#1]\textbf{Conventions \& Exam Pitfalls. }}{\end{whitebox}}
+\newenvironment{reviewbox}[1][]{\begin{whitebox}[#1]\textbf{Textbook Exercise Checklist. }}{\end{whitebox}}
+
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+\newcommand{\Img}{\operatorname{Im}}
+
+\begin{document}
+
+% =========================================================================
+% CHAPTER 1: FUNCTIONS, MODELS, AND TRANSFORMATIONS
+% =========================================================================
+\section{Functions, Models, and Transformations}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Horizontal vs. Vertical Scaling:} For $c > 1$, $f(cx)$ is a horizontal \emph{compression} by factor $c$, whereas $c f(x)$ is a vertical \emph{stretch} by factor $c$.
+        \citem \textbf{Trigonometric Periods:} The fundamental period of $\sin x$ is $2\pi$, while the period of $\sin(ax)$ ($a > 0$) is compressed to $\frac{2\pi}{a}$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Domain and Range:} Define the domain $D$ and image (range) $\Img(f) = \set{f(x) : x \in D}$ of a real-valued function $f$.
+        \citem \textbf{Monotonicity:} Define strictly increasing, strictly decreasing, and strictly monotonic functions.
+        \citem \textbf{Function Classifications:} Define the following standard families of functions:
+        \begin{itemize}
+            \item Power functions $x^\alpha$ (polynomial for $\alpha = n \in \Z^+$, root for $\alpha = 1/n$, reciprocal for $\alpha = -1$).
+            \item Rational functions $R(x) = P(x)/Q(x)$ where $P, Q$ are polynomials.
+            \item Algebraic functions (functions constructed using finite algebraic operations and roots).
+            \item Periodic functions ($f(x + p) = f(x)$ for all $x$, fundamental period $p > 0$).
+            \item Exponential functions $f(x) = a^x$ ($a > 0, a \neq 1$).
+        \end{itemize}
+        \citem \textbf{Horizontal Line Test:} State the Horizontal Line Test for function injectivity (one-to-one property).
+        \citem \textbf{Graph Transformations:} For $c > 0$, state the geometric effect on $y = f(x)$ of:
+        \begin{align*}
+            y = c f(x), \quad y = \frac{1}{c} f(x), \quad y = f(cx), \quad y = f\pr{\frac{x}{c}}.
+        \end{align*}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Composite Periodicity:} If $f$ has fundamental period $p$, then $g(x) = f(ax)$ has fundamental period $p/a$ for any $a > 0$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Period Derivation:} Prove that the fundamental period of $f(x) = \sin(ax)$ is $\frac{2\pi}{a}$ using the definition $f(x + p) = f(x)$.
+    \end{itemize}
+\end{challengebox}
+
+
+% =========================================================================
+% CHAPTER 2: LIMITS AND CONTINUITY
+% =========================================================================
+\section{Limits, Epsilon-Delta Proofs, and Continuity}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Horizontal Asymptotes Requirement:} When finding horizontal asymptotes, you must evaluate \emph{both} directional limits: $x \to +\infty$ and $x \to -\infty$.
+        \citem \textbf{$\epsilon$-$\delta$ Bounding Strategy:} In quadratic limit proofs $\lim_{x\to a} f(x) = L$, choose an initial bound (e.g., $\delta_1 = 1$) to bound the extra factor $|x + c| \le M$, then set $\delta = \min\set{1, \frac{\epsilon}{M}}$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Precise Limit Definition ($\epsilon$-$\delta$):} State the formal $(\eps, \delta)$-definition of $\DS\lim_{x\to a} f(x) = L$:
+        \begin{align*}
+            \forall \eps > 0, \, \exists \delta > 0 \text{ such that } 0 < |x - a| < \delta \implies |f(x) - L| < \eps.
+        \end{align*}
+        \citem \textbf{One-Sided Limits:} State the $(\eps, \delta)$-definitions of the left-hand limit $\lim_{x\to a^-} f(x) = L$ and right-hand limit $\lim_{x\to a^+} f(x) = L$.
+        \citem \textbf{Infinite Limits \& Asymptotes:}
+        \begin{itemize}
+            \item Define infinite limit $\lim_{x\to a} f(x) = \infty$ and $\lim_{x\to a} f(x) = -\infty$ (vertical asymptote $x = a$).
+            \item Define limits at infinity $\lim_{x\to\infty} f(x) = L$ and $\lim_{x\to-\infty} f(x) = L$ (horizontal asymptote $y = L$).
+        \end{itemize}
+        \citem \textbf{Continuity Definitions:} State what it means for $f$ to be:
+        \begin{itemize}
+            \item Continuous at a point $x = a$ ($\lim_{x\to a} f(x) = f(a)$).
+            \item Continuous from the left / right at $x = a$.
+            \item Continuous on an open interval $(a, b)$ and on a closed interval $[a, b]$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Composite Limit Theorem:} If $\lim_{x\to a} g(x) = L$ and $f$ is continuous at $L$, then $\lim_{x\to a} f(g(x)) = f(L)$.
+        \citem \textbf{Differentiability Implies Continuity:} If $f$ is differentiable at $x = a$, then $f$ is continuous at $x = a$. (State why the converse is false with $f(x) = |x|$).
+        \citem \textbf{Sign-Preserving / Separation Lemma:} If $\lim_{x\to a} g(x) = B \neq 0$, then there exists a positive number $\delta > 0$ such that:
+        \begin{align*}
+            0 < |x - a| < \delta \implies |g(x)| > \frac{|B|}{2}.
+        \end{align*}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Interval Continuity Proofs:}
+        \begin{enumerate}
+            \item Show that $f(x) = 1 - \sqrt{1 - x^2}$ is continuous on $[-1, 1]$ (including one-sided endpoints).
+            \item Show that $h(x) = |x^2 - 3x - 6|$ is continuous at every real number.
+        \end{enumerate}
+        \citem \textbf{Differentiability $\implies$ Continuity Proof:} Prove that if $f'(a) = \lim_{x\to a} \frac{f(x)-f(a)}{x-a}$ exists, then $\lim_{x\to a} f(x) = f(a)$.
+        \citem \textbf{Separation Lemma Proof:} Prove the Separation Lemma using the formal $\epsilon$-$\delta$ limit definition with $\eps = \frac{|B|}{2}$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 2.4 & Problems 39, 43 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 3: DIFFERENTIATION, TRIGONOMETRIC LIMITS, AND DIFFERENTIALS
+% =========================================================================
+\section{Differentiation, Special Trigonometric Limits, and Differentials}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Derivative Definition:} State the definition of the derivative $f'(x) = \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}$.
+        \citem \textbf{Chain Rule Formula:} State the Chain Rule for composite functions: $\od{}{x} f(g(x)) = f'(g(x)) g'(x)$.
+        \citem \textbf{Differentials vs. Increments:} Distinguish among:
+        \begin{itemize}
+            \item Independent variable increment $\Delta x$ and differential $dx$ ($dx = \Delta x$).
+            \item Dependent variable true increment $\Delta y = f(x + \Delta x) - f(x)$.
+            \item Dependent variable differential $dy = f'(x) dx$ and the linear approximation $\Delta y \approx dy$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Fundamental Trigonometric Limits:}
+        \begin{align*}
+            \lim_{x\to 0} \frac{\sin x}{x} = 1 \quad \text{and} \quad \lim_{x\to 0} \frac{1 - \cos x}{x} = 0.
+        \end{align*}
+        \citem \textbf{Chain Rule Theorem:} If $g$ is differentiable at $x$ and $f$ is differentiable at $g(x)$, then the composite function $F = f \circ g$ is differentiable at $x$ with $F'(x) = f'(g(x))g'(x)$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Trigonometric Limits Evaluation:} Evaluate $\lim_{x\to 0} \frac{1 - \cos x}{x}$ algebraically using half-angle identities and the squeeze theorem.
+        \citem \textbf{Chain Rule Proof:} Write the full formal proof of the Chain Rule using the differentiability error formulation $\Delta y = f'(a)\Delta u + \eps \Delta u$.
+        \citem \textbf{Differential Error Estimation:} Calculate $dy$ versus $\Delta y$ for $y = x^3 + 2x$ as $x$ changes from $2$ to $2.05$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 3.5 & Problem 75 & $\square$ Done \\
+        Section 3.9 & Problems 35, 42 & $\square$ Done \\
+        Section 3.10& Problems 33, 35, 40 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 4: APPLICATIONS OF DIFFERENTIATION
+% =========================================================================
+\section{Applications of Derivatives, Mean Value Theorem, and Curve Sketching}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Extrema and Critical Points:}
+        \begin{itemize}
+            \item Define absolute (global) maximum/minimum and local (relative) maximum/minimum.
+            \item Define a \emph{critical point} ($f'(c) = 0$) and a \emph{singular point} ($f'(c)$ undefined).
+        \end{itemize}
+        \citem \textbf{Rolle's Theorem \& Mean Value Theorem:} State the hypotheses and conclusions of:
+        \begin{itemize}
+            \item Rolle's Theorem
+            \item Mean Value Theorem (MVT)
+        \end{itemize}
+        \citem \textbf{Concavity and Inflection Points:} Define concave up, concave down, and inflection point in terms of $f'(x)$ and $f''(x)$.
+        \citem \textbf{8-Step Curve Sketching Guide:} List all 8 standard systematic steps for sketching the graph of $y = f(x)$:
+        \begin{enumerate}
+            \item Domain
+            \item Intercepts ($x$ and $y$ intercepts)
+            \item Symmetry (Even, Odd, Periodic)
+            \item Asymptotes (Horizontal, Vertical, Slant)
+            \item Intervals of Increase and Decrease (First Derivative Test)
+            \item Local Extrema
+            \item Concavity and Inflection Points (Second Derivative Test)
+            \item Sketch the Curve
+        \end{enumerate}
+        \citem \textbf{Newton-Raphson Method:} State the iteration formula for finding roots:
+        \begin{align*}
+            x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
+        \end{align*}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Extreme Value Theorem (EVT):} If $f$ is continuous on a closed interval $[a, b]$, then $f$ attains an absolute maximum and an absolute minimum on $[a, b]$.
+        \citem \textbf{Fermat's Theorem (Critical Point Theorem):} If $f$ has a local extremum at $c$ and $f'(c)$ exists, then $f'(c) = 0$.
+        \citem \textbf{Constant Function Theorem:} If $F'(x) = 0$ for all $x \in (a, b)$, then $F(x) = C$ is constant on $(a, b)$.
+        \citem \textbf{Equal Derivatives Theorem:} If $f'(x) = g'(x)$ for all $x \in (a, b)$, then $f(x) = g(x) + C$ on $(a, b)$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Uniqueness of Real Root:} Prove that the cubic equation $x^3 + x - 1 = 0$ has \emph{strictly one real root} using the Intermediate Value Theorem (existence) and Rolle's Theorem / MVT (uniqueness).
+        \citem \textbf{Zero Derivative Characterization Proof:} Prove that if $F'(x) = 0$ on $(a, b)$, then $F(x) = C$ using the Mean Value Theorem.
+        \citem \textbf{Newton-Raphson Derivation:} Derive the Newton-Raphson iteration formula geometrically from the tangent line approximation at $(x_n, f(x_n))$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 4.2 & Problems 19, 25, 29 & $\square$ Done \\
+        Section 4.3 & Problems 75, 83 & $\square$ Done \\
+        Section 4.4 & Problem 55 & $\square$ Done \\
+        Section 4.5 & Problem 73 & $\square$ Done \\
+        Section 4.8 & Problem 17 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 5: DEFINITE INTEGRALS AND FUNDAMENTAL THEOREMS
+% =========================================================================
+\section{Definite Integrals and Fundamental Theorems of Calculus}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Riemann Sums Definition:} Define the Riemann sum $\sum_{i=1}^n f(x_i^*) \Delta x$ of $f$ on $[a, b]$ where $\Delta x = \frac{b-a}{n}$. Define Left sum ($x_i^* = x_{i-1}$), Right sum ($x_i^* = x_i$), and Midpoint sum ($x_i^* = \bar{x}_i$).
+        \citem \textbf{Definite Integral Definition:} Define $\int_a^b f(x) dx = \lim_{n\to\infty} \sum_{i=1}^n f(x_i^*) \Delta x$.
+        \citem \textbf{Net Displacement vs. Distance Traveled:}
+        \begin{itemize}
+            \item Net displacement $= \int_{t_1}^{t_2} v(t) dt$.
+            \item Total distance traveled $= \int_{t_1}^{t_2} |v(t)| dt$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Integrability of Continuous Functions:} If $f$ is continuous on $[a, b]$, or bounded with only finitely many jump discontinuities, then $f$ is integrable on $[a, b]$.
+        \citem \textbf{Comparison and Boundedness Properties:}
+        \begin{itemize}
+            \item If $f(x) \le g(x)$ on $[a, b]$, then $\int_a^b f(x) dx \le \int_a^b g(x) dx$.
+            \item If $m \le f(x) \le M$ on $[a, b]$, then $m(b - a) \le \int_a^b f(x) dx \le M(b - a)$.
+        \end{itemize}
+        \citem \textbf{First Fundamental Theorem of Calculus (FTC 1):} Let $f$ be continuous on $[a, b]$. If $g(x) = \int_a^x f(t) dt$ for $x \in [a, b]$, then $g$ is continuous on $[a, b]$, differentiable on $(a, b)$, and:
+        \begin{align*}
+            g'(x) = \od{}{x} \int_a^x f(t) dt = f(x).
+        \end{align*}
+        \citem \textbf{Second Fundamental Theorem of Calculus (FTC 2):} If $f$ is continuous on $[a, b]$ and $F$ is any antiderivative of $f$ ($F' = f$), then:
+        \begin{align*}
+            \int_a^b f(x) dx = F(b) - F(a) = \br{F(x)}_a^b.
+        \end{align*}
+        \citem \textbf{Symmetric Integral Theorem:} For an integrable function $f$ on $[-a, a]$:
+        \begin{align*}
+            \int_{-a}^a f(x) dx = \cases{
+                2\int_0^a f(x) dx & \text{if } f \text{ is even } (f(-x) = f(x)) \\
+                0 & \text{if } f \text{ is odd } (f(-x) = -f(x))
+            }
+        \end{align*}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{FTC 1 Proof:} Write the complete proof of FTC 1 using the definition of derivative and the Extreme Value Theorem / Boundedness property.
+        \citem \textbf{FTC 2 Proof:} Prove FTC 2 using FTC 1 and the Constant Function Theorem.
+        \citem \textbf{Integral Estimation Task:} Give rigorous upper and lower bounds for $\int_0^1 e^{-x^2} dx$ using the boundedness property on $[0, 1]$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 5.1 & Problem 5 & $\square$ Done \\
+        Section 5.2 & Problems 55, 57 & $\square$ Done \\
+        Section 5.3 & Problems 13, 17, 75 & $\square$ Done \\
+        Section 5.4 & Problems 45, 59, 61 & $\square$ Done \\
+        Section 5.5 & Problems 61, 67, 73, 91, 93 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 6: APPLICATIONS OF DEFINITE INTEGRALS
+% =========================================================================
+\section{Applications of Definite Integrals: Volumes and Average Values}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Solids of Revolution Methods:}
+        \begin{itemize}
+            \item \textbf{Disk Method:} $V = \pi \int_a^b [R(x)]^2 dx$ (cross-sections perpendicular to axis of revolution).
+            \item \textbf{Washer Method:} $V = \pi \int_a^b \pr{[R(x)]^2 - [r(x)]^2} dx$ (outer radius $R(x)$, inner radius $r(x)$).
+            \item \textbf{Cylindrical Shells Method:} $V = 2\pi \int_a^b (\text{shell radius})(\text{shell height}) dx$ (cylindrical shells parallel to axis of revolution).
+        \end{itemize}
+        \citem \textbf{Average Value of a Function:} State the definition of the average value $f_{\text{avg}}$ of $f$ on $[a, b]$:
+        \begin{align*}
+            f_{\text{avg}} = \frac{1}{b - a} \int_a^b f(x) dx.
+        \end{align*}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Mean Value Theorem for Integrals:} If $f$ is continuous on $[a, b]$, then there exists a number $c \in [a, b]$ such that:
+        \begin{align*}
+            f(c) = f_{\text{avg}} = \frac{1}{b - a} \int_a^b f(x) dx \iff \int_a^b f(x) dx = f(c)(b - a).
+        \end{align*}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Washer vs. Shell Setup:} Set up definite integrals to find the volume of the solid generated by revolving the region bounded by $y = x^2$ and $y = 2x$ about:
+        \begin{enumerate}
+            \item The $x$-axis (Washer method).
+            \item The line $x = 3$ (Cylindrical shells method).
+        \end{enumerate}
+        \citem \textbf{MVT for Integrals Proof:} Prove the Mean Value Theorem for Integrals using the Extreme Value Theorem and the Boundedness Property of definite integrals.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 6.1 & Problems 3, 15 & $\square$ Done \\
+        Section 6.3 & Problems 5, 7, 17, 19 & $\square$ Done \\
+        Section 6.5 & Problems 3, 5, 7 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 7: TECHNIQUES OF INTEGRATION & NUMERICAL METHODS
+% =========================================================================
+\section{Techniques of Integration, Numerical Rules, and Improper Integrals}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Integration by Parts:} State the formula $\int u \, dv = uv - \int v \, du$. Outline the Tabular (DI) method.
+        \citem \textbf{Trigonometric Product-to-Sum \& Sum-to-Product Formulas:}
+        \begin{align*}
+            \sin A \cos B &= \frac{1}{2}\br{\sin(A+B) + \sin(A-B)}, \\
+            \cos A \cos B &= \frac{1}{2}\br{\cos(A+B) + \cos(A-B)}, \\
+            \sin A + \sin B &= 2\sin\pr{\frac{A+B}{2}}\cos\pr{\frac{A-B}{2}}, \\
+            \cos A - \cos B &= -2\sin\pr{\frac{A+B}{2}}\sin\pr{\frac{A-B}{2}}.
+        \end{align*}
+        \citem \textbf{Numerical Integration Rules:}
+        \begin{itemize}
+            \item Trapezoidal Rule:
+            \begin{align*}
+                T_n = \frac{\Delta x}{2}\br{f(x_0) + 2f(x_1) + 2f(x_2) + \dots + 2f(x_{n-1}) + f(x_n)}.
+            \end{align*}
+            \item Simpson's Rule ($n$ even):
+            \begin{align*}
+                S_n = \frac{\Delta x}{3}\br{f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \dots + 4f(x_{n-1}) + f(x_n)}.
+            \end{align*}
+        \end{itemize}
+        \citem \textbf{Improper Integrals Classifications:}
+        \begin{itemize}
+            \item Type 1 (Infinite intervals): $\int_a^\infty f(x) dx = \lim_{t\to\infty} \int_a^t f(x) dx$.
+            \item Type 2 (Discontinuous integrands): If $f$ is discontinuous at $b$, $\int_a^b f(x) dx = \lim_{t\to b^-} \int_a^t f(x) dx$.
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{$p$-Integral Convergence Test:}
+        \begin{align*}
+            \int_1^\infty \frac{1}{x^p} dx \text{ converges} \iff p > 1 \quad \text{and} \quad \int_0^1 \frac{1}{x^p} dx \text{ converges} \iff p < 1.
+        \end{align*}
+        \citem \textbf{Direct Comparison Test for Improper Integrals:} Let $f(x) \ge g(x) \ge 0$ on $[a, \infty)$.
+        \begin{itemize}
+            \item If $\int_a^\infty f(x) dx$ converges, then $\int_a^\infty g(x) dx$ converges.
+            \item If $\int_a^\infty g(x) dx$ diverges, then $\int_a^\infty f(x) dx$ diverges.
+        \end{itemize}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Product-to-Sum Derivations:} Derive $\sin A \cos B = \frac{1}{2}[\sin(A+B) + \sin(A-B)]$ using the angle addition formulas for sine.
+        \citem \textbf{Simpson's Rule Derivation:} Derive Simpson's rule by integrating the interpolating parabola through three equally spaced points $(-\Delta x, y_0), (0, y_1), (\Delta x, y_2)$.
+        \citem \textbf{Improper Integral Evaluation:} Determine whether $\int_0^\infty \frac{1}{1 + x^2} dx$ and $\int_0^1 \frac{1}{\sqrt{x}} dx$ converge, and evaluate their exact values.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 7.1 & Problems 9, 15, 17, 33, 41, 61, 63, 65 & $\square$ Done \\
+        Section 7.2 & Problem 41 & $\square$ Done \\
+        Section 7.3 & Problems 13, 29, 37 & $\square$ Done \\
+        Section 7.4 & Problems 15, 29, 31, 47, 51 & $\square$ Done \\
+        Section 7.5 & Problem 31 & $\square$ Done \\
+        Section 7.7 & Problem 7 & $\square$ Done \\
+        Section 7.8 & Problems 5, 13, 23, 31, 49, 51 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+
+% =========================================================================
+% CHAPTER 8: FURTHER APPLICATIONS (ARC LENGTH, SURFACE AREA, CENTROIDS)
+% =========================================================================
+\section{Further Applications: Arc Length, Surface Area, and Centroids}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Arc Length Formulas:}
+        \begin{itemize}
+            \item Cartesian curve $y = f(x)$ on $[a, b]$: $L = \int_a^b \sqrt{1 + [f'(x)]^2} dx$.
+            \item Parametric curve $x = f(t), y = g(t)$ on $[\alpha, \beta]$: $L = \int_\alpha^\beta \sqrt{[f'(t)]^2 + [g'(t)]^2} dt$.
+            \item Arc length function: $s(x) = \int_a^x \sqrt{1 + [f'(t)]^2} dt$.
+        \end{itemize}
+        \citem \textbf{Surface Area of Revolution:}
+        \begin{itemize}
+            \item Rotation about $x$-axis: $S = 2\pi \int_a^b y \, ds = 2\pi \int_a^b f(x) \sqrt{1 + [f'(x)]^2} dx$.
+            \item Rotation about $y$-axis: $S = 2\pi \int_a^b x \, ds = 2\pi \int_a^b x \sqrt{1 + [f'(x)]^2} dx$.
+        \end{itemize}
+        \citem \textbf{Center of Mass and Centroids:}
+        \begin{itemize}
+            \item Discrete system of $n$ masses: $\bar{x} = \frac{\sum m_i x_i}{\sum m_i}$.
+            \item Planar lamina bounded by $y = f(x)$ and $y = g(x)$ ($f \ge g$):
+            \begin{align*}
+                A &= \int_a^b [f(x) - g(x)] dx, \\
+                \bar{x} &= \frac{1}{A}\int_a^b x[f(x)-g(x)] dx, \\
+                \bar{y} &= \frac{1}{A}\int_a^b \frac{[f(x)]^2 - [g(x)]^2}{2} dx.
+            \end{align*}
+        \end{itemize}
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Theorem of Pappus for Volume:} Let $R$ be a plane region rotated about an external axis in its plane. The volume of the resulting solid is $V = 2\pi \bar{r} A$, where $A$ is the area of $R$ and $\bar{r}$ is the distance from the axis to the centroid of $R$.
+        \citem \textbf{Theorem of Pappus for Surface Area:} The area of the surface generated by revolving a curve of length $L$ about an external axis is $S = 2\pi \bar{r} L$, where $\bar{r}$ is the distance from the axis to the centroid of the curve.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Centroid Derivation for Planar Lamina:} Derive the integral formulas for $\bar{x}$ and $\bar{y}$ by partitioning the region into vertical approximating rectangles of mass $dm = \rho (f(x) - g(x))dx$.
+        \citem \textbf{Torus Volume and Surface Area via Pappus:} Use the Theorems of Pappus to find the volume and surface area of a torus obtained by rotating a circle of radius $r$ centered at $(R, 0)$ ($R > r$) about the $y$-axis.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{center}
+    \begin{tabular}{|l|l|c|}
+        \hline
+        \textbf{Section} & \textbf{Textbook Problems} & \textbf{Status} \\
+        \hline
+        Section 8.1 & Problems 9, 19 & $\square$ Done \\
+        Section 8.2 & Problems 9, 13, 17 & $\square$ Done \\
+        Section 8.3 & Problems 23, 27, 31, 45 & $\square$ Done \\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{reviewbox}
+
+\end{document}
