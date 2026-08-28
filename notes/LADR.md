@@ -69,3 +69,26 @@ and has length dim 𝑉 is a basis of 𝑉.
     * 4, 5, 6, 8, 10
   * 2C
     * 2, 4, 5, 6, 7, 8, 10, 11, 14, 16, 18, 19
+
+
+# Chap3
+
+* write the definition of linear map/linear transformation.
+* write the definition of these notation $ℒ(𝑉, 𝑊), ℒ(𝑉)$
+* prove that linear map lemma 
+  Suppose $𝑣_1, … , 𝑣_𝑛$ is a basis of $V$ and $𝑤_1, … , 𝑤_𝑛 ∈ 𝑊$. Then there exists a unique linear map $𝑇 ∶ 𝑉 → 𝑊$ such that $$𝑇𝑣_𝑘 = 𝑤_𝑘$$ for each $𝑘 = 1, … , 𝑛$.
+* write the definition of addition and scalar multiplication on $ℒ(𝑉, 𝑊)$
+* notice that $\mathcal{L}(V,W)$ is a vector space.
+* write the definition of product of linear maps.
+* prove the algebraic properties of products of linear maps (all the following V..,U.. are linear maps such that
+the products make sense  )
+  * associativity $$(𝑇_1𝑇_2)𝑇_3 = 𝑇_1(𝑇_2𝑇_3)$$
+  * identity $$𝑇𝐼 = 𝐼𝑇 = T$$
+  * distributive properties $$(𝑆1 + 𝑆2
+)𝑇 = 𝑆1𝑇 + 𝑆2𝑇$$and $$𝑆(𝑇1 + 𝑇2
+) = 𝑆𝑇1 + 𝑆𝑇2$$
+* write an example to show linear maps is not commutative
+* show that Suppose $T$ is a linear map from $V$ to $𝑊$. Then $𝑇(0) = 0$.
+* **exercise revice**
+  * 3A
+    * 3, 8, 9, 11, 12, 13, 14, 15, 16, 17
