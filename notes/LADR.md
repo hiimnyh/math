@@ -73,6 +73,7 @@ and has length dim 𝑉 is a basis of 𝑉.
 
 # Chap3
 
+## 3A
 * write the definition of linear map/linear transformation.
 * write the definition of these notation $ℒ(𝑉, 𝑊), ℒ(𝑉)$
 * prove that linear map lemma 
@@ -92,3 +93,22 @@ the products make sense  )
 * **exercise revice**
   * 3A
     * 3, 8, 9, 11, 12, 13, 14, 15, 16, 17
+
+## 3B
+* write the definition of null space, $\text{null }T$
+* show that Suppose $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then $\text{null } 𝑇$ is a subspace of $𝑉$.
+* write the defintion of injective.
+* show that Let $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then $T$ is injective $\iff$ $\text{null }𝑇 = \{0\}$.
+* write the defintion of range.
+* prove that If $𝑇 ∈ ℒ(𝑉, 𝑊)$, then $\text{range } 𝑇$ is a subspace of $W$.
+* write the definition that when A maps $T: V\to W$ is surjective.
+* prove the fundamental theorem of linear maps
+  Suppose $𝑉$ is finite-dimensional and $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then $$\dim 𝑉 = \dim \text{null } 𝑇 + \dim \text{range }T$$ 
+* prove Suppose $𝑉$ and $𝑊$ are finite-dimensional vector spaces such that $\dim 𝑉 > \dim 𝑊$. Then no linear map from $V$ to $𝑊$ is injective.
+* prove that Suppose 𝑉 and 𝑊 are finite-dimensional vector spaces such that $\dim 𝑉 < \dim 𝑊$. Then no linear map from $𝑉$ to $𝑊$ is surjective.
+* show that A homogeneous system of linear equations with more variables than equations
+has nonzero solutions.
+* show that A system of linear equations with more equations than variables has no solution
+for some choice of the constant terms.
+* **exercise revice**
+  * 2, 7, 8, 10, 11, 15, 16, 17, 18, 19, 20, 21...
