@@ -111,4 +111,4 @@ has nonzero solutions.
 * show that A system of linear equations with more equations than variables has no solution
 for some choice of the constant terms.
 * **exercise revice**
-  * 2, 7, 8, 10, 11, 15, 16, 17, 18, 19, 20, 21...
+  * 2, 7, 8, 10, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
