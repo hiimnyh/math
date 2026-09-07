@@ -112,3 +112,38 @@ has nonzero solutions.
 for some choice of the constant terms.
 * **exercise revice**
   * 2, 7, 8, 10, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33.
+
+## 3C
+* write the definition of a matrix.
+* write the definition of a matrix of a linear maps $\mathcal{M}(𝑇)$
+* write the definition of matrix addition.
+* write the definition of scalar multiplication of a matrix
+* write the definition of the notation $\mathbb{F}^{m\times n}$
+* notice that $\dim \mathbb{F}^{m\times n}=mn$
+* how do we naturally define the multiplication of two matrix, and also write down the definition of matrix multiplication.
+* show that Suppose 𝐴 is an 𝑚-by-𝑛 matrix and 𝐵 is an 𝑛-by-𝑝 matrix. Then
+$$(𝐴𝐵)_{𝑗𝑘} = 𝐴_{𝑗,⋅} 𝐵_{⋅,𝑘}$$
+if 1 ≤ 𝑗 ≤ 𝑚 and 1 ≤ 𝑘 ≤ 𝑝. In other words, the entry in row 𝑗, column 𝑘, of 𝐴𝐵 equals (row 𝑗 of 𝐴) times (column 𝑘 of 𝐵).
+* show that Suppose 𝐴 is an 𝑚-by-𝑛 matrix and 𝐵 is an 𝑛-by-𝑝 matrix. Then
+$$(𝐴𝐵)_{⋅,𝑘} = 𝐴𝐵_{⋅,𝑘}$$
+if 1 ≤ 𝑘 ≤ 𝑝. In other words, column 𝑘 of 𝐴𝐵 equals 𝐴 times column 𝑘 of 𝐵.
+* show that Suppose 𝐴 is an 𝑚-by-𝑛 matrix and 𝑏= [b1,...,bn] is an 𝑛-by-1 matrix. Then
+$$𝐴𝑏 = 𝑏_1𝐴_{⋅,1} + ⋯ + 𝑏_𝑛 𝐴_{⋅,𝑛}$$
+In other words, 𝐴𝑏 is a linear combination of the columns of 𝐴, with the
+scalars that multiply the columns coming from 𝑏.
+* notice that Suppose 𝐶 is an 𝑚-by-𝑐 matrix and 𝑅 is a 𝑐-by-𝑛 matrix.
+(a) If 𝑘 ∈ {1, … , 𝑛}, then column 𝑘 of 𝐶𝑅 is a linear combination of the
+columns of 𝐶, with the coefficients of this linear combination coming
+from column 𝑘 of 𝑅.
+(b) If 𝑗 ∈ {1, … , 𝑚}, then row 𝑗 of 𝐶𝑅 is a linear combination of the rows of
+𝑅, with the coefficients of this linear combination coming from row 𝑗 of
+𝐶.
+* write the definition of column rank, row rank.
+* prove the column–row factorization
+  Suppose 𝐴 is an 𝑚-by-𝑛 matrix with entries in 𝐅 and column rank 𝑐 ≥ 1. Then
+there exist an 𝑚-by-𝑐 matrix 𝐶 and a 𝑐-by-𝑛 matrix 𝑅, both with entries in 𝐅,
+such that 𝐴 = 𝐶𝑅.
+* prove that Suppose 𝐴 ∈ 𝐅𝑚,𝑛
+. Then the column rank of 𝐴 equals the row rank of 𝐴.
+* **exercise revice**
+  * 1, 2, 5, 6, 7, 17
