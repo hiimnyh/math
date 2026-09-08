@@ -147,3 +147,34 @@ such that 𝐴 = 𝐶𝑅.
 . Then the column rank of 𝐴 equals the row rank of 𝐴.
 * **exercise revice**
   * 1, 2, 5, 6, 7, 17
+
+## 3D
+* write the definition of a linear map $T\in \mathcal{L}(V,W)$ is invertible.
+* prove that An invertible linear map has a unique inverse.
+* prove that A linear map is invertible $\iff$ it is injective and surjective.
+* prove that suppose that 𝑉 and 𝑊 are finite-dimensional vector spaces, $\dim 𝑉 = \dim 𝑊$,
+and $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then
+$$\text{𝑇 is invertible} ⟺ \text{𝑇 is injective} ⟺ \text{𝑇 is surjective}$$
+* prove that there exists a polynomial $p$ such that $((𝑥^2 + 5𝑥 + 7)𝑝)″ =q$
+* prove that Suppose 𝑉 and 𝑊 are finite-dimensional vector spaces of the same dimension, $𝑆 ∈ ℒ(𝑊, 𝑉), 𝑇 ∈ ℒ(𝑉, 𝑊)$. Then 
+$$𝑆𝑇 = 𝐼 \iff 𝑇𝑆 = I $$
+* write the definition of isomorphism and isomorphic.
+* prove that Two finite-dimensional vector spaces over 𝐅 are isomorphic if and only if they have the same dimension.
+* prove that Suppose $𝑣_1, … , 𝑣_𝑛$ is a basis of $V$ and $𝑤_1, … , 𝑤_𝑚$ is a basis of $𝑊$. Then $\mathcal{M}$ is an isomorphism between $ℒ(𝑉, 𝑊)$ and $𝐅^{𝑚,𝑛}$.
+* Suppose $𝑇 ∈ ℒ(𝑉, 𝑊)$ and $𝑣 ∈ 𝑉$. Suppose $𝑣_1, … , 𝑣_𝑛$ is a basis of $V$ and $𝑤_1, … , 𝑤_𝑚$ is a basis of $W$. Then
+$$ℳ(𝑇𝑣) = ℳ(𝑇)ℳ(𝑣)$$
+* Suppose 𝑉 and 𝑊 are finite-dimensional and 𝑇 ∈ ℒ(𝑉, 𝑊). Then dim range 𝑇
+equals the column rank of $\mathcal{M}(𝑇)$.
+* prove change-of-basis formula
+Suppose 𝑇 ∈ ℒ(𝑉). Suppose $𝑢1, … , 𝑢𝑛$ and $𝑣1, … , 𝑣𝑛$ are bases of 𝑉. Let $𝐴 = ℳ(𝑇, (𝑢1, … , 𝑢𝑛))$ and $𝐵 = ℳ(𝑇, (𝑣1, … , 𝑣𝑛))$
+and $𝐶 = ℳ(𝐼, (𝑢1, … , 𝑢𝑛), (𝑣1, … , 𝑣𝑛))$. Then
+$$𝐴 = 𝐶^{−1}𝐵𝐶$$.
+* prove that Suppose that $𝑣1, … , 𝑣𝑛$
+is a basis of 𝑉 and 𝑇 ∈ ℒ(𝑉) is invertible. Then
+$ℳ(𝑇^{−1}) = (ℳ(𝑇))^{−1}$, where both matrices are with respect to the basis $𝑣1, … , 𝑣𝑛$
+
+
+
+
+
+
