@@ -172,7 +172,8 @@ $$𝐴 = 𝐶^{−1}𝐵𝐶$$.
 * prove that Suppose that $𝑣1, … , 𝑣𝑛$
 is a basis of 𝑉 and 𝑇 ∈ ℒ(𝑉) is invertible. Then
 $ℳ(𝑇^{−1}) = (ℳ(𝑇))^{−1}$, where both matrices are with respect to the basis $𝑣1, … , 𝑣𝑛$
-
+* **exercise revice**
+  * 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 17, 19, 20
 
 
 
