@@ -175,6 +175,38 @@ $ℳ(𝑇^{−1}) = (ℳ(𝑇))^{−1}$, where both matrices are with respect to
 * **exercise revice**
   * 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 17, 19, 20
 
+## 3E
+* write the definition of product of vector space.
+* notice that the product of vector space also a vector space.
+* prove that Suppose $𝑉_1, … , 𝑉_𝑚$ are finite-dimensional vector spaces. Then $𝑉_1 × ⋯ × 𝑉_𝑚$ is finite-dimensional and
+$$\dim(𝑉_1 × ⋯ × 𝑉_𝑚) = \dim 𝑉_1 + ⋯ + \dim 𝑉_𝑚$$.
+* prove that Suppose that $𝑉_1, … , 𝑉_𝑚$ are subspaces of $𝑉$. Define a linear map $Γ ∶ 𝑉_1 × ⋯ × 𝑉_𝑚 → 𝑉_1 + ⋯ + 𝑉_𝑚$ by
+$$Γ(𝑣_1, … , 𝑣_𝑚) = 𝑣_1 + ⋯ + 𝑣_𝑚$$.
+Then $𝑉_1 + ⋯ + 𝑉_𝑚$ is a direct sum if and only if $Γ$ is injective.
+* prove that Suppose that $𝑉_1, … , 𝑉_𝑚$ are subspaces of $𝑉$. Then
+$𝑉_1 + ⋯ + 𝑉_𝑚$ is a direct sum if and only if
+$\dim(𝑉_1 + ⋯ + 𝑉_𝑚) = \dim 𝑉_1 + ⋯ + \dim 𝑉_𝑚$.
+* notice the definition that Suppose $𝑣 ∈ 𝑉$ and $𝑈 ⊆ 𝑉$. Then $𝑣 + 𝑈$ is the subset of $𝑉$ defined by
+$$𝑣 + 𝑈 = \{𝑣 + 𝑢 | 𝑢 ∈ 𝑈\}$$
+* For 𝑣 ∈ 𝑉 and 𝑈 a subset of 𝑉, the set 𝑣 + 𝑈 is said to be a translate of 𝑈.
+* write the definition of quotient space $V/U$
+* prove that Suppose $U$ is a subspace of $𝑉$ and $𝑣, 𝑤 ∈ 𝑉$. Then
+$$𝑣 − 𝑤 ∈ 𝑈 ⟺ 𝑣 + 𝑈 = 𝑤 + 𝑈 ⟺ (𝑣 + 𝑈) ∩ (𝑤 + 𝑈) ≠ ∅$$
+* write the definition of addition and scalar multiplication on $V/U$
+* notice that Suppose $𝑈$ is a subspace of $𝑉$. Then $𝑉/𝑈$ is a vector space.
+* write the defintion of quotient map, $\pi$
+* prove that Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Then
+$$\dim 𝑉/𝑈 = \dim 𝑉 − \dim 𝑈$$.
+* write the defintion of linear maps $\widetilde{T}$
+* prove that Suppose 𝑇 ∈ ℒ(𝑉, 𝑊). Then
+(a) ̃𝑇 ∘ 𝜋 = 𝑇, where 𝜋 is the quotient map of 𝑉 onto 𝑉/(null 𝑇);
+(b) ̃𝑇 is injective;
+(c) range ̃𝑇 = range 𝑇;
+(d) 𝑉/(null 𝑇) and range 𝑇 are isomorphic vector spaces.
+* **exercise revice**
+  * 2, 3, 4, 6, 
+
+
 
 
 
