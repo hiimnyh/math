@@ -204,7 +204,7 @@ $$\dim 𝑉/𝑈 = \dim 𝑉 − \dim 𝑈$$.
 (c) range ̃𝑇 = range 𝑇;
 (d) 𝑉/(null 𝑇) and range 𝑇 are isomorphic vector spaces.
 * **exercise revice**
-  * 2, 3, 4, 6, 
+  * 2, 3, 4, 6, 8, 9, 10, 12, 14, 15, 17, 18, 19
 
 
 
