@@ -206,6 +206,49 @@ $$\dim 𝑉/𝑈 = \dim 𝑉 − \dim 𝑈$$.
 * **exercise revice**
   * 2, 3, 4, 6, 8, 9, 10, 12, 14, 15, 17, 18, 19
 
+## 3F
+* write the definition of linear functional.
+* write the definition of dual space, $V'$.
+* prove that Suppose 𝑉 is finite-dimensional. Then $𝑉'$
+is also finite-dimensional and $\dim 𝑉' = \dim 𝑉$.
+* write the definition of dual basis.
+* prove that Suppose $𝑣_1, … , 𝑣_𝑛$ is a basis of 𝑉 and $𝜑_1, … , 𝜑_𝑛$ is the dual basis. Then
+$$𝑣 = 𝜑_1(𝑣)𝑣_1 + ⋯ + 𝜑_𝑛(𝑣)𝑣_𝑛$$
+for each $𝑣 ∈ 𝑉$.
+* prove that Suppose $𝑉$ is finite-dimensional. Then the dual basis of a basis of $𝑉$ is a basis of $𝑉'$.
+* write the definition of dual map, $T'$
+* notice that Suppose $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then
+  * $(𝑆 + 𝑇)' = 𝑆' + 𝑇'$
+for all $𝑆 ∈ ℒ(𝑉, 𝑊)$;
+  * $(𝜆𝑇)' = 𝜆𝑇'$
+for all $𝜆 ∈ 𝐅$;
+  * $(𝑆𝑇)' = 𝑇'𝑆'$
+for all $𝑆 ∈ ℒ(𝑊, 𝑈)$.
+
+case 1,2 are trivial, prove the case 3.
+* write the definition of annihilator of U, $U^0$
+* Let $𝑒_1,𝑒_2,𝑒_3,𝑒_4,𝑒_5$ denote the standard basis of $𝐑^5$. let $𝜑_1, 𝜑_2, 𝜑_3, 𝜑_4, 𝜑_5 ∈(𝐑^5)'$
+denote the dual basis of $𝑒_1, ... ,𝑒_5$. Suppose
+$$𝑈 = \text{span}(𝑒_1,𝑒_2)$$
+show that $𝑈^0 = \text{span}(𝜑_3, 𝜑_4, 𝜑_5)$.
+* prove that Suppose $𝑈 ⊆ 𝑉$. Then $𝑈^0$ is a subspace of $𝑉'$
+* prove that Suppose 𝑉 is finite-dimensional and 𝑈 is a subspace of 𝑉. Then
+$$\dim 𝑈^0 = \dim 𝑉 − \dim 𝑈$$.
+* prove that Suppose 𝑉 and 𝑊 are finite-dimensional and $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then
+(a) $\text{null } 𝑇' = (\text{range } 𝑇)^0$
+(b) $\dim \text{null } 𝑇' = \dim \text{null } 𝑇 + \dim 𝑊 − \dim 𝑉$.
+* Suppose 𝑉 and 𝑊 are finite-dimensional and $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then
+$$\text{𝑇 is surjective }  ⟺ 𝑇'\text{ 
+is injective}$$
+* Suppose 𝑉 and 𝑊 are finite-dimensional and $𝑇 ∈ ℒ(𝑉, 𝑊)$. Then
+(a) $\dim \text{range } 𝑇' = \dim \text{range } 𝑇$
+(b) $\text{range } 𝑇' = (\text{null } 𝑇)^0$
+* Suppose 𝑉 and 𝑊 are finite-dimensional and 𝑇 ∈ ℒ(𝑉, 𝑊). Then
+$$ 𝑇 \text{ is injective } ⟺ 𝑇' \text{ is surjective }
+* prove that Suppose 𝑉 and 𝑊 are finite-dimensional and 𝑇 ∈ ℒ(𝑉, 𝑊). Then
+$$ℳ(𝑇') = (ℳ(𝑇))^t$$
+
+
 
 
 
