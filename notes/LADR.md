@@ -244,11 +244,11 @@ is injective}$$
 (a) $\dim \text{range } 𝑇' = \dim \text{range } 𝑇$
 (b) $\text{range } 𝑇' = (\text{null } 𝑇)^0$
 * Suppose 𝑉 and 𝑊 are finite-dimensional and 𝑇 ∈ ℒ(𝑉, 𝑊). Then
-$$ 𝑇 \text{ is injective } ⟺ 𝑇' \text{ is surjective }
+$$ 𝑇 \text{ is injective } ⟺ 𝑇' \text{ is surjective }$$
 * prove that Suppose 𝑉 and 𝑊 are finite-dimensional and 𝑇 ∈ ℒ(𝑉, 𝑊). Then
 $$ℳ(𝑇') = (ℳ(𝑇))^t$$
 * **exercise revice**
-  * 2, 3, 4, 6, 10, 11, 14, 16, 20
+  * 2, 3, 4, 6, 10, 11, 14, 16, 20, 21, 22, 23, 24, 25
 
 
 
