@@ -251,6 +251,42 @@ $$ℳ(𝑇') = (ℳ(𝑇))^t$$
   * 2, 3, 4, 6, 10, 11, 14, 16, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32, 33
 
 
+# Chap4
+* write the definition of real part and imaginary part of a complex number.
+* write the definition of complex conjugate and absolute value of a complex number.
+* notice that
+  * $z+\bar{z}=2\text{ Re}(z)$
+  * $z-\bar{z}=2\text{ Im}(z)i$
+  * $z\bar{z}=|z|^2$
+  * $|\text{Re} (𝑧)| ≤ |𝑧| $ and $| \text{Im} (𝑧)| ≤ |𝑧|$.
+  * $|𝑤 + 𝑧| ≤ |𝑤| + |𝑧|$
+* write the definition of zero of the polynomial
+* prove that Suppose 𝑚 is a positive integer and $𝑝 ∈ 𝒫(𝐅)$ is a polynomial of degree 𝑚. Suppose 𝜆 ∈ 𝐅. Then 
+$$𝑝(𝜆) = 0 \iff \exist 𝑞 ∈ 𝒫(𝐅) \text{ of degree 𝑚 − 1 such that }
+𝑝(𝑧) = (𝑧 − 𝜆)𝑞(𝑧)$$
+for every 𝑧 ∈ 𝐅.
+* prove that Suppose 𝑚 is a positive integer and $𝑝 ∈ 𝒫(𝐅)$ is a polynomial of degree 𝑚.
+Then 𝑝 has at most 𝑚 zeros in 𝐅.
+* we define $\deg 0=-\infty$
+* Suppose that $𝑝,𝑠 ∈ 𝒫(𝐅)$, with $𝑠 ≠ 0$. Then there exist unique polynomials $𝑞,𝑟 ∈ 𝒫(𝐅)$ such that
+$$𝑝 = 𝑠𝑞 + 𝑟$$
+and $\deg 𝑟 < \deg 𝑠$.
+* prove that Every nonconstant polynomial with complex coefficients has a zero in 𝐂.
+* If 𝑝 ∈ 𝒫(𝐂) is a nonconstant polynomial, then 𝑝 has a unique factorization (except for the order of the factors) of the form
+$$𝑝(𝑧) = 𝑐(𝑧 − 𝜆_1) ⋯ (𝑧 − 𝜆_𝑚)$$
+where $𝑐, 𝜆_1, … , 𝜆_𝑚 ∈ 𝐂$.
+* Suppose $𝑝 ∈ 𝒫(𝐂)$ is a polynomial with real coefficients. If $𝜆 ∈ 𝐂$ is a zero of $𝑝$, then so is $\bar{\lambda}$.
+* Suppose $𝑏, 𝑐 ∈ 𝐑$. Then there is a polynomial factorization of the form
+$$𝑥^2 + 𝑏𝑥 + 𝑐 = (𝑥 − 𝜆_1)(𝑥 − 𝜆_2)$$
+with $𝜆_1, 𝜆_2 ∈ 𝐑$ if and only if $𝑏^2 ≥ 4𝑐$.
+* Suppose $𝑝 ∈ 𝒫(𝐑)$ is a nonconstant polynomial. Then 𝑝 has a unique factorization (except for the order of the factors) of the form
+$$𝑝(𝑥) = 𝑐(𝑥 − 𝜆_1
+) ⋯ (𝑥 − 𝜆_𝑚)(𝑥
+^2 + 𝑏_1𝑥 + 𝑐_1) ⋯ (𝑥^2 + 𝑏_𝑀𝑥 + 𝑐_𝑀)$$,
+where $𝑐, 𝜆_1, … , 𝜆_𝑚, 𝑏_1, … , 𝑏_𝑀, 𝑐_1, … , 𝑐_𝑀 ∈ 𝐑$, with $𝑏_𝑘^2 < 4𝑐_𝑘$
+for each 𝑘.
+
+
 
 
 
