@@ -288,6 +288,25 @@ for each 𝑘.
 * **exercise revice**
   * 2, 7, 8, 11, 12, 13, 14
 
+# Chap 5
+* write the definition of operator.
+* write the definition of invariant subspace
+* write the definition of eigenvalue
+* prove that Suppose 𝑉 is finite-dimensional, $𝑇 ∈ ℒ(𝑉)$, and $𝜆 ∈ 𝐅$. Then the following
+are equivalent.
+(a) $𝜆$ is an eigenvalue of $𝑇$.
+(b) $𝑇 − 𝜆𝐼$ is not injective.
+(c) $𝑇 − 𝜆𝐼$ is not surjective.
+(d) $𝑇 − 𝜆𝐼$ is not invertible.
+* write the definition of eigenvectors
+* notice that the eigenvalue not only be allowed to be real, it can be complex also, it depends on the field that the vector space over.
+* prove that Suppose 𝑇 ∈ ℒ(𝑉). Then every list of eigenvectors of 𝑇 corresponding to
+distinct eigenvalues of 𝑇 is linearly independent.
+* show that Suppose 𝑉 is finite-dimensional. Then each operator on 𝑉 has at most $\dim 𝑉$
+distinct eigenvalues.
+* write the definition of product of polynomial
+* show that Suppose $𝑇 ∈ ℒ(𝑉)$ and $𝑝 ∈ 𝒫(𝐅)$. Then $\text{null } 𝑝(𝑇)$ and $\text{range } 𝑝(𝑇)$ are
+invariant under 𝑇.
 
 
 
