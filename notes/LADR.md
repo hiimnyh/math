@@ -289,6 +289,7 @@ for each 𝑘.
   * 2, 7, 8, 11, 12, 13, 14
 
 # Chap 5
+## 5A
 * write the definition of operator.
 * write the definition of invariant subspace
 * write the definition of eigenvalue
@@ -307,6 +308,8 @@ distinct eigenvalues.
 * write the definition of product of polynomial
 * show that Suppose $𝑇 ∈ ℒ(𝑉)$ and $𝑝 ∈ 𝒫(𝐅)$. Then $\text{null } 𝑝(𝑇)$ and $\text{range } 𝑝(𝑇)$ are
 invariant under 𝑇.
+* **exercise revice**
+  * 4, 5, 9, 10, 11, 13, 15, 16, 18, 21, 23, 24
 
 
 
