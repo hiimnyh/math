@@ -19,3 +19,9 @@ dt} + 2ty = 4t$$
 * what is the initial value pronblem.
 * refer to the example that mentioned in lecturer note also(mixing problem...)
 * sometimes use integrating factor to solve question is better than separating euqation...(I guess so).
+* What is a separable equation.
+* write the definition of Autonomoud differential equation.
+* what is the equillibrium solution of an Autonomous solution, what means that the equillibrium solution is 
+  * stable;
+  * unstable
+  * semistable

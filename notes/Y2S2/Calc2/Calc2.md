@@ -23,3 +23,33 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * notice that , if $\sum _{n=1}^{\infty}a_n$ diverges and $c \ne 0$, then $\sum _{n=1}^{\infty}ca_n$ also diverges.
 * **exercise revice**
   * 15, 19, 31, 37, 39, 45, 49, 71
+
+## 11.3
+* Write the integral test, and the conditions of function also.
+* determine  $\sum _{n=1} ^{\infty}\frac{1}{n^2 + 1}$ is convergent or divergent.
+* write the defintion of p-series.
+* proof that p-series is convergent $\iff p>1$
+* If the series is convergent, we can appropximate $S$ by the remainder (error) $R_n$, write the defintion of $R_n$, also write the upper and lower bound of $R_n$ 
+* **exercise revice**
+
+## 11.4
+* write the Direct Comparison Test
+* determine $\sum _{n=1}^{\infty} \frac{\ln n }{n}$ is divergent or convergent by using direct comparison test.
+* Write the Limit comparison test, and prove it.
+* **exercise revice**
+
+## 11.5
+* Write the definition off alternating series.
+* write the alternating series test.
+* notice that $|s-s_n|\le b_{n+1} $
+* write the definition of Absolute convergence and Conditional Convergence.
+* Write the Absolute convergence test, and prove it.
+* Write the Rearrangement theorem
+* **exercise revice**
+
+## 11.6, 11.7
+* write the ratio test, and try to prove it.
+* Write the root test.
+* try to write the strategy for testing series.
+* **exercise revice**
+* 
