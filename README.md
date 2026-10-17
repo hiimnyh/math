@@ -20,12 +20,19 @@ Rather than traditional notes, I try to built around Active-Recall Concept Check
 ## Subject
 
 Here is some  note i current have
-
+(F) $\implies$ finished
 ### University Coursework
-* **Discrete Mathematics**
-* **Linear Algebra**
-* **Algebra & Analytic Geometry**
-* **Calculus 1**
+#### Y1S1
+* **Discrete Mathematics**(F)
+* **Linear Algebra**(F)
+* **Algebra & Analytic Geometry**(F)
+* **Calculus 1**(F)
+
+#### Y1S2
+* **Linear algebra 2**
+* **Calculus 2**
+* **ODE**
+* **Probability**
 
 ### Some other Study/Topics
 * **Linear Algebra Done Right (*Sheldon Axler*)**

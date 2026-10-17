@@ -31,12 +31,14 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * proof that p-series is convergent $\iff p>1$
 * If the series is convergent, we can appropximate $S$ by the remainder (error) $R_n$, write the defintion of $R_n$, also write the upper and lower bound of $R_n$ 
 * **exercise revice**
+  * 7, 9, 11, 17, 25, 29, 30, 31, 41
 
 ## 11.4
 * write the Direct Comparison Test
 * determine $\sum _{n=1}^{\infty} \frac{\ln n }{n}$ is divergent or convergent by using direct comparison test.
 * Write the Limit comparison test, and prove it.
 * **exercise revice**
+  * 3, 5, 17, 21
 
 ## 11.5
 * Write the definition off alternating series.
@@ -46,10 +48,62 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * Write the Absolute convergence test, and prove it.
 * Write the Rearrangement theorem
 * **exercise revice**
+  * 5, 7, 13, 23, 37, 41
 
 ## 11.6, 11.7
 * write the ratio test, and try to prove it.
 * Write the root test.
 * try to write the strategy for testing series.
 * **exercise revice**
-* 
+  * 11.6
+    * 1, 5, 21, 25, 35, 41
+  * 11.7
+    * 1, 3, 5, 7, 11, 13, 15, 19, 23
+
+## 11.8
+* write the definition of power series in x.
+* For what values of x is the series $$\sum _{n=0} ^{ \infty} \frac{x^n}{n!}$$
+convergent
+* notice the theorem that The set on which a power series $\sum _{n=0} ^{ \infty} c_nx^n$
+converges is always an interval of
+one of the following three types:
+(i) The single point x = 0.
+(ii) An interval $(−R, R)$, plus possibly one or both end points.
+(iii) The whole real line.
+* write the definition of radius of convergene.
+* write the definition of interval of convergence of power series
+* write the definition of the power series in x centered at a.
+* write the possible cases of interval of convergence for power serires centered at a.
+* Find the interval of convergence and radius of convergence of
+$$\sum _{n=0} ^{ \infty} \frac{(-3)^nx^n}{\sqrt{n+1}}$$
+* **exercise revice**
+  * 7, 23, 25, 37
+
+## 11.9
+* express $\frac{1}{1+x^2}$ as the sum of power series, and also write the interval of convergence.
+* express $\frac{x^3}{x+2}$ as the sum of power series, and also write the interval of convergence.
+* notice that the theorem a power series after term-by-term differentiation and integration, the interval of convergence still remains.
+* Determine the interval of convergence for
+$$x +\frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} +···$$
+and find an explicit formula for this series when it is convergent.
+*  Find the power series representation for $\tan^{−1}x$, and also the interval of convergence.
+* Approximate $\int _0 ^\frac{1}{2} \frac{1}{1+x^7}$ correct to within $10^{−7}$.
+* **exercise revice**
+  * 5, 7, 9, 21, 27, 31
+
+## 11.10
+* prove that If f has a power series representation (expansion) at a:
+$$f(x) = c_0 + c_1(x − a) + c_2(x − a)^2 + c_3(x − a)^3 + · · ·$$ when $|x − a| < R$,
+then
+$$c_n =\frac{f^{(n)}(a)}{n!}$$
+* write the definition of taylor series, and also the maclaurin series.
+* write the definition of nth-degree Taylor polynomial of f at a.
+* when will we called $f(x)$ is the sum of taylor series.
+* write the definition of remainder of taylor series.
+* notice the theorem If $f(x) = T_n(x) + R_n(x)$ and
+$$\lim _{n→∞} R_n(x) = 0$$
+for $|x−a| < R$, then f is equal to the sum of its Taylor series on the interval $|x − a| < R$
+
+
+
+

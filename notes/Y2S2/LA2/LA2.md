@@ -34,3 +34,26 @@ then
 ## 6.2
 * Prove Cauchy-Schwarz Inequality. If u and v are vectors in a real inner product space V , then
 $$|⟨u, v⟩| ≤ ∥u∥ ∥v∥$$
+* for u and v two non zero vector in inner product space, how do we define the angle between them, and also write the range of angle.
+* suppose u,v,w are vector in inner product space, prove that 
+  * $||u+v||\le ||u||+||v||$
+  * $d(u, v) \le  d(u, w) + d(w, v)$.
+* write the definitnon of two vector in inner product space is called orthogonal.
+* Prove the generalized theorem of pythagores
+* suppose W is a subspace of V, write the definition of orthogonal complement of $W, W^\perp$
+* Prove that $W^\perp$ is subspace of $V$.
+* Prove that $W\cup W^\perp=\{0\}$
+* notice that under the standard inner product, 
+  * $\text{row }A =W \iff \text{null }A=W^\perp$
+  * $\text{col }A =W \iff \text{null }A^T=W^\perp$
+* Prove that Let $W$ be a finite dimensional subspace of an inner product space $V$ , and let $\{w_1, w_2,..., w_k\}$ be a basis of $W$. Define the $k\times k$ matrix $A = (a_{ij} )$ by $$a_{ij} = <w_i, w_j>$$.Then A is invertible.
+* Prove that suppose V is finite dimensional, and W is subspace of V, then $$\dim W+\dim W^\perp =\dim V$$
+* show that $(W^\perp)^\perp =W$
+* **exercise revice**
+
+## 6.3
+* write the definition of the set is orthogonal, and the set is orthonormal.
+* prove that If $S = \{v_1, v_2,..., v_n\}$ is an orthogonal set of nonzero vectors in an inner product space V , then S is linearly independent.
+* write the definition of orthogonal basis and orthonormal basis.
+* Prove that If $S = \{v1, v2,..., vn\}$ is an orthogonal basis for an inner product space V , and if u is any vector in V , then
+$$u = \frac{<u,v_1>}{<v_1,v_1>}v_1+...+\frac{<u,v_n>}{<v_n,v_n>}v_n$$
