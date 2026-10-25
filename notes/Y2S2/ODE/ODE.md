@@ -50,3 +50,14 @@ of the initial value problem $y' = f (t, y), y(0) = 0$.
 * solve $y''−2y'+2y=0$
 * if for a homogeneous second order DE, we have repeated root for characteristic equation, how do we find the second solution to build the fundamental solution set.
 * **exercise revice**
+
+# lecturer 4
+* write the procedure of solving the second order nonhomogeneous ODE (with coefficient is real number).
+* suppose for the ode $$ay'' + by' + cy = g(t)$$, we got 4 cases for $g(t)$, write down these four cases, and the correspondence form of particular solution.
+* solve 
+  * $y'' + y' = 1 − 2t^2$
+  * $y'' − 4y' + 4y = 16e^{2t}$
+  * $y'' − 3y' + 2y = 4t \sin t$
+  * $y'' − 9y = e^{3t}\cos t$
+* how do we solve this one $ g(t) = e^t + \cos 3t$.
+* solve $$y'' − 3y' −4y = 3e^{2t} +2\sin t −8e^t \cos(2t)$$.

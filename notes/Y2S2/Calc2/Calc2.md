@@ -103,7 +103,25 @@ $$c_n =\frac{f^{(n)}(a)}{n!}$$
 * notice the theorem If $f(x) = T_n(x) + R_n(x)$ and
 $$\lim _{n→∞} R_n(x) = 0$$
 for $|x−a| < R$, then f is equal to the sum of its Taylor series on the interval $|x − a| < R$
+* in order to show $\lim _{n→∞} R_n(x) = 0$, we can use Taylor inequality, please state what is it.
+* notice that $$\lim _{n→∞} \frac{x^n}{n!} = 0$$ for all real x.
+* Prove that $e^x$ is equal to the sum of its Maclaurin series by using taylor inequality.
+* Find the Maclaurin series for $(1+x)^k$ and show that it is convergent for $|x| < 1$.
+* Find the Maclaurin series of $\frac{1}{\sqrt{4 − x}}$ and
+determine its radius of convergence.
+* go refer back some important maclaurin series in lecturer note
+*  Evaluate $ \int _0^1 e^{−x^2}dx$ correct to within an error of 0.001.
+* **exercise revice**
 
+## 11.11
+* Approximate the function $f(x) =\sqrt[3]x$ by a Taylor polynomial of degree 2 at $a = 8$, and  How accurate is this approximation when $7 ≤ x ≤ 9$?
+* and for alternating series, but the $b_n$ is not necessary positive, we notice that 
+$$|S-S_n|\le |b_{n+1}|$$
+* **exercise revice**
 
+# chap10
 
-
+## 10.1
+* we can define a curve by parametric equation, what is initial point, and what is terminal point.
+* what is a cycloid, try to derive the paremetrix equation of this curve.
+* **exercise revice**

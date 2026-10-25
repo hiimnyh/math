@@ -50,10 +50,38 @@ $$|⟨u, v⟩| ≤ ∥u∥ ∥v∥$$
 * Prove that suppose V is finite dimensional, and W is subspace of V, then $$\dim W+\dim W^\perp =\dim V$$
 * show that $(W^\perp)^\perp =W$
 * **exercise revice**
-
+  * 1, 5, 9, 16, 18, 29(see the way), 45, 49
 ## 6.3
 * write the definition of the set is orthogonal, and the set is orthonormal.
 * prove that If $S = \{v_1, v_2,..., v_n\}$ is an orthogonal set of nonzero vectors in an inner product space V , then S is linearly independent.
 * write the definition of orthogonal basis and orthonormal basis.
-* Prove that If $S = \{v1, v2,..., vn\}$ is an orthogonal basis for an inner product space V , and if u is any vector in V , then
+* Prove that If $S = \{v_1, v_2,..., v_n\}$ is an orthogonal basis for an inner product space V , and if u is any vector in V , then
 $$u = \frac{<u,v_1>}{<v_1,v_1>}v_1+...+\frac{<u,v_n>}{<v_n,v_n>}v_n$$
+* write the Projection theorem, and prove the uniqueness of expression.
+* Let W be a finite-dimensional subspace of an inner product space V, prove that 
+(a) If $\{v_1, v_2, . . . , v_r\}$ is an orthogonal basis for $W$, and if $u$ is any vector in $V$ ,
+then
+$$\text{proj}_W u =\frac{\langle u, v_1⟩}{⟨v_1, v_1⟩}v_1 +
+ . . . +\frac{\langle u, v_r⟩}{⟨v_r, v_r⟩}v_r$$
+(b) If  $\{v_1, v_2, . . . , v_r\}$ is an orthonormal basis for an inner product space W, and if u is any vector in V , then
+$$\text{proj}_W u =\langle u, v_1⟩v_1 +
+ . . . +\langle u, v_r⟩v_r$$
+* to convert the basis $\{u_1,...u_r\}$ to orthogonal basis $\{v_1, ...v_r\}$, we apply the Gram-Schmidt process, try the full step of it.
+* prove that If W is a finite-dimensional inner product space, then
+(a) Every orthogonal set of nonzero vectors in W can be enlarged to an orthogonal basis for W.
+(b) Every orthonormal set in W can be enlarged to an orthonormal basis for
+W.
+* prove the QR-decomposition, If $A$ is an $m × n$ matrix with linearly independent column vectors, then $A$ can
+be factored as
+$$A = QR$$
+where $Q$ is an m×n matrix with orthonormal column vectors, and $R$ is an $n×n$ invertible upper triangular matrix.
+* **exercise revice**
+
+## 6.4
+* write the definition of least squares problem, also the definition of least squares solution, least square error vector, least square error.
+* prove the Best Approximation Theorem.
+* prove the theorem For every linear system $Ax = b$, the associated normal system
+$$A^TAx = A^Tb$$
+is consistent, and all solutions of of this system are least squares solutions of $Ax = b$. Moreover, if W is the column space of A, and x is any least squares
+solution of Ax = b, then the orthogonal projection of b on W is
+$$\text{proj}_W b = Ax$$

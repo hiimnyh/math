@@ -61,5 +61,19 @@ identical twins?
 * notice the Generalization of the Law of Total Probability, If $F_1, ..., F_n$ are mutually exclusive events such that the union of them is $E$.
 $$P(E)=\sum _{k=1} ^n P(E\cap F_k)=\sum _{k=1} ^n P(E|F_k)P(F_k)$$
 * then we can base on the above, write the Generalization of the Bayes’s Formula.
-* 
+* Independent trials consisting of rolling a pair of fair dice are performed. The
+outcome of a roll is the sum of the dice. What is the probability that an outcome of
+5 appears before an outcome of 7?
+* **exercise revice**(P.S.3)
+  * 2, 6, 7, 8, 16
 
+# Chap4
+* write the definition of Random variable $X$.
+* how do we define $$P(X=x)$$
+* A life insurance agent has two elderly clients, A and B, each of whom has a life
+insurance policy that pays 1 million ringgit upon death. Let EA be the event that A
+will die in the following year, and EB be the event that B will die in the following
+year. Assume that EA and EB are independent, with probability P(EA) = 0.05
+and P(EB) = 0.1. Let X be the total amount of money (in units of 1 million
+ringgit) that will be paid out this year to any of these clients’ beneficiaries, find the
+probability distribution of X.
