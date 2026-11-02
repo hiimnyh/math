@@ -125,3 +125,23 @@ $$|S-S_n|\le |b_{n+1}|$$
 * we can define a curve by parametric equation, what is initial point, and what is terminal point.
 * what is a cycloid, try to derive the paremetrix equation of this curve.
 * **exercise revice**
+
+## 10.2
+* for a parametrix equation $x=f(t), y=g(t)$, how do we define $$\frac{dy}{dx}$$
+* how do we find $$\frac{d^2y}{dx^2}$$
+* write The area under the parametric curve $x = f(t), y = g(t), a ≤ t ≤ b,$ where
+$g(t) ≥ 0$ is
+* write the arc length formula for the parametric curve $x = f(t), y = g(t), a ≤ t ≤ b,$
+* **exercise revice**
+
+## 10.3
+* write the definition of polar coordinates
+* write the polar graph expression of limacons, and cardioid
+* write the expression of roses, how to determine hoe many leafs are this roses have.
+* **exercise revice**
+
+## 10.4
+* how to find the area of region in polar coordinates, (write the formula)
+* how to find the arc length of the polar graph in polar coordinates
+* how to find the tangent line of the polar graph in polar coordinates
+* **exercise revice**

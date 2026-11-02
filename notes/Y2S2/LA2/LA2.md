@@ -76,6 +76,8 @@ be factored as
 $$A = QR$$
 where $Q$ is an m×n matrix with orthonormal column vectors, and $R$ is an $n×n$ invertible upper triangular matrix.
 * **exercise revice**
+  * 3, 7, 19, 25, 31, 35, 48, 49, 55 
+
 
 ## 6.4
 * write the definition of least squares problem, also the definition of least squares solution, least square error vector, least square error.
@@ -85,3 +87,47 @@ $$A^TAx = A^Tb$$
 is consistent, and all solutions of of this system are least squares solutions of $Ax = b$. Moreover, if W is the column space of A, and x is any least squares
 solution of Ax = b, then the orthogonal projection of b on W is
 $$\text{proj}_W b = Ax$$
+* prove that If A is an $m×n$ matrix, then the following are equivalent.
+(a) The column vectors of A are linearly independent.
+(b) $A^TA$ is invertible.
+* by the previous theorem we can show that the unique least square solution of $Ax=b$ is $$x=(A^TA)^{-1}A^Tb$$ and $$\text{proj}_W b = A(A^TA)^{-1}A^Tb$$
+* Find the standard matrix for the orthogonal projection onto the line W through
+the origin of $R^2$ that makes an angle θ with the positive x-axis.
+* prove that If A is an m×n matrix with linearly independent column vectors, and if $A = QR$
+is a QR-decomposition of A, then for each b in $R^m$ the system $Ax = b$ has a unique least squares solution given by
+$$x =R^{−1}Q^Tb$$.
+* **exercise revice**
+  *  3, 11, 15, 21, 25, 28
+
+## 6.5
+* write the concept of how do we fnd the regression line.
+* Find the least squares straight line fit to the four points (0,1), (1,3), (2,4), and
+(3, 4)
+* what if we dont want to use regression line to fit the data point, we use some higher degree polynomial, write the procedure to find the polynomial.
+* **exercise revice**
+  * 3
+
+# Chap 7
+## 7.1
+* write the definition of orthogonal matrix.
+* prove the following are equivalent for an n × n matrix A.
+(a) A is orthogonal.
+(b) The row vectors of A form an orthonormal set in Rn with the Euclidean
+inner product.
+(c) The column vectors of A form an orthonormal set in Rn with the Euclidean
+inner product
+* prove these four theorem 
+(a) The transpose of an orthogonal matrix is orthogonal.
+(b) The inverse of an orthogonal matrix is orthogonal.
+(c) A product of orthogonal matrices is orthogonal.
+(d) If A is orthogonal, then $\text{det}(A) = \pm 1$
+* prove that If A is an n×n matrix, then the following are equivalent.
+(a) A is orthogonal.
+(b) $||Ax|| = ||x||$ forall x in $R^n$.
+(c) $Ax·Ay = x·y$ for all x and y in $R^n$
+* prove that If $S$ is an orthonormal basis for an n-dimensional inner product space $V$ , and if
+$$(u)_S = (u_1,u_2,...,u_n) \text{ and } (v)_S = (v_1,v_2,...,v_n)$$
+then
+(a) $||u|| =\sqrt{u_1^2 + u_2^2 + ... + u_n^n}$
+(b) $d(u,v) = \sqrt{(u_1 −v_1)^2 +(u_2 −v_2)^2 +...+(u_n −v_n)^2}$
+(c) $\langle u,v \rangle =u_1v_1+u_2v_2 +...+u_nv_n$

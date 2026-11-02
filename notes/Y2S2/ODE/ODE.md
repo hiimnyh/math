@@ -61,3 +61,9 @@ of the initial value problem $y' = f (t, y), y(0) = 0$.
   * $y'' − 9y = e^{3t}\cos t$
 * how do we solve this one $ g(t) = e^t + \cos 3t$.
 * solve $$y'' − 3y' −4y = 3e^{2t} +2\sin t −8e^t \cos(2t)$$.
+
+# week5
+
+* write the procedure of using the variation of parameter method to solve the second order ODE, and prove the formula.
+* find the solution of $$y'' + 4y = 8 \tan t$$
+* try to model a simple spring-mass system, then ignore the dampling force and external force, derive the amplitute, phase angle, natuaral frequency, period ... of the system.

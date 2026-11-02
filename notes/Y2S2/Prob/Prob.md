@@ -68,6 +68,7 @@ outcome of a roll is the sum of the dice. What is the probability that an outcom
   * 2, 6, 7, 8, 16
 
 # Chap4
+## 4.1
 * write the definition of Random variable $X$.
 * how do we define $$P(X=x)$$
 * A life insurance agent has two elderly clients, A and B, each of whom has a life
@@ -77,3 +78,27 @@ year. Assume that EA and EB are independent, with probability P(EA) = 0.05
 and P(EB) = 0.1. Let X be the total amount of money (in units of 1 million
 ringgit) that will be paid out this year to any of these clients’ beneficiaries, find the
 probability distribution of X.
+
+## 4.2
+* write the definition of discrete random variable.
+* write the definition of Probability mass function (PMF)
+* notice that for the PMF $p(x)$, it sastify
+  * $0\le p(x)\le 1$
+  * $\sum _x p(x)=1$
+* write the definition of cumulative distribution function (CDF)
+* remark: the domain of the function is always real number, although the random variable is discrete.
+
+## 4.3, 4.4
+* write the definition of Expected value of a discrete random variable.
+* prove that Let $X$ be a discrete random variable with probability mass function $p(x)$. For any real-valued function $g$ of a real variable,
+$$E (g(X)) = \sum _x g(x)p(x)$$
+* prove that If a and b are constants, then
+$$E(aX + b) = aE(X) + b$$
+More generally, for any two real-valued function $g_1$ and $g_2$,
+$$E(g_1(X) + g_2(X)) = E(g_1(X)) + E(g_2(X))$$.
+* write the definition of n-th moment of $X$
+* write the definition of Varience of X, and standard deviation.
+* Prove that If $X $ is a discrete random variable,
+$$\text{Var } (X) = E(X^2) − (E(X))^2$$
+* Prove that If a and b are constants, then
+$$\text{Var }(aX + b) = a^2\text{Var }(X)$$
