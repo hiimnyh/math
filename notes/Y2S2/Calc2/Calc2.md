@@ -1,4 +1,4 @@
-# chap11
+# chap11 (Part 1)
 ## 11.1
 * write the definition of a sequence convergen to L.
 * notice that $$\lim _{x\to \infty}f(x)= \lim _{n\to \infty}f(n)$$
@@ -112,19 +112,22 @@ determine its radius of convergence.
 * go refer back some important maclaurin series in lecturer note
 *  Evaluate $ \int _0^1 e^{−x^2}dx$ correct to within an error of 0.001.
 * **exercise revice**
+  * 15, 21, 37, 45, 57, 61, 63, 67, 79, 81, 83, 85
 
 ## 11.11
 * Approximate the function $f(x) =\sqrt[3]x$ by a Taylor polynomial of degree 2 at $a = 8$, and  How accurate is this approximation when $7 ≤ x ≤ 9$?
 * and for alternating series, but the $b_n$ is not necessary positive, we notice that 
 $$|S-S_n|\le |b_{n+1}|$$
 * **exercise revice**
+  * 5, 13, 19, 25, 28
 
-# chap10
+# chap10 (Part 2)
 
 ## 10.1
 * we can define a curve by parametric equation, what is initial point, and what is terminal point.
 * what is a cycloid, try to derive the paremetrix equation of this curve.
 * **exercise revice**
+  * 17, 37, 47, 51
 
 ## 10.2
 * for a parametrix equation $x=f(t), y=g(t)$, how do we define $$\frac{dy}{dx}$$
@@ -133,15 +136,62 @@ $$|S-S_n|\le |b_{n+1}|$$
 $g(t) ≥ 0$ is
 * write the arc length formula for the parametric curve $x = f(t), y = g(t), a ≤ t ≤ b,$
 * **exercise revice**
+  * 5, 7, 19, 23, 29, 35, 37, 39, 47
 
 ## 10.3
 * write the definition of polar coordinates
 * write the polar graph expression of limacons, and cardioid
 * write the expression of roses, how to determine hoe many leafs are this roses have.
 * **exercise revice**
+  * 3, 5, 7, 9
 
 ## 10.4
 * how to find the area of region in polar coordinates, (write the formula)
 * how to find the arc length of the polar graph in polar coordinates
 * how to find the tangent line of the polar graph in polar coordinates
 * **exercise revice**
+  * 1, 3, 5, 17, 23, 27, 31, 49, 57, 71
+
+# chap13 (Part3)
+## 13.1
+* write the definition of vector function $r(t)$.
+* write the definition of component function.
+* write the definition of $$\lim _{t\to a } r(t)$$
+*  Find a vector function that represents the curve of intersection of the
+cylinder $x^2 + y^2 = 1$ and the plane $y + z = 2$.
+* write the definition of tangent vector, how do we calculate it. and also write the definition of unit tangent vector.
+* **exercise revice**
+
+## 13.2
+* Find parametric equations for the tangent line to the curve (helix )
+determined by
+$$r(t) = 2 \cos t i + \sin t j + tk$$
+at $(0, 1, π/2)$.
+* the differential rules for vector function are just like the common one (dot product also), and notice that for the cross product
+$$\frac{d}{dt} [u(t) × v(t)] = u'
+(t) × v(t) + u(t) × v'(t)$$ 
+* Show that if $||r(t)|| = c (a constant), then r
+0
+(t) is perpendicular to
+r(t) for all t
+* write the definition of definite integral of vector function, how do we calculate it.
+* **exercise revice**
+
+## 13.3
+* suppose the curve has vector function, how do we find the arc length for $a\le t \le b$
+* **exercise revice**
+
+## 13.4
+* for a position vector $r(t)$, how do we find the acceleration and velocity vector
+* how do we find speed
+* **exercise revice**
+
+# Chap14 (Part4)
+## 14.1
+* write the definition of function of two variables, and write the defnition fo its domain and range.
+* sketch the domain of 
+$$f(x, y) = x \ln(y^2 − x)$$
+* Sketch the graph of $f(x, y) = \sqrt{9 − x^2 − y^2}$
+* write the definition of level curve.
+* Sketch the level curves of the function $f(x, y) = 6 − 3x − 2y$ for the
+values $k = −6, 0, 6, 12$.

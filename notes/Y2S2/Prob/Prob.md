@@ -97,8 +97,37 @@ $$E(aX + b) = aE(X) + b$$
 More generally, for any two real-valued function $g_1$ and $g_2$,
 $$E(g_1(X) + g_2(X)) = E(g_1(X)) + E(g_2(X))$$.
 * write the definition of n-th moment of $X$
+
+## 4.5
 * write the definition of Varience of X, and standard deviation.
 * Prove that If $X $ is a discrete random variable,
 $$\text{Var } (X) = E(X^2) − (E(X))^2$$
 * Prove that If a and b are constants, then
 $$\text{Var }(aX + b) = a^2\text{Var }(X)$$
+
+## 4.6
+* write the definition of Bernoulli random variable.
+* write the definition of binomial random variable, and the corresponding PMF. And $X$ is a binomial random variable with parameters n and p, denoted as what.
+* If $X$ is a binomial random variable with parameters n and p, prove that
+$$E(X)=np$$
+$$\text{Var }X=np(1-p)$$
+* Prove that If $X ∼ \text{ Bin}(n, p)$, where $0 < p < 1$, then as k goes from 0 to n, P(X = k)
+first increases monotonically and then decreases monotonically, reaching its largest
+value when k is the largest integer less than or equal to (n + 1)p.
+
+## 4.7
+* write the definition of poisson distribution, and the notation.
+* Prove that If  $X ∼ \text{ Bin}(n, p)$ with n large and p small (rare events), then $X$ can be
+approximated by $\tilde{X} ∼ \text{Poi}(λ)$, where $λ = np$.
+* prove that If $X ∼ \text{Poi}(λ)$, then
+$$E(X) = λ$$
+$$\text{Var }(X) = λ$$
+* Suppose that the number of typographical errors on a single page of this book has
+a Poisson distribution with an average of 0.5 errors per page.
+(a) Find the probability that there is at least one error on a page.
+(b) Find the probability that there is at most one error on a page.
+* In a certain region, in average there occur 2 earthquakes in a week. Suppose that
+the number of earthquakes that occur is in accordance with a Poisson process.
+(a) What is the average number of earthquakes in two weeks time?
+(b) Find the probability that at least 3 earthquakes occur during the next two weeks.
+(c) Let T be the time (in weeks), starting from now, until the next earthquake. Find $P(T ≤ t)$, where t > 0.

@@ -67,3 +67,14 @@ of the initial value problem $y' = f (t, y), y(0) = 0$.
 * write the procedure of using the variation of parameter method to solve the second order ODE, and prove the formula.
 * find the solution of $$y'' + 4y = 8 \tan t$$
 * try to model a simple spring-mass system, then ignore the dampling force and external force, derive the amplitute, phase angle, natuaral frequency, period ... of the system.
+
+# week6
+* A mass weighing 4 lb stretches a spring 2 in. Suppose that the mass is given an additional 6 in displacement in the positive direction and then released. The mass is in a medium that exerts a viscous resistance of 6 lb when the mass has a velocity of 3 ft/s. Under the assumptions discussed in this section, formulate the initial value problem that governs the motion of the mass.
+* solve the damped vvibration, in terms of parameter. $$mu''+ γu' + ku = 0$$
+* for the vibration system, write the definition of quasi frequency, and quasi period.
+* compare the quasi frequencty with the frequency in undamped motion, and explain when the damp is small, it reduce or increase the frequency of oscillation, and also compare the period.
+* write the definition that we calle the homogenous spring-mass system as critically damped, and overdamped
+* for the forced damped spring mass system, write the form of the external force.
+* write the definition of transient solution for previous system.
+* write the definition of steady-state solution of previous system.
+* 

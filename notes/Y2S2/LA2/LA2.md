@@ -131,3 +131,29 @@ then
 (a) $||u|| =\sqrt{u_1^2 + u_2^2 + ... + u_n^n}$
 (b) $d(u,v) = \sqrt{(u_1 −v_1)^2 +(u_2 −v_2)^2 +...+(u_n −v_n)^2}$
 (c) $\langle u,v \rangle =u_1v_1+u_2v_2 +...+u_nv_n$
+* Let $V$ be a finite-dimensional inner product space. If $P$ is the transition matrix from one orthonormal basis for $V$ to another orthonormal basis for $V$ , then $P$ is an orthogonal matrix.
+* write the rotatetion matrix for 3D, (rotate the vector, with respect to x,y,z axis.)
+* **exercise revice**
+
+## 7.2
+* write the definition of A and B are orthogonally similar matrices
+* prove that If $A$ is an $n × n$ matrix with real entries, then the following are equivalent.
+(a) A is orthogonally diagonalizable.
+(b) A has an orthonormal set of n eigenvectors.
+(c) A is symmetric.
+* If A is a symmetric matrix with real entries, then
+(a) The eigenvalues of A are all real numbers.
+(b) Eigenvectors from different eigenspaces are orthogonal.
+* write the procedure of orthogonally diagonalizing a symmetry matrix.
+* Find an orthogonal matrix P that diagonalizes
+$$A=\begin{bmatrix}
+    4 & 2 &  2 \\
+    2 & 4 &  2 \\
+    2 & 2 &  4
+\end{bmatrix}$$
+* write the spectral decomposition of a symmetry matrix
+* **exercise revice**
+
+## 7.3
+* write the definition of quadratic form
+* write $x^2_1 + 7x^2_2 − 3x^2_3 + 4x_1x_2 − 2x_1x_3 + 8x_2x_3$ into matrix form
