@@ -19,8 +19,9 @@ Rather than traditional notes, I try to built around Active-Recall Concept Check
 
 ## Subject
 
-Here is some  note i current have
+Here is some  note i currently have
 (F) $\implies$ finished
+(M) $\implies$ current .tex version is only cover for scpe of midterm
 ### University Coursework
 #### Y1S1
 * **Discrete Mathematics**(F)
@@ -29,8 +30,8 @@ Here is some  note i current have
 * **Calculus 1**(F)
 
 #### Y1S2
-* **Linear algebra 2**
-* **Calculus 2**
+* **Linear algebra 2**(M)
+* **Calculus 2**(M)
 * **ODE**
 * **Probability**
 

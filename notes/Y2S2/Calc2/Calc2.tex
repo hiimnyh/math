@@ -1,0 +1,725 @@
+\documentclass{../../../templates/natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Course Metadata
+\title{Calculus 2}
+\author{Yi Hong}
+\subtitle{Note:p}
+
+% Layout and Geometry Adjustments
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}[1][]{%
+    \begin{bluebox}[#1]\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}[1][]{%
+    \begin{greenbox}[#1]\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}[1][]{%
+    \begin{redbox}[#1]\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}[1][]{\begin{whitebox}[#1]\textbf{Conventions \& Exam Pitfalls. }}{\end{whitebox}}
+\newenvironment{reviewbox}[1][]{\begin{whitebox}[#1]\textbf{Textbook Exercise Checklist. }}{\end{whitebox}}
+
+% Checklist Item Macros
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+\newcommand{\Img}{\operatorname{Im}}
+
+\begin{document}
+
+% =========================================================================
+% PART 1: CHAPTER 11 — INFINITE SEQUENCES AND SERIES
+% =========================================================================
+
+% -------------------------------------------------------------------------
+% SECTION 11.1: SEQUENCES
+% -------------------------------------------------------------------------
+\section{Sequences (Section 11.1)}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Sequence Convergence:} State the formal $\epsilon$-$N$ definition of a sequence converging to limit $L$ ($\lim_{n \to \infty} a_n = L \iff \forall \epsilon > 0, \, \exists N \in \mathbb{N} \text{ such that } n > N \implies |a_n - L| < \epsilon$).
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Limit of a Function vs. Limit of a Sequence:} Notice that if $\lim_{x \to \infty} f(x) = L$ and $f(n) = a_n$ when $n$ is an integer, then:
+        \[ \lim_{x \to \infty} f(x) = \lim_{n \to \infty} f(n) = L \]
+        \citem \textbf{Limit Laws for Sequences:} Notice that the properties of limits (Sum, Difference, Constant Multiple, Product, Quotient, and Power Laws) are also satisfied for sequences.
+        \citem \textbf{The Squeeze Theorem for Sequences:} State the Squeeze Theorem for sequences: if $a_n \le b_n \le c_n$ for all $n \ge n_0$ and $\lim_{n \to \infty} a_n = \lim_{n \to \infty} c_n = L$, then $\lim_{n \to \infty} b_n = L$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Absolute Value Limit Equivalence:} Prove that:
+        \[ \lim_{n \to \infty} |a_n| = 0 \iff \lim_{n \to \infty} a_n = 0 \]
+        using the Squeeze Theorem with $-|a_n| \le a_n \le |a_n|$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Continuous Function on a Sequence:} If $\lim_{n \to \infty} a_n = L$ and the function $f$ is continuous at $L$, then:
+        \[ \lim_{n \to \infty} f(a_n) = f(L) \]
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Monotonic Sequences:} Write the definitions of a strictly monotonic sequence and a monotonic sequence (increasing, decreasing, strictly increasing, strictly decreasing).
+        \citem \textbf{Bounded Sequences:} Write the definitions of a sequence bounded above ($\exists M$ such that $a_n \le M$), bounded below ($\exists m$ such that $a_n \ge m$), and the definition of a bounded sequence ($m \le a_n \le M$).
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Monotonic Sequence Theorem:} State the Monotonic Sequence Theorem: every bounded, monotonic sequence is convergent.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Recursive Sequence Convergence and Limit Calculation:} Prove that the sequence:
+        \[ a_1 = 2, \quad a_{n+1} = \frac{a_n + 6}{2}, \quad n \ge 1 \]
+        is convergent, and find its limit $L$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.1):} Problems 31, 37, 51.
+        \begin{itemize}
+            \citem Exercise 31
+            \citem Exercise 37
+            \citem Exercise 51
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.2: SERIES
+% -------------------------------------------------------------------------
+\section{Series (Section 11.2)}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Series:} What is an infinite series $\sum_{n=1}^\infty a_n$?
+        \citem \textbf{Partial Sums and Convergence:} Write the definition of the partial sum $s_k = \sum_{n=1}^k a_n$, and define when a series converges to sum $s$ or diverges.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Test for Divergence:} Write the Test for Divergence (if $\lim_{n \to \infty} a_n$ does not exist or $\lim_{n \to \infty} a_n \neq 0$, then the series $\sum_{n=1}^\infty a_n$ diverges), and prove it using $a_n = s_n - s_{n-1}$.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Harmonic Series Divergence:} Show that the harmonic series $\sum_{n=1}^\infty \frac{1}{n}$ is divergent.
+    \end{itemize}
+\end{challengebox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Constant Multiple of Divergent Series:} Notice that if $\sum_{n=1}^\infty a_n$ diverges and $c \ne 0$, then $\sum_{n=1}^\infty c a_n$ also diverges.
+    \end{itemize}
+\end{warningbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.2):} Problems 15, 19, 31, 37, 39, 45, 49, 71.
+        \begin{itemize}
+            \citem Exercise 15
+            \citem Exercise 19
+            \citem Exercise 31
+            \citem Exercise 37
+            \citem Exercise 39
+            \citem Exercise 45
+            \citem Exercise 49
+            \citem Exercise 71
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.3: THE INTEGRAL TEST AND ESTIMATES OF SUMS
+% -------------------------------------------------------------------------
+\section{The Integral Test and Estimates of Sums (Section 11.3)}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{The Integral Test:} Write the Integral Test, and state all required conditions on the function $f$ (continuous, positive, and decreasing on $[1, \infty)$ where $f(n) = a_n$).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Integral Test Application:} Determine whether:
+        \[ \sum_{n=1}^\infty \frac{1}{n^2 + 1} \]
+        is convergent or divergent.
+    \end{itemize}
+\end{challengebox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{$p$-Series Definition:} Write the definition of a $p$-series $\sum_{n=1}^\infty \frac{1}{n^p}$.
+    \end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{$p$-Series Convergence Proof:} Prove that the $p$-series is convergent $\iff p > 1$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Remainder and Sum Estimation:} If the series is convergent, we can approximate the sum $S$ by the remainder (error) $R_n$. Write the definition of $R_n = S - s_n$, and write the upper and lower bounds of $R_n$ and the estimate for $S$:
+        \[ \int_{n+1}^\infty f(x)\,dx \le R_n \le \int_n^\infty f(x)\,dx \]
+        \[ s_n + \int_{n+1}^\infty f(x)\,dx \le S \le s_n + \int_n^\infty f(x)\,dx \]
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.3):} Problems 7, 9, 11, 17, 25, 29, 30, 31, 41.
+        \begin{itemize}
+            \citem Exercise 7
+            \citem Exercise 9
+            \citem Exercise 11
+            \citem Exercise 17
+            \citem Exercise 25
+            \citem Exercise 29
+            \citem Exercise 30
+            \citem Exercise 31
+            \citem Exercise 41
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.4: THE COMPARISON TESTS
+% -------------------------------------------------------------------------
+\section{The Comparison Tests (Section 11.4)}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Direct Comparison Test:} Write the Direct Comparison Test for series with positive terms ($a_n \le b_n \implies (\sum b_n \text{ converges} \implies \sum a_n \text{ converges})$ and $a_n \ge b_n \implies (\sum b_n \text{ diverges} \implies \sum a_n \text{ diverges})$).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Direct Comparison Application:} Determine whether:
+        \[ \sum_{n=1}^\infty \frac{\ln n}{n} \]
+        is divergent or convergent by using the Direct Comparison Test.
+        \citem \textbf{Limit Comparison Test and Proof:} Write the Limit Comparison Test (for series with positive terms $a_n, b_n > 0$, if $\lim_{n \to \infty} \frac{a_n}{b_n} = c \in (0, \infty)$), and prove it.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.4):} Problems 3, 5, 17, 21.
+        \begin{itemize}
+            \citem Exercise 3
+            \citem Exercise 5
+            \citem Exercise 17
+            \citem Exercise 21
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.5: ALTERNATING SERIES
+% -------------------------------------------------------------------------
+\section{Alternating Series (Section 11.5)}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Alternating Series Definition:} Write the definition of an alternating series ($\sum (-1)^{n-1} b_n$ or $\sum (-1)^n b_n$ with $b_n > 0$).
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Alternating Series Test:} Write the Alternating Series Test (Leibniz's Test: if (i) $b_{n+1} \le b_n$ for all $n$, and (ii) $\lim_{n \to \infty} b_n = 0$, then the series converges).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Alternating Series Error Bound:} Notice that for an alternating series satisfying the Alternating Series Test:
+        \[ |s - s_n| = |R_n| \le b_{n+1} \]
+    \end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Absolute and Conditional Convergence:} Write the definitions of absolute convergence (when $\sum |a_n|$ converges) and conditional convergence (when $\sum a_n$ converges but $\sum |a_n|$ diverges).
+    \end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Absolute Convergence Test and Proof:} Write the Absolute Convergence Test (if $\sum |a_n|$ converges, then $\sum a_n$ converges), and prove it using $0 \le a_n + |a_n| \le 2|a_n|$ and the Direct Comparison Test.
+    \end{itemize}
+\end{challengebox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Rearrangement Theorem:} Write the Rearrangement Theorem (if $\sum a_n$ is an absolutely convergent series with sum $s$, then any rearrangement has the same sum $s$; if conditionally convergent, terms can be rearranged to sum to any real number or diverge).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.5):} Problems 5, 7, 13, 23, 37, 41.
+        \begin{itemize}
+            \citem Exercise 5
+            \citem Exercise 7
+            \citem Exercise 13
+            \citem Exercise 23
+            \citem Exercise 37
+            \citem Exercise 41
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.6 & 11.7: RATIO AND ROOT TESTS, TESTING STRATEGY
+% -------------------------------------------------------------------------
+\section{Ratio and Root Tests, Testing Strategy (Sections 11.6 \& 11.7)}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{The Ratio Test and Proof:} Write the Ratio Test ($\lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| = L$: $L < 1 \implies$ absolutely convergent; $L > 1 \implies$ divergent; $L = 1 \implies$ inconclusive), and try to prove it.
+    \end{itemize}
+\end{challengebox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{The Root Test:} Write the Root Test ($\lim_{n \to \infty} \sqrt[n]{|a_n|} = L$: $L < 1 \implies$ absolutely convergent; $L > 1 \implies$ divergent; $L = 1 \implies$ inconclusive).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Strategy for Testing Series:} Try to write the comprehensive strategy and decision rules for testing series convergence and divergence:
+        \begin{enumerate}
+            \item If the $n$th term does not approach 0, use the Test for Divergence.
+            \item If of the form $\sum 1/n^p$ or $\sum a r^{n-1}$, use $p$-series or geometric series test.
+            \item If similar to a $p$-series or geometric series, use Direct or Limit Comparison.
+            \item If the series alternates in sign, consider the Alternating Series Test or Absolute Convergence.
+            \item If involving factorials or other products ($k^n, n!$), use the Ratio Test.
+            \item If involving $n$th powers $(a_n = (b_n)^n)$, use the Root Test.
+            \item If $f(x)$ is easily integrable, apply the Integral Test.
+        \end{enumerate}
+    \end{itemize}
+\end{warningbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Sections 11.6 \& 11.7):}
+        \begin{itemize}
+            \citem \textbf{Section 11.6:} Problems 1, 5, 21, 25, 35, 41.
+            \begin{itemize}
+                \citem Exercise 1
+                \citem Exercise 5
+                \citem Exercise 21
+                \citem Exercise 25
+                \citem Exercise 35
+                \citem Exercise 41
+            \end{itemize}
+            \citem \textbf{Section 11.7:} Problems 1, 3, 5, 7, 11, 13, 15, 19, 23.
+            \begin{itemize}
+                \citem Exercise 1
+                \citem Exercise 3
+                \citem Exercise 5
+                \citem Exercise 7
+                \citem Exercise 11
+                \citem Exercise 13
+                \citem Exercise 15
+                \citem Exercise 19
+                \citem Exercise 23
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.8: POWER SERIES
+% -------------------------------------------------------------------------
+\section{Power Series (Section 11.8)}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Power Series in $x$:} Write the definition of a power series in $x$ ($\sum_{n=0}^\infty c_n x^n = c_0 + c_1 x + c_2 x^2 + \dots$).
+    \end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Convergence Interval Calculation:} For what values of $x$ is the series:
+        \[ \sum_{n=0}^\infty \frac{x^n}{n!} \]
+        convergent?
+    \end{itemize}
+\end{challengebox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Trichotomy Theorem for Power Series Convergence:} Notice the theorem that the set on which a power series $\sum_{n=0}^\infty c_n x^n$ converges is always an interval of one of the following three types:
+        \begin{enumerate}
+            \item[(i)] The single point $x = 0$.
+            \item[(ii)] An interval $(-R, R)$, plus possibly one or both end points.
+            \item[(iii)] The whole real line $(-\infty, \infty)$.
+        \end{enumerate}
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Radius of Convergence:} Write the definition of the radius of convergence $R$.
+        \citem \textbf{Interval of Convergence:} Write the definition of the interval of convergence of a power series.
+        \citem \textbf{Power Series Centered at $a$:} Write the definition of a power series in $x$ centered at $a$:
+        \[ \sum_{n=0}^\infty c_n (x - a)^n \]
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Convergence Cases for Series Centered at $a$:} Write the possible cases of interval of convergence for a power series centered at $a$: (i) single point $\{a\}$ ($R=0$); (ii) interval $(a-R, a+R)$, $[a-R, a+R)$, $(a-R, a+R]$, or $[a-R, a+R]$ ($R>0$); (iii) $(-\infty, \infty)$ ($R=\infty$).
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Radius and Interval Calculation:} Find the interval of convergence and radius of convergence of:
+        \[ \sum_{n=0}^\infty \frac{(-3)^n x^n}{\sqrt{n+1}} \]
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.8):} Problems 7, 23, 25, 37.
+        \begin{itemize}
+            \citem Exercise 7
+            \citem Exercise 23
+            \citem Exercise 25
+            \citem Exercise 37
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.9: REPRESENTATIONS OF FUNCTIONS AS POWER SERIES
+% -------------------------------------------------------------------------
+\section{Representations of Functions as Power Series (Section 11.9)}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Power Series Representation of $\frac{1}{1+x^2}$:} Express $\frac{1}{1+x^2}$ as the sum of a power series, and also write the interval of convergence.
+        \citem \textbf{Power Series Representation of $\frac{x^3}{x+2}$:} Express $\frac{x^3}{x+2}$ as the sum of a power series, and also write the interval of convergence.
+    \end{itemize}
+\end{challengebox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Term-by-Term Differentiation and Integration Theorem:} Notice the theorem that for a power series, after term-by-term differentiation and integration, the radius of convergence remains the same.
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Endpoint Behavior Under Differentiation/Integration:} Notice that although term-by-term differentiation and integration preserve the radius of convergence $R$, the interval of convergence may change at the endpoints.
+    \end{itemize}
+\end{warningbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Interval and Explicit Sum Formula:} Determine the interval of convergence for:
+        \[ x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \dots \]
+        and find an explicit formula for this series when it is convergent.
+        \citem \textbf{Power Series for $\tan^{-1}x$:} Find the power series representation for $\tan^{-1}x$, and also find its interval of convergence.
+        \citem \textbf{Definite Integral Approximation:} Approximate:
+        \[ \int_0^{1/2} \frac{1}{1+x^7} \, dx \]
+        correct to within $10^{-7}$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.9):} Problems 5, 7, 9, 21, 27, 31.
+        \begin{itemize}
+            \citem Exercise 5
+            \citem Exercise 7
+            \citem Exercise 9
+            \citem Exercise 21
+            \citem Exercise 27
+            \citem Exercise 31
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.10: TAYLOR AND MACLAURIN SERIES
+% -------------------------------------------------------------------------
+\section{Taylor and Maclaurin Series (Section 11.10)}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Taylor Coefficient Formula Proof:} Prove that if $f$ has a power series representation (expansion) at $a$:
+        \[ f(x) = c_0 + c_1(x - a) + c_2(x - a)^2 + c_3(x - a)^3 + \dots \quad \text{when } |x - a| < R, \]
+        then:
+        \[ c_n = \frac{f^{(n)}(a)}{n!} \]
+    \end{itemize}
+\end{challengebox}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Taylor and Maclaurin Series Definitions:} Write the definition of the Taylor series of $f$ at $a$ ($\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n$), and also the definition of the Maclaurin series ($a = 0$).
+        \citem \textbf{$n$th-Degree Taylor Polynomial:} Write the definition of the $n$th-degree Taylor polynomial $T_n(x)$ of $f$ at $a$.
+        \citem \textbf{Sum of Taylor Series Condition:} When is $f(x)$ called the sum of its Taylor series ($f(x) = \lim_{n \to \infty} T_n(x)$)?
+        \citem \textbf{Remainder of Taylor Series:} Write the definition of the remainder $R_n(x) = f(x) - T_n(x)$ of a Taylor series.
+    \end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Taylor Series Convergence Theorem:} Notice the theorem that if $f(x) = T_n(x) + R_n(x)$ and:
+        \[ \lim_{n \to \infty} R_n(x) = 0 \]
+        for $|x - a| < R$, then $f$ is equal to the sum of its Taylor series on the interval $|x - a| < R$.
+        \citem \textbf{Taylor's Inequality:} In order to show $\lim_{n \to \infty} R_n(x) = 0$, we can use Taylor's Inequality. Please state what it is: if $|f^{(n+1)}(x)| \le M$ for $|x - a| \le d$, then the remainder $R_n(x)$ of the Taylor series satisfies:
+        \[ |R_n(x)| \le \frac{M}{(n+1)!} |x - a|^{n+1} \quad \text{for } |x - a| \le d. \]
+        \citem \textbf{Factorial Limit Identity:} Notice that:
+        \[ \lim_{n \to \infty} \frac{x^n}{n!} = 0 \quad \text{for all real } x. \]
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Maclaurin Series for $e^x$ Proof:} Prove that $e^x$ is equal to the sum of its Maclaurin series for all real $x$ by using Taylor's Inequality.
+        \citem \textbf{Binomial Series Expansion and Convergence:} Find the Maclaurin series for $(1+x)^k$ and show that it is convergent for $|x| < 1$.
+        \citem \textbf{Maclaurin Series of $\frac{1}{\sqrt{4 - x}}$:} Find the Maclaurin series of:
+        \[ \frac{1}{\sqrt{4 - x}} \]
+        and determine its radius of convergence.
+    \end{itemize}
+\end{challengebox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Important Maclaurin Series Reference:} Refer back to key Maclaurin series in lecture notes ($e^x, \sin x, \cos x, \frac{1}{1-x}, \ln(1+x), \tan^{-1}x, (1+x)^k$).
+    \end{itemize}
+\end{warningbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Definite Integral Power Series Approximation:} Evaluate:
+        \[ \int_0^1 e^{-x^2} \, dx \]
+        correct to within an error of $0.001$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.10):} Problems 15, 21, 37, 45, 57, 61, 63, 67, 79, 81, 83, 85.
+        \begin{itemize}
+            \citem Exercise 15
+            \citem Exercise 21
+            \citem Exercise 37
+            \citem Exercise 45
+            \citem Exercise 57
+            \citem Exercise 61
+            \citem Exercise 63
+            \citem Exercise 67
+            \citem Exercise 79
+            \citem Exercise 81
+            \citem Exercise 83
+            \citem Exercise 85
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 11.11: APPLICATIONS OF TAYLOR POLYNOMIALS
+% -------------------------------------------------------------------------
+\section{Applications of Taylor Polynomials (Section 11.11)}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Taylor Polynomial Approximation and Accuracy Bound:} Approximate the function $f(x) = \sqrt[3]{x}$ by a Taylor polynomial of degree 2 at $a = 8$, and determine how accurate this approximation is when $7 \le x \le 9$.
+    \end{itemize}
+\end{challengebox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Alternating Series Error Bound Note:} For an alternating series where the terms $b_n$ are not necessarily positive, notice that:
+        \[ |S - S_n| \le |b_{n+1}| \]
+    \end{itemize}
+\end{warningbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 11.11):} Problems 5, 13, 19, 25, 28.
+        \begin{itemize}
+            \citem Exercise 5
+            \citem Exercise 13
+            \citem Exercise 19
+            \citem Exercise 25
+            \citem Exercise 28
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% =========================================================================
+% PART 2: CHAPTER 10 — PARAMETRIC EQUATIONS AND POLAR COORDINATES
+% =========================================================================
+
+% -------------------------------------------------------------------------
+% SECTION 10.1: CURVES DEFINED BY PARAMETRIC EQUATIONS
+% -------------------------------------------------------------------------
+\section{Curves Defined by Parametric Equations (Section 10.1)}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Parametric Curve Definitions:} We can define a curve by parametric equations $x = f(t), y = g(t)$ ($a \le t \le b$). What is the initial point, and what is the terminal point?
+    \end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+    \begin{itemize}
+        \citem \textbf{Cycloid and Parametric Derivation:} What is a cycloid, and try to derive the parametric equations of this curve ($x = r(\theta - \sin\theta), y = r(1 - \cos\theta)$).
+    \end{itemize}
+\end{challengebox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 10.1):} Problems 17, 37, 47, 51.
+        \begin{itemize}
+            \citem Exercise 17
+            \citem Exercise 37
+            \citem Exercise 47
+            \citem Exercise 51
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 10.2: CALCULUS WITH PARAMETRIC CURVES
+% -------------------------------------------------------------------------
+\section{Calculus with Parametric Curves (Section 10.2)}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{First Derivative of Parametric Equations:} For parametric equations $x = f(t), y = g(t)$, how do we define:
+        \[ \frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{g'(t)}{f'(t)} \quad \left(\text{provided } \frac{dx}{dt} \neq 0\right) \]
+        \citem \textbf{Second Derivative of Parametric Curves:} How do we find:
+        \[ \frac{d^2y}{dx^2} = \frac{\od{}{t}\left(\frac{dy}{dx}\right)}{\frac{dx}{dt}} \]
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{warningbox}
+    \begin{itemize}
+        \citem \textbf{Parametric Second Derivative Pitfall:} Notice that $\frac{d^2y}{dx^2} \neq \frac{d^2y/dt^2}{d^2x/dt^2}$. Always differentiate $\frac{dy}{dx}$ with respect to $t$ and divide by $\frac{dx}{dt}$.
+    \end{itemize}
+\end{warningbox}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Area Under a Parametric Curve:} Write the formula for the area under the parametric curve $x = f(t), y = g(t), a \le t \le b$, where $g(t) \ge 0$:
+        \[ A = \int_a^b y \, dx = \int_\alpha^\beta g(t) f'(t) \, dt \]
+        \citem \textbf{Arc Length of a Parametric Curve:} Write the arc length formula for the parametric curve $x = f(t), y = g(t), a \le t \le b$:
+        \[ L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} \, dt \]
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 10.2):} Problems 5, 7, 19, 23, 29, 35, 37, 39, 47.
+        \begin{itemize}
+            \citem Exercise 5
+            \citem Exercise 7
+            \citem Exercise 19
+            \citem Exercise 23
+            \citem Exercise 29
+            \citem Exercise 35
+            \citem Exercise 37
+            \citem Exercise 39
+            \citem Exercise 47
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 10.3: POLAR COORDINATES
+% -------------------------------------------------------------------------
+\section{Polar Coordinates (Section 10.3)}
+
+\begin{recallbox}
+    \begin{itemize}
+        \citem \textbf{Polar Coordinates Definition:} Write the definition of polar coordinates $(r, \theta)$, the pole, and the polar axis, along with the standard conversions $x = r\cos\theta, y = r\sin\theta, r^2 = x^2 + y^2, \tan\theta = y/x$.
+        \citem \textbf{Lima\c{c}ons and Cardioid Expressions:} Write the polar graph expressions of lima\c{c}ons ($r = a \pm b\cos\theta, r = a \pm b\sin\theta$) and the cardioid ($a = b$).
+        \citem \textbf{Rose Curves and Petal Rules:} Write the expressions for rose curves ($r = a\cos(n\theta), r = a\sin(n\theta)$), and state how to determine how many leaves (petals) these roses have ($n$ petals if $n$ is odd, $2n$ petals if $n$ is even).
+    \end{itemize}
+\end{recallbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 10.3):} Problems 3, 5, 7, 9.
+        \begin{itemize}
+            \citem Exercise 3
+            \citem Exercise 5
+            \citem Exercise 7
+            \citem Exercise 9
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+% -------------------------------------------------------------------------
+% SECTION 10.4: AREAS AND LENGTHS IN POLAR COORDINATES
+% -------------------------------------------------------------------------
+\section{Areas and Lengths in Polar Coordinates (Section 10.4)}
+
+\begin{theoremsbox}
+    \begin{itemize}
+        \citem \textbf{Polar Region Area Formula:} How do we find the area of a region in polar coordinates? Write the formula:
+        \[ A = \int_a^b \frac{1}{2} r^2 \, d\theta = \int_a^b \frac{1}{2} [f(\theta)]^2 \, d\theta \]
+        \citem \textbf{Polar Curve Arc Length Formula:} How do we find the arc length of a polar graph in polar coordinates? Write the formula:
+        \[ L = \int_a^b \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta \]
+        \citem \textbf{Polar Graph Tangent Line Formula:} How do we find the tangent line of a polar graph in polar coordinates? Write the slope formula:
+        \[ \frac{dy}{dx} = \frac{\frac{dr}{d\theta}\sin\theta + r\cos\theta}{\frac{dr}{d\theta}\cos\theta - r\sin\theta} \]
+    \end{itemize}
+\end{theoremsbox}
+
+\begin{reviewbox}
+    \begin{itemize}
+        \citem \textbf{Textbook Exercise Revision (Section 10.4):} Problems 1, 3, 5, 17, 23, 27, 31, 49, 57, 71.
+        \begin{itemize}
+            \citem Exercise 1
+            \citem Exercise 3
+            \citem Exercise 5
+            \citem Exercise 17
+            \citem Exercise 23
+            \citem Exercise 27
+            \citem Exercise 31
+            \citem Exercise 49
+            \citem Exercise 57
+            \citem Exercise 71
+        \end{itemize}
+    \end{itemize}
+\end{reviewbox}
+
+\end{document}
