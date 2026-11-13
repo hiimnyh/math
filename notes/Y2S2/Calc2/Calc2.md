@@ -22,7 +22,7 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * show the harmonic series is divergent.
 * notice that , if $\sum _{n=1}^{\infty}a_n$ diverges and $c \ne 0$, then $\sum _{n=1}^{\infty}ca_n$ also diverges.
 * **exercise revice**
-  * 15, 19, 31, 37, 39, 45, 49, 71
+  * 15, 19, 31, 36, 37, 39, 45, 49, 52, 71, 94, 
 
 ## 11.3
 * Write the integral test, and the conditions of function also.
@@ -31,14 +31,14 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * proof that p-series is convergent $\iff p>1$
 * If the series is convergent, we can appropximate $S$ by the remainder (error) $R_n$, write the defintion of $R_n$, also write the upper and lower bound of $R_n$ 
 * **exercise revice**
-  * 7, 9, 11, 17, 25, 29, 30, 31, 41
+  * 7, 9, 11, 15，17, 25, 29, 30, 31, 41, 47, 48
 
 ## 11.4
 * write the Direct Comparison Test
 * determine $\sum _{n=1}^{\infty} \frac{\ln n }{n}$ is divergent or convergent by using direct comparison test.
 * Write the Limit comparison test, and prove it.
 * **exercise revice**
-  * 3, 5, 17, 21
+  * 3, 5, 13, 17, 20, 21, 33, 35, 38, 40, 49, 51, 52, 54
 
 ## 11.5
 * Write the definition off alternating series.
@@ -195,3 +195,27 @@ $$f(x, y) = x \ln(y^2 − x)$$
 * write the definition of level curve.
 * Sketch the level curves of the function $f(x, y) = 6 − 3x − 2y$ for the
 values $k = −6, 0, 6, 12$.
+* write the doefinition of level surface.
+* Find the level surfaces of the function
+$$f(x, y, z) = \sqrt{x^2 + y^2 + z^2}$$
+* **exercise revice**
+
+## 14.2
+* write the definition of Limit of a Function of Two Variables
+* notice that If the limit exists, f(x, y) must approach the same limit no matter which
+path (x, y) takes to approach (a, b).
+* notice that the Properties of Limits just similar as the single variable one.
+* Show that the function $f(x, y) = \frac{x^2 − y^2}{x^2 + y^2}$
+has no limit at the origin.
+*  If $f(x, y) = \frac{xy^2}{x^2 + y^4}$, does $$\lim_{
+(x,y)→(0,0)}
+f(x, y)$$ exist?
+* Find $$\lim_{
+(x,y)→(0,0)} \frac{3x^2y}{x^2 + y^2}$$
+* write the definition of $f(x, y)$ is continuous at the point $(a, b)$
+* determine the interval of continuous of $f(x, y) = \cos (x^3 − 4xy + y^2)$
+* **exercise revice**
+
+## 14.3
+* write the definition of Partial Derivatives with respect to x and y.
+* If $z = x^2\sin xy^2$ , find $\frac{\partial z}{\partial x}$ and $\frac{∂z}{∂y}$ .

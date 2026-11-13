@@ -4,6 +4,7 @@
 * notice that every square matrix is similar to a matrix in Jordan canonical form.
 * back to refer all the exercise appear in lecturer note.
 * **exercise revice**
+  * ?
 
 # Chap 6
 ## 6.1
@@ -29,7 +30,7 @@ then
 * write the definition of The Evaluation Inner Product on $P_n$, and verify it is indeed the inner product space
 * write the definition of Inner Product on C[a, b], and verify it is indeed the inner product space.
 * **exerise revice**
-  * 3, 5, 9, 21, 23, 34
+  * 3, 5, 8, 9,11, 15, 21, 23, 30, 32, 34, 46
 
 ## 6.2
 * Prove Cauchy-Schwarz Inequality. If u and v are vectors in a real inner product space V , then
@@ -50,7 +51,7 @@ $$|⟨u, v⟩| ≤ ∥u∥ ∥v∥$$
 * Prove that suppose V is finite dimensional, and W is subspace of V, then $$\dim W+\dim W^\perp =\dim V$$
 * show that $(W^\perp)^\perp =W$
 * **exercise revice**
-  * 1, 5, 9, 16, 18, 29(see the way), 45, 49
+  * 1, 4, 5, 9, 11, 16, 18,20(see the method), 25, 27,  29(see the way), 45, 48, 49
 ## 6.3
 * write the definition of the set is orthogonal, and the set is orthonormal.
 * prove that If $S = \{v_1, v_2,..., v_n\}$ is an orthogonal set of nonzero vectors in an inner product space V , then S is linearly independent.
@@ -76,7 +77,7 @@ be factored as
 $$A = QR$$
 where $Q$ is an m×n matrix with orthonormal column vectors, and $R$ is an $n×n$ invertible upper triangular matrix.
 * **exercise revice**
-  * 3, 7, 19, 25, 31, 35, 48, 49, 55 
+  * 3, 7, 17, 19, 25, 31, 35, 41, 48, 49, 55 
 
 
 ## 6.4
@@ -97,7 +98,7 @@ the origin of $R^2$ that makes an angle θ with the positive x-axis.
 is a QR-decomposition of A, then for each b in $R^m$ the system $Ax = b$ has a unique least squares solution given by
 $$x =R^{−1}Q^Tb$$.
 * **exercise revice**
-  *  3, 11, 15, 21, 25, 28
+  *  3, 7, 11, 15, 18, 21, 23, 25, 28, 29, 30
 
 ## 6.5
 * write the concept of how do we fnd the regression line.
@@ -105,7 +106,7 @@ $$x =R^{−1}Q^Tb$$.
 (3, 4)
 * what if we dont want to use regression line to fit the data point, we use some higher degree polynomial, write the procedure to find the polynomial.
 * **exercise revice**
-  * 3
+  * 3, 8
 
 # Chap 7
 ## 7.1
@@ -134,6 +135,7 @@ then
 * Let $V$ be a finite-dimensional inner product space. If $P$ is the transition matrix from one orthonormal basis for $V$ to another orthonormal basis for $V$ , then $P$ is an orthogonal matrix.
 * write the rotatetion matrix for 3D, (rotate the vector, with respect to x,y,z axis.)
 * **exercise revice**
+  * 5, 15, 18, 21, 23, 26, 27
 
 ## 7.2
 * write the definition of A and B are orthogonally similar matrices
@@ -153,7 +155,27 @@ $$A=\begin{bmatrix}
 \end{bmatrix}$$
 * write the spectral decomposition of a symmetry matrix
 * **exercise revice**
+  * 11, 17, 19, 20, 24,  28, 29
 
 ## 7.3
 * write the definition of quadratic form
 * write $x^2_1 + 7x^2_2 − 3x^2_3 + 4x_1x_2 − 2x_1x_3 + 8x_2x_3$ into matrix form
+* write the The Principal Axes Theorem
+* (a) Identify the conic whose equation is $5x^2 − 4xy + 8y^2 − 36 = 0 $ by rotating
+the xy-axes to put the conic in standard position.
+(b) Find the angle θ through which you rotated the xy-axes in part (a).
+* write the definition  of A quadratic form $x^TAx$ is said to be positive definite, negative definite, indefinite, positive semidefinite, negative semidefinite
+* prove that If A is a symmetric matrix, then
+(a) $x^TAx$ is positive definite if and only if all eigenvalues of A are positive.
+(b) $x^TAx$ is negative definite if and only if all eigenvalues of A are negative.
+(c) $x^TAx$ is positive semidefinite if and only if all eigenvalues of A are nonnegative.
+(d) $x^TAx$ is negative semidefinite if and only if all eigenvalues of A are nonpositive.
+(e) $x^TAx$ is indefinite if and only if A has at least one positive eigenvalue and
+at least one negative eigenvalue.
+* how do we use Principal Submatrix to determine definiteness.
+* Determine the definiteness of the matrix $$A=\begin{bmatrix}
+    2 & -1 &  -3 \\
+    -1 & 2 &  4 \\
+    -3 & 4 &  9
+\end{bmatrix}$$
+* **exercise revice**

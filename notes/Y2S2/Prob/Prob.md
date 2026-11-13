@@ -64,8 +64,15 @@ $$P(E)=\sum _{k=1} ^n P(E\cap F_k)=\sum _{k=1} ^n P(E|F_k)P(F_k)$$
 * Independent trials consisting of rolling a pair of fair dice are performed. The
 outcome of a roll is the sum of the dice. What is the probability that an outcome of
 5 appears before an outcome of 7?
-* **exercise revice**(P.S.3)
-  * 2, 6, 7, 8, 16
+* **exercise revice**
+  * (P.S.3)
+    * 2, 6, 7, 8, 16
+  * PS4
+    * 1, 4, 7, 8
+  * PS5
+    * 1, 2, 3 
+  * PS6
+    * 2, 3, 4, 5, 6
 
 # Chap4
 ## 4.1

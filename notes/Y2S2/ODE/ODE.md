@@ -1,3 +1,51 @@
+# textbook exercise revice
+* chap1
+  * 1.1
+    * 1,4, 6, 7, 9, 17, 18, 21, 23
+  * 1.2
+    * 4, 12
+  * 1.3
+    * none
+  * concept question
+    * none
+* chap2
+  * 2.1
+    * 11, 16, 18, 24, 26, 27
+  * 2.2   
+    * 2, 3, 9, 14, 16, 17, 30
+  * 2.3
+    * 1, 3, 4, 5, 6, 7, 8, 17
+  * 2.4
+    * 3,4, 5, 8, 17
+  * 2.5
+    * 3, 7, 8
+  * 2.6
+    * 6, 8, 10, 20
+  * 2.8 
+    * 1, 2, 4, 6
+  * CQ
+* chap3
+  * 3.1
+    * 3, 12, 15, 17, 18, 20, 21
+  * 3.2
+    * 3, 7, 9, 13, 22, 24, 25, 27, 28, 30, 32
+  * 3.3
+    * 15, 24, 27
+  * 3.4
+    * 11, 14, 21
+  * 3.5
+    * 4,5,8,9, 16-21( give the form of y_p)
+  * 3.6
+    * 7, 8, 15, 26
+* chap4
+  * 4.1
+    * 3,4, 17, 20
+  * 4.2
+    * 17
+  * 4.3
+    * 9, 13
+
+
 # chap 1
 * what is the direction field
 * write the definition of order of ODE.
@@ -11,6 +59,7 @@
 dt} + 2ty = 4t$$
 * write out the procedure of method of integrating factor.
 * the question ask to analyze the bahavior of solution is basically analyze the property of $y'=...$, when is positive, when is negative, what is the zeros, and when will y' diverge/converge....
+* and for analyzing the bahaviour, another direct approach is just solve the equation.
 * **exercise revice (Problem set 1)**
   * 2(solve the y also), 7,9 (check with the solution), 11, 13
   * 4, 14, 18, 20
@@ -19,7 +68,7 @@ dt} + 2ty = 4t$$
 * what is the initial value pronblem.
 * refer to the example that mentioned in lecturer note also(mixing problem...)
 * sometimes use integrating factor to solve question is better than separating euqation...(I guess so).
-* What is a separable equation.
+* What is a separable equation. (if using this method to solve, always check that whether it got Singular Solutions)
 * write the definition of Autonomoud differential equation.
 * what is the equillibrium solution of an Autonomous solution, what means that the equillibrium solution is 
   * stable;
@@ -67,6 +116,9 @@ of the initial value problem $y' = f (t, y), y(0) = 0$.
 * write the procedure of using the variation of parameter method to solve the second order ODE, and prove the formula.
 * find the solution of $$y'' + 4y = 8 \tan t$$
 * try to model a simple spring-mass system, then ignore the dampling force and external force, derive the amplitute, phase angle, natuaral frequency, period ... of the system.
+* **exercise revice**(PB2)
+  * (c)
+  * (b), (d)
 
 # week6
 * A mass weighing 4 lb stretches a spring 2 in. Suppose that the mass is given an additional 6 in displacement in the positive direction and then released. The mass is in a medium that exerts a viscous resistance of 6 lb when the mass has a velocity of 3 ft/s. Under the assumptions discussed in this section, formulate the initial value problem that governs the motion of the mass.
@@ -77,4 +129,9 @@ of the initial value problem $y' = f (t, y), y(0) = 0$.
 * for the forced damped spring mass system, write the form of the external force.
 * write the definition of transient solution for previous system.
 * write the definition of steady-state solution of previous system.
-* 
+
+# week7
+* how do we determine the interval s.t solution exist for higer order ODE
+* how do we solve Higher-order, linear ODEs
+with constant coefficients by undetermined coeeficient, and for homogeneous part, there are three cases, please state the procedure of deal with these three case.
+* find the solution of $$y^{(4)}+2y''+y=2\sin t$$
