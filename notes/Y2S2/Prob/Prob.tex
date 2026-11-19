@@ -1,0 +1,376 @@
+\documentclass{../../../templates/natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\tcbuselibrary{breakable}
+\tcbset{breakable}
+
+\title{Probability}
+\author{Yi Hong}
+\subtitle{Note:p}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}{%
+    \begin{bluebox}\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}{%
+    \begin{greenbox}\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}{%
+    \begin{redbox}\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}{%
+    \begin{whitebox}\textbf{Conventions \& Exam Pitfalls. }%
+}{\end{whitebox}}
+
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\NegBin}{NegBin}
+
+\begin{document}
+
+% =========================================================================
+% CHAPTER 1: BASIC COMBINATORICS
+% =========================================================================
+\section{Basic Combinatorics}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem This chapter discusses combinatorics topics that fully overlap with the chapter taught in Discrete Mathematics; refer back to the Discrete Mathematics notes.
+\end{itemize}
+\end{warningbox}
+
+
+% =========================================================================
+% CHAPTER 2: AXIOMS OF PROBABILITY
+% =========================================================================
+\section{Axioms of Probability}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem When a question says ``of these balls are withdrawn one at a time'' (or similar), it usually involves permutations.
+\end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of sample space.
+    \citem Write the definition of an event.
+    \citem Write the definition of the union and intersection of events.
+    \citem Write the definition of mutually exclusive events.
+    \citem Write the definition of the null event.
+    \citem Write the definition of the complement of an event.
+    \citem Write the definition of the difference of two events (sets).
+    \citem What does it mean for event $E$ to be contained in $F$ ($E \subseteq F$)?
+\end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+\begin{itemize}
+    \citem Write De Morgan's Laws.
+    \citem Write the three Axioms of Probability.
+    \citem Write the probability version of the Principle of Inclusion-Exclusion (PIE).
+\end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Prove that $P(\emptyset) = 0$.
+    \citem Prove that Axiom 3 also works for the finite case.
+    \citem In the experiment of tossing a coin, if the coin is biased and we believe that a head is twice as likely to appear as a tail, find $P(\{H\})$ and $P(\{T\})$. (Use the axioms to do it.)
+    \citem Prove the Complement Rule:
+    \[
+        P(E^c) = 1 - P(E).
+    \]
+    \citem Prove that if $E \subseteq F$, then $P(E) \le P(F)$.
+    \citem Prove the Addition Rule: if $E$ and $F$ are two events of an experiment,
+    \[
+        P(E \cup F) = P(E) + P(F) - P(E \cap F).
+    \]
+    \citem Prove
+    \[
+        P(B \setminus A) = P(B) - P(B \cap A).
+    \]
+    \citem Assume that $S$ is the sample space of an experiment with $|S|$ equally likely outcomes. Prove that if $E$ is an event of the experiment, then
+    \[
+        P(E) = \frac{|E|}{|S|}.
+    \]
+    \citem A poker hand consists of 5 cards. A full house is a three of a kind plus a pair. What is the probability that one is dealt a full house?
+    \citem In the game of bridge, the entire deck of 52 cards is dealt out to 4 players Amy, Betsy, Christine, and Diana. Find the probability that one of them receives all 13 spades.
+    \citem In the game of bridge, the entire deck of 52 cards is dealt out to 4 players $A, B, C, D$. Find the probability that each player receives 1 ace.
+\end{itemize}
+\end{challengebox}
+
+
+% =========================================================================
+% CHAPTER 3: CONDITIONAL PROBABILITY AND INDEPENDENCE
+% =========================================================================
+\section{Conditional Probability and Independence}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of conditional probability.
+    \citem Write the definition of independent events for two events $E$ and $F$ ($P(E \mid F) = P(E)$).
+    \citem Write the definition of independence for three events $E, F, G$ (state all four required conditions).
+    \citem Write the definition of independence for $n$ events $E_1, E_2, \dots, E_n$.
+\end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+\begin{itemize}
+    \citem Notice the Generalization of the Multiplication Rule: if $E_1, E_2, \dots, E_n$ are events of an experiment,
+    \[
+        P(E_1 E_2 \cdots E_n) = P(E_1)\, P(E_2 \mid E_1)\, P(E_3 \mid E_1 E_2) \cdots P(E_n \mid E_1 E_2 \cdots E_{n-1}).
+    \]
+    \citem Write Bayes' Formula.
+    \citem Notice the Generalization of the Law of Total Probability: if $F_1, \dots, F_n$ are mutually exclusive events such that $\bigcup_{k=1}^n F_k = S$, then
+    \[
+        P(E) = \sum_{k=1}^n P(E \cap F_k) = \sum_{k=1}^n P(E \mid F_k) P(F_k).
+    \]
+    \citem Based on the above, write the Generalization of Bayes' Formula.
+    \citem Notice the symmetry of independence: if $E$ is independent of $F$, then $F$ is independent of $E$.
+\end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem In the card game bridge, the 52 cards are dealt out equally to 4 players --- Alice, Bob, Claire, and Danny. If Alice and Bob have a total of 8 spades among them, what is the probability that Claire has 3 of the remaining spades?
+    \citem Prove that if $E$ and $F$ are events of an experiment,
+    \[
+        P(E \cap F) = P(E \mid F) P(F).
+    \]
+    \citem Prove that if $E$ and $F$ are events of an experiment, then
+    \[
+        P(E) = P(E \mid F) P(F) + P(E \mid F^c) P(F^c).
+    \]
+    \citem At a certain stage of a criminal investigation, the inspector in charge is 60\% convinced of the guilt of a certain suspect. However, a new piece of evidence shows that the criminal has a certain characteristic. If 20\% of the population possesses this characteristic, how certain of the guilt of the suspect should the inspector now be if it turns out that the suspect has the characteristic?
+    \citem Twins can be identical or fraternal. If identical twins must be of the same sex, and fraternal twins have a 50\%--50\% chance of having the same sex or not, and some data indicated that 64\% of twin births are same-sexed, what is the percentage of identical twins?
+    \citem Prove that two events $E$ and $F$ are independent if and only if
+    \[
+        P(E \cap F) = P(E) P(F).
+    \]
+    \citem Prove that if $E$ and $F$ are independent events, then $E$ and $F^c$ are also independent events.
+    \citem Prove that if $E$, $F$, and $G$ are independent events, then $E$ and $F \cap G$ are independent events.
+    \citem Two fair dice are thrown. Let $E$ denote the event that the sum of the dice is 7, $F$ denote the event that the first die equals 4, and $G$ denote the event that the second die equals 3. Are the three events $E$, $F$, and $G$ independent?
+    \citem Independent trials consisting of rolling a pair of fair dice are performed. The outcome of a roll is the sum of the dice. What is the probability that an outcome of 5 appears before an outcome of 7?
+\end{itemize}
+\end{challengebox}
+
+
+% =========================================================================
+% CHAPTER 4: RANDOM VARIABLES
+% =========================================================================
+\section{Random Variables}
+
+% -------------------------------------------------------------------------
+% SECTION 4.1: RANDOM VARIABLES
+% -------------------------------------------------------------------------
+\subsection{Random Variables}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of a random variable $X$.
+    \citem How do we define $P(X = x)$?
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem A life insurance agent has two elderly clients, $A$ and $B$, each of whom has a life insurance policy that pays 1 million ringgit upon death. Let $E_A$ be the event that $A$ will die in the following year, and $E_B$ be the event that $B$ will die in the following year. Assume that $E_A$ and $E_B$ are independent, with probabilities $P(E_A) = 0.05$ and $P(E_B) = 0.1$. Let $X$ be the total amount of money (in units of 1 million ringgit) that will be paid out this year to any of these clients' beneficiaries. Find the probability distribution of $X$.
+\end{itemize}
+\end{challengebox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.2: DISCRETE RANDOM VARIABLES
+% -------------------------------------------------------------------------
+\subsection{Discrete Random Variables}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of a discrete random variable.
+    \citem Write the definition of the probability mass function (PMF).
+    \citem Write the definition of the cumulative distribution function (CDF).
+    \begin{itemize}
+        \item Remark: The domain of the function is always the real numbers ($\R$), even though the random variable is discrete.
+    \end{itemize}
+\end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+\begin{itemize}
+    \citem Notice that for the PMF $p(x)$, it satisfies:
+    \begin{itemize}
+        \item $0 \le p(x) \le 1$
+        \item $\sum_x p(x) = 1$
+    \end{itemize}
+\end{itemize}
+\end{theoremsbox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.3: EXPECTED VALUE
+% -------------------------------------------------------------------------
+\subsection{Expected Value}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of the expected value of a discrete random variable.
+\end{itemize}
+\end{recallbox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.4: EXPECTATION OF A FUNCTION OF A RANDOM VARIABLE
+% -------------------------------------------------------------------------
+\subsection{Expectation of a Function of a Random Variable}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of the $n$th moment of $X$.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Prove that if $X$ is a discrete random variable with probability mass function $p(x)$, then for any real-valued function $g$ of a real variable,
+    \[
+        E(g(X)) = \sum_x g(x) p(x).
+    \]
+    \citem Prove that if $a$ and $b$ are constants, then
+    \[
+        E(aX + b) = aE(X) + b.
+    \]
+    More generally, for any two real-valued functions $g_1$ and $g_2$,
+    \[
+        E(g_1(X) + g_2(X)) = E(g_1(X)) + E(g_2(X)).
+    \]
+\end{itemize}
+\end{challengebox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.5: VARIANCE
+% -------------------------------------------------------------------------
+\subsection{Variance}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of the variance of $X$ and standard deviation.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Prove that if $X$ is a discrete random variable,
+    \[
+        \Var(X) = E(X^2) - (E(X))^2.
+    \]
+    \citem Prove that if $a$ and $b$ are constants, then
+    \[
+        \Var(aX + b) = a^2 \Var(X).
+    \]
+\end{itemize}
+\end{challengebox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.6: BERNOULLI AND BINOMIAL RANDOM VARIABLES
+% -------------------------------------------------------------------------
+\subsection{Bernoulli and Binomial Random Variables}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of a Bernoulli random variable.
+    \citem Write the definition of a binomial random variable and its corresponding PMF. How do we denote that $X$ is a binomial random variable with parameters $n$ and $p$?
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem If $X$ is a binomial random variable with parameters $n$ and $p$, prove that
+    \begin{gather*}
+        E(X) = np, \\
+        \Var(X) = np(1 - p).
+    \end{gather*}
+    \citem Prove that if $X \sim \Bin(n, p)$, where $0 < p < 1$, then as $k$ goes from $0$ to $n$, $P(X = k)$ first increases monotonically and then decreases monotonically, reaching its largest value when $k$ is the largest integer less than or equal to $(n + 1)p$.
+\end{itemize}
+\end{challengebox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.7: POISSON RANDOM VARIABLE
+% -------------------------------------------------------------------------
+\subsection{Poisson Random Variable}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of a Poisson distribution and its notation.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Prove that if $X \sim \Bin(n, p)$ with $n$ large and $p$ small (rare events), then $X$ can be approximated by $\tilde{X} \sim \Poi(\lambda)$, where $\lambda = np$.
+    \citem Prove that if $X \sim \Poi(\lambda)$, then
+    \begin{gather*}
+        E(X) = \lambda, \\
+        \Var(X) = \lambda.
+    \end{gather*}
+    \citem Suppose that the number of typographical errors on a single page of this book has a Poisson distribution with an average of $0.5$ errors per page.
+    \begin{itemize}
+        \item[(a)] Find the probability that there is at least one error on a page.
+        \item[(b)] Find the probability that there is at most one error on a page.
+    \end{itemize}
+    \citem In a certain region, on average there occur 2 earthquakes in a week. Suppose that the number of earthquakes that occur is in accordance with a Poisson process.
+    \begin{itemize}
+        \item[(a)] What is the average number of earthquakes in two weeks' time?
+        \item[(b)] Find the probability that at least 3 earthquakes occur during the next two weeks.
+        \item[(c)] Let $T$ be the time (in weeks), starting from now, until the next earthquake. Find $P(T \le t)$, where $t > 0$.
+    \end{itemize}
+\end{itemize}
+\end{challengebox}
+
+% -------------------------------------------------------------------------
+% SECTION 4.8: OTHER DISCRETE PROBABILITY DISTRIBUTIONS
+% -------------------------------------------------------------------------
+\subsection{Other Discrete Probability Distributions}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of a geometric random variable.
+    \citem Write the definition of a negative binomial random variable.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem If $X \sim \Geo(p)$, prove that
+    \begin{gather*}
+        E(X) = \frac{1}{p}, \\
+        \Var(X) = \frac{1 - p}{p^2}.
+    \end{gather*}
+    \citem If $X \sim \NegBin(r, p)$, prove that
+    \begin{gather*}
+        E(X) = \frac{r}{p}, \\
+        \Var(X) = \frac{r(1 - p)}{p^2}.
+    \end{gather*}
+    \citem Find the expected value and the variance of the number of times one must throw a fair die until the outcome 1 has occurred 4 times.
+    \citem Independent Bernoulli trials resulting in a success with probability $p$ and a failure with probability $1 - p$ are performed.
+    \begin{itemize}
+        \item[(a)] What is the probability that 2 successes occur before 3 failures?
+        \item[(b)] What is the probability that 3 successes occur before 2 failures?
+        \item[(c)] What is the probability that $n$ successes occur before $m$ failures?
+    \end{itemize}
+\end{itemize}
+\end{challengebox}
+
+\end{document}
