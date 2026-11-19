@@ -1,0 +1,318 @@
+\documentclass{../../../templates/natsirt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\title{Ordinary Differential Equations}
+\author{Yi Hong}
+\subtitle{Note:p}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\headheight}{15pt}
+
+% Custom Box Environments for Pure Active-Recall Checklist
+\newcounter{topic}[section]
+
+\newenvironment{recallbox}[1][]{%
+    \begin{bluebox}[#1]\refstepcounter{topic}\textbf{Definitions \& Concepts to State \thesection.\thetopic}%
+}{\end{bluebox}}
+
+\newenvironment{theoremsbox}[1][]{%
+    \begin{greenbox}[#1]\refstepcounter{topic}\textbf{Theorems \& Identities to State \thesection.\thetopic}%
+}{\end{greenbox}}
+
+\newenvironment{challengebox}[1][]{%
+    \begin{redbox}[#1]\refstepcounter{topic}\textbf{Proof Challenges \& Calculations \thesection.\thetopic}%
+}{\end{redbox}}
+
+\newenvironment{warningbox}[1][]{\begin{whitebox}[#1]\textbf{Conventions \& Exam Pitfalls. }}{\end{whitebox}}
+\newenvironment{reviewbox}[1][]{\begin{whitebox}[#1]\textbf{Textbook Exercise Checklist. }}{\end{whitebox}}
+
+\newcommand{\citem}{\item[$\square$]}
+\newcommand{\citemdone}{\item[$\text{\rlap{$\checkmark$}}\square$]}
+
+\begin{document}
+
+\section{Chapter 1: Introduction to ODEs}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem What is a direction field?
+    \citem Write the definition of ODE vs.\ PDE (single vs.\ several independent variables), and what is a system of differential equations (e.g., Lotka--Volterra predator--prey equations).
+    \citem Write the definition of the order of an ODE.
+    \citem Write the definition of the normal form of an ODE.
+    \begin{itemize}
+        \item Remark: Not every differential equation can be written in normal form (e.g., $\sin(y'') + xy'' = y$ cannot be explicitly solved for $y''$).
+    \end{itemize}
+    \citem Write the definition of when an ODE is called linear.
+    \citem Write the definition of a solution of an ODE.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Model a falling object using Newton's second law ($m\frac{dv}{dt} = mg - \gamma v$), find the equilibrium solution ($\frac{dv}{dt} = 0$), and explain what terminal velocity is.
+    \citem Verify a solution defined by a definite integral (using the Fundamental Theorem of Calculus): verify that $y(t) = e^{t^2}\int_0^t e^{-s^2}\,ds + e^{t^2}$ satisfies $y' - 2ty = 1$.
+\end{itemize}
+\end{challengebox}
+
+\section{Chapter 2: First-Order Linear ODEs and Solution Behavior}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem Remember to rewrite $P(t)\frac{dy}{dt} + Q(t)y = G(t)$ into standard form $\frac{dy}{dt} + p(t)y = g(t)$ by dividing by $P(t) \neq 0$ before finding the integrating factor $\mu(t) = \exp\!\left(\int p(t)\,dt\right)$.
+\end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write out the procedure of the method of integrating factor, and give the explicit general solution formula $y = \frac{1}{\mu(t)}\!\left(\int_{t_0}^t \mu(s)g(s)\,ds + c\right)$.
+    \citem When a question asks to analyze the behavior of a solution, analyze the properties of $y'$: when it is positive, when it is negative, what its zeros are, and when $y$ or $y'$ will diverge or converge.
+    \citem For analyzing the behavior of a solution, another direct approach is to simply solve the equation.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem How do we solve a first-order linear ODE? For example, solve
+    \[
+        (4 + t^2)\frac{dy}{dt} + 2ty = 4t.
+    \]
+\end{itemize}
+\end{challengebox}
+
+\section{Lecture 2: Separable, Autonomous, and Exact Equations}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem Sometimes using an integrating factor to solve a question is better than separating the equation.
+    \citem If you use the separable equation method to solve an ODE, always check whether there are singular solutions.
+\end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem What is an initial value problem (IVP)?
+    \citem What is a separable equation?
+    \citem Write the definition of an autonomous differential equation.
+    \citem What is an equilibrium solution of an autonomous equation, and what does it mean for an equilibrium solution $y_0$ of $y' = f(y)$ to be:
+    \begin{itemize}
+        \item stable (if $f(y)$ changes sign from $+$ to $-$ at $y_0$);
+        \item unstable (if $f(y)$ changes sign from $-$ to $+$ at $y_0$);
+        \item semistable (if $f(y)$ does not change sign at $y_0$)?
+    \end{itemize}
+    \citem State the procedure for drawing a phase line portrait for an autonomous equation $y' = f(y)$.
+    \citem Write the definition of an exact differential equation, along with the exactness conditions.
+    \citem How do we make a non-exact equation exact using an integrating factor $\mu(x,y)$?
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Refer to the modeling examples mentioned in the lecture notes: the mixing problem, population growth with predation (field mice and owls, $\frac{dp}{dt} = \frac{p}{2} - 450$), and escape velocity / variable gravitational field ($m\frac{dv}{dt} = -\frac{mgR^2}{(R+x)^2}$, using $v\frac{dv}{dx}$ to find $v(x)$, maximum altitude $A_{\max}$, and escape velocity $\sqrt{2gR}$).
+    \citem Solve the differential equation
+    \[
+        (3x^2 - 2xy + 2)\,dx + (6y^2 - x^2 + 3)\,dy = 0.
+    \]
+    \citem Check whether $x^2y^3 + x(1 + y^2)y' = 0$ is exact, then multiply by $\mu(x,y) = \frac{1}{xy^3}$ and solve it.
+\end{itemize}
+\end{challengebox}
+
+\section{Lecture 3: Existence and Uniqueness, and Second-Order Homogeneous ODEs}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the definition of a homogeneous differential equation and a nonhomogeneous differential equation.
+    \citem Write the definition of the associated homogeneous equation.
+    \citem Write the definition of the characteristic equation (or auxiliary equation), and explain how to use it to solve a second-order differential equation.
+    \citem For the differential operator of a second-order differential equation, note that it is a linear operator; write the formal definition of a linear operator ($L[y_1 + y_2] = L[y_1] + L[y_2]$ and $L[cy] = cL[y]$) and symbolic differential operator notation ($Dy = y', \; D^2y = y'', \dots$).
+    \citem Write the definition of a fundamental solution set.
+    \citem How do we solve a second-order homogeneous DE when the discriminant of the characteristic equation is negative (using Euler's formula $e^{a+ib} = e^a(\cos b + i\sin b)$ and taking the real and imaginary parts of $e^{(\alpha + i\beta)t}$ to get $\{e^{\alpha t}\cos(\beta t), \, e^{\alpha t}\sin(\beta t)\}$)?
+    \citem If a homogeneous second-order DE has a repeated root ($r = -\frac{b}{2a}$) for the characteristic equation, how do we use the reduction of order method ($y(t) = v(t)y_1(t)$) to find the second solution and build the fundamental solution set?
+\end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+\begin{itemize}
+    \citem First-order Existence and Uniqueness Theorem: If $f$ and $\frac{\partial f}{\partial y}$ are continuous in a rectangle $R : |t| \le a, \; |y| \le b$, then there exists some interval $|t| \le h \le a$ in which there exists a unique solution
+    \[
+        y = \phi(t)
+    \]
+    of the initial value problem $y' = f(t, y), \; y(0) = 0$.
+    \begin{itemize}
+        \item Remark: Continuity of $f$ alone guarantees existence of a solution in some open interval, while continuity of $\frac{\partial f}{\partial y}$ is needed to guarantee uniqueness.
+        \item Write the equivalent integral equation $\phi(t) = \int_0^t f(s, \phi(s))\,ds$ and the general Picard iteration formula $\phi_{n+1}(t) = \int_0^t f(s, \phi_n(s))\,ds$ with $\phi_0(t) = 0$; explain why the interval is restricted to $h = \min(a, b/M)$ where $|f(t, y)| \le M$ on $R$.
+    \end{itemize}
+    \citem Write the Principle of Superposition, and prove it.
+    \citem Write the Existence and Uniqueness Theorem for second-order differential equations.
+    \citem Write the definition of the Wronskian
+    \[
+        W[y_1, y_2](t) = \begin{vmatrix} y_1(t) & y_2(t) \\ y_1'(t) & y_2'(t) \end{vmatrix} = y_1(t)y_2'(t) - y_1'(t)y_2(t)
+    \]
+    and the theorem that $W[y_1, y_2](t_0) \neq 0$ implies every solution can be written as $y(t) = C_1y_1(t) + C_2y_2(t)$.
+    \citem Write Abel's Theorem, and prove it.
+\end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Use Picard's iteration method to find $\phi_1(t)$, $\phi_2(t)$, and $\phi_3(t)$ for the IVP $y' = 2t(1 + y), \; y(0) = 0$.
+    \citem Determine whether the Existence and Uniqueness Theorem guarantees a unique solution for $y' = 3y^{2/3}$ with:
+    \begin{itemize}
+        \item (a) $y(2) = 0$
+        \item (b) $y(2) = 5$
+    \end{itemize}
+    \citem Find the largest interval of existence and uniqueness for the IVP
+    \[
+        e^t y'' - \frac{y'}{t-3} + y = \ln t, \quad y(1) = y_0, \quad y'(1) = y_1.
+    \]
+    \citem If $W[f, g](t) = 3e^{4t}$ and $f(t) = e^{2t}$, find $g(t)$.
+    \citem Solve $y'' - 2y' + 2y = 0$.
+\end{itemize}
+\end{challengebox}
+
+\section{Lecture 4: Second-Order Nonhomogeneous ODEs (Undetermined Coefficients)}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem Remark: For a second-order ODE with real coefficients, complex conjugate roots $\alpha \pm i\beta$ can only be simple ($s = 1$); repeated complex roots require order $\ge 4$.
+\end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the procedure for solving a second-order nonhomogeneous ODE (with real coefficients).
+    \citem Suppose for the ODE
+    \[
+        ay'' + by' + cy = g(t)
+    \]
+    we have 4 cases for $g(t)$; write down these four cases and the corresponding form of the particular solution (including the multiplicity factor $t^s$, where $s = 0, 1, 2$ is the multiplicity of the root in the characteristic equation, and $m = \max\{m_1, m_2\}$ with both $\cos(\beta t)$ and $\sin(\beta t)$ terms).
+    \citem How do we solve when $g(t)$ is a sum of terms, such as $g(t) = e^t + \cos 3t$?
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Solve:
+    \begin{itemize}
+        \item $y'' + y' = 1 - 2t^2$
+        \item $y'' - 4y' + 4y = 16e^{2t}$
+        \item $y'' - 3y' + 2y = 4t\sin t$
+        \item $y'' - 9y = e^{3t}\cos t$
+    \end{itemize}
+    \citem Solve
+    \[
+        y'' - 3y' - 4y = 3e^{2t} + 2\sin t - 8e^t\cos(2t).
+    \]
+\end{itemize}
+\end{challengebox}
+
+\section{Week 5: Variation of Parameters and Simple Spring-Mass Systems}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem Remember to put the ODE into standard form $y'' + p(t)y' + q(t)y = g(t)$ first before applying variation of parameters.
+\end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the procedure for using the variation of parameters method to solve a second-order ODE, and prove the formula (impose the auxiliary condition $u_1'(t)y_1(t) + u_2'(t)y_2(t) = 0$, and give the explicit formulas $u_1(t) = -\int_{t_0}^t \frac{g(s)y_2(s)}{W(y_1, y_2)(s)}\,ds$ and $u_2(t) = \int_{t_0}^t \frac{g(s)y_1(s)}{W(y_1, y_2)(s)}\,ds$).
+    \citem Remark on the advantages and difficulties of variation of parameters: it works for arbitrary $g(t)$ and variable coefficients once $\{y_1, y_2\}$ is known; the difficulties are finding $\{y_1, y_2\}$ for non-constant coefficients and evaluating the integrals.
+    \citem Model a simple spring-mass system (using equilibrium balance $mg - kL = 0$, i.e., $k = mg/L$, and the four forces $F_g, F_s, F_d, F_{\text{ex}}$ leading to $mu'' + \gamma u' + ku = F_{\text{ex}}(t)$); then ignore the damping force and external force and derive the amplitude ($R = \sqrt{c_1^2 + c_2^2}$), phase angle ($\tan\delta = c_2/c_1$ in $u(t) = R\cos(\omega_0 t - \delta)$), natural frequency, and period ($T = 2\pi\sqrt{m/k}$, and how $m$ and $k$ affect $T$) of the system.
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Find the solution of
+    \[
+        y'' + 4y = 8\tan t.
+    \]
+\end{itemize}
+\end{challengebox}
+
+\section{Week 6: Damped and Forced Vibrations}
+
+\begin{warningbox}
+\begin{itemize}
+    \citem Remark on all three cases ($\gamma^2 - 4km > 0, \; = 0, \; < 0$) for damped free vibrations: in every case $u(t) \to 0$ as $t \to \infty$; as $\gamma \to 2\sqrt{km}$, $\mu \to 0$ and $T_d \to \infty$; for critically damped ($\gamma = 2\sqrt{km}$) and overdamped ($\gamma > 2\sqrt{km}$) motion, the mass passes through equilibrium at most once.
+\end{itemize}
+\end{warningbox}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem For a vibration system, write the definition of quasi-frequency and quasi-period.
+    \citem Compare the quasi-frequency with the frequency in undamped motion, explain whether small damping reduces or increases the frequency of oscillation, and compare the periods as well.
+    \citem Write the definition of when a homogeneous spring-mass system is called critically damped and overdamped.
+    \citem For a forced damped spring-mass system, write the form of the external force.
+    \citem Write the definition of the transient solution for the forced damped spring-mass system.
+    \citem Write the definition of the steady-state solution for the forced damped spring-mass system.
+    \citem For forced damped vibrations $mu'' + \gamma u' + ku = F_0\cos(\omega t)$, write the steady-state solution $y_p(t) = R\cos(\omega t - \delta)$ with $R = \frac{F_0}{\Delta}$ and $\Delta = \sqrt{m^2(\omega_0^2 - \omega^2)^2 + \gamma^2\omega^2}$:
+    \begin{itemize}
+        \item check the limits of $R$ as $\omega \to 0$ ($R \to F_0/k$) and $\omega \to \infty$ ($R \to 0$);
+        \item state the frequency of maximum amplitude $\omega_{\max}^2 = \omega_0^2\!\left(1 - \frac{\gamma^2}{2mk}\right)$, maximum amplitude $R_{\max} = \frac{F_0}{\gamma\omega_0\sqrt{1 - \gamma^2/(4mk)}}$, and resonance when $\gamma$ is small and $\omega \approx \omega_0$.
+    \end{itemize}
+    \citem Electric Circuits (Series RLC Circuit):
+    \begin{itemize}
+        \item state Kirchhoff's second law and the voltage drops across a resistor ($IR$), capacitor ($Q/C$), and inductor ($L\frac{dI}{dt}$), with $I = \frac{dQ}{dt}$;
+        \item write the differential equation and initial conditions for charge $Q(t)$: $LQ'' + RQ' + \frac{1}{C}Q = E(t), \; Q(t_0) = Q_0, \; Q'(t_0) = I_0$;
+        \item write the differential equation and initial conditions for current $I(t)$: $LI'' + RI' + \frac{1}{C}I = E'(t), \; I(t_0) = I_0, \; I'(t_0) = \frac{E(t_0) - RI_0 - Q_0/C}{L}$.
+    \end{itemize}
+    \citem Forced Vibrations Without Damping ($\gamma = 0$: Beats and Pure Resonance):
+    \begin{itemize}
+        \item for $mu'' + ku = F_0\cos(\omega t)$ with $\omega \neq \omega_0$ and $u(0) = u'(0) = 0$, derive $u(t) = \frac{2F_0}{m(\omega_0^2 - \omega^2)}\sin\!\left(\frac{(\omega_0 - \omega)t}{2}\right)\sin\!\left(\frac{(\omega_0 + \omega)t}{2}\right)$, state the amplitude envelope, and explain what a beat is when $|\omega_0 - \omega|$ is small;
+        \item for $\omega = \omega_0$ (pure resonance), explain why $u_p(t) = t(A\cos\omega_0 t + B\sin\omega_0 t)$ has unboundedly growing amplitude as $t \to \infty$.
+    \end{itemize}
+\end{itemize}
+\end{recallbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem A mass weighing 4 lb stretches a spring 2 in. Suppose that the mass is given an additional 6 in displacement in the positive direction and then released. The mass is in a medium that exerts a viscous resistance of 6 lb when the mass has a velocity of 3 ft/s. Under the assumptions discussed in this section, formulate the initial value problem that governs the motion of the mass.
+    \citem Solve the damped vibration equation in terms of the parameters:
+    \[
+        mu'' + \gamma u' + ku = 0.
+    \]
+    \citem Solve $u'' + u = 0.5\cos(0.8t), \; u(0) = 0, \; u'(0) = 0$.
+    \citem Solve $u'' + u = 0.5\cos t, \; u(0) = 0, \; u'(0) = 0$.
+\end{itemize}
+\end{challengebox}
+
+\section{Week 7: Higher-Order Linear ODEs}
+
+\begin{recallbox}
+\begin{itemize}
+    \citem Write the standard form of an $n$th-order linear ODE ($L[y] = y^{(n)} + p_1(t)y^{(n-1)} + \dots + p_n(t)y = g(t)$, dividing by $P_0(t) \neq 0$) and the $n$ initial conditions $y(t_0) = y_0, \dots, y^{(n-1)}(t_0) = y_0^{(n-1)}$.
+    \citem Write the definition of the $n \times n$ Wronskian $W(y_1, \dots, y_n)(t)$, and the definition of linearly dependent and linearly independent functions $f_1, \dots, f_n$ on an interval $I$.
+    \citem Explain why the general solution of the nonhomogeneous $n$th-order linear ODE is $y = c_1y_1(t) + \dots + c_ny_n(t) + Y(t)$ (using $L[Y_1 - Y_2] = 0$).
+    \citem How do we solve higher-order linear ODEs with constant coefficients by undetermined coefficients? For the homogeneous part, there are three cases; state the procedure for dealing with these three cases.
+    \citem Describe the asymptotic behavior of solutions to homogeneous constant-coefficient ODEs with distinct real roots as $t \to \infty$ (dominated by the algebraically largest root: positive $\to \pm\infty$, negative $\to 0$, zero $\to$ nonzero constant).
+\end{itemize}
+\end{recallbox}
+
+\begin{theoremsbox}
+\begin{itemize}
+    \citem How do we determine the interval on which a solution exists for a higher-order linear ODE (Existence and Uniqueness Theorem for $n$th-order linear ODEs)?
+    \citem Prove that if $W(y_1, \dots, y_n)(t_0) \neq 0$, then $y_1, \dots, y_n$ are linearly independent; state the theorem that solutions $y_1, \dots, y_n$ form a fundamental set of solutions on $I$ if and only if they are linearly independent on $I$.
+\end{itemize}
+\end{theoremsbox}
+
+\begin{challengebox}
+\begin{itemize}
+    \citem Find the solution of
+    \[
+        y^{(4)} + 2y'' + y = 2\sin t.
+    \]
+    \citem Solve these higher-order ODE problems:
+    \begin{itemize}
+        \item $y^{(4)} - y = 0, \; y(0) = \frac{7}{2}, \; y'(0) = -4, \; y''(0) = \frac{5}{2}, \; y'''(0) = -2$
+        \item $y^{(4)} + y = 0$
+        \item $y''' - 3y'' + 3y' - y = 4e^t$
+        \item $y''' - 4y' = t + 3\cos t + e^{-2t}$
+    \end{itemize}
+\end{itemize}
+\end{challengebox}
+
+\end{document}

@@ -138,3 +138,20 @@ the number of earthquakes that occur is in accordance with a Poisson process.
 (a) What is the average number of earthquakes in two weeks time?
 (b) Find the probability that at least 3 earthquakes occur during the next two weeks.
 (c) Let T be the time (in weeks), starting from now, until the next earthquake. Find $P(T ≤ t)$, where t > 0.
+
+## 4.8
+* write the definition of Geometric random variable 
+* If $X ∼ \text{Geo}(p)$, prove that 
+$$E(X) = \frac{1}{p}$$
+$$\text{Var }(X) = \frac{1-p}{p^2}$$
+* write the definition of Negative Binomial Random Variable
+* If $X ∼ \text{NegBin}(r, p)$, prove that 
+$$E(X) = \frac{r}{p}$$
+$$\text{Var }(X) = \frac{r(1-p)}{p^2}$$
+* Find the expected value and the variance of the number of times one must throw a
+fair die until the outcome 1 has occurred 4 times.
+* Independent Bernoulli trials resulting in a success with probability p and a failure
+with probability 1 − p are performed.
+(a) What is the probability that 2 successes occur before 3 failures?
+(b) What is the probability that 3 successes occur before 2 failures?
+(c) What is the probability that n successes occur before m failures?

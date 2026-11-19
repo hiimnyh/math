@@ -22,7 +22,7 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * show the harmonic series is divergent.
 * notice that , if $\sum _{n=1}^{\infty}a_n$ diverges and $c \ne 0$, then $\sum _{n=1}^{\infty}ca_n$ also diverges.
 * **exercise revice**
-  * 15, 19, 31, 36, 37, 39, 45, 49, 52, 71, 94, 
+  * 15, 19, 31, 36, 37, 39, 45, 49, **52**, 71, 94, 
 
 ## 11.3
 * Write the integral test, and the conditions of function also.
@@ -31,14 +31,14 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * proof that p-series is convergent $\iff p>1$
 * If the series is convergent, we can appropximate $S$ by the remainder (error) $R_n$, write the defintion of $R_n$, also write the upper and lower bound of $R_n$ 
 * **exercise revice**
-  * 7, 9, 11, 15，17, 25, 29, 30, 31, 41, 47, 48
+  * 7, 9, 11, 15，17, 25, 29, 30, 31, **41**, **47**, **48**
 
 ## 11.4
 * write the Direct Comparison Test
 * determine $\sum _{n=1}^{\infty} \frac{\ln n }{n}$ is divergent or convergent by using direct comparison test.
 * Write the Limit comparison test, and prove it.
 * **exercise revice**
-  * 3, 5, 13, 17, 20, 21, 33, 35, 38, 40, 49, 51, 52, 54
+  * 3, 5, **13**, 17, 20, 21, **33**, 35, 38, **40**, 49, **51**, **52**, 54
 
 ## 11.5
 * Write the definition off alternating series.
@@ -48,7 +48,7 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * Write the Absolute convergence test, and prove it.
 * Write the Rearrangement theorem
 * **exercise revice**
-  * 5, 7, 13, 23, 37, 41
+  * 5, 7, 13, 23, 28, 29, 37, **41**, **45**,46,47,48, **53**
 
 ## 11.6, 11.7
 * write the ratio test, and try to prove it.
@@ -56,9 +56,9 @@ $$\lim _{n→∞} f(a_n) = f(L)$$
 * try to write the strategy for testing series.
 * **exercise revice**
   * 11.6
-    * 1, 5, 21, 25, 35, 41
+    * 1, 5, 8, **13**, 21, 23, 25, 32, **33**, 35, 41
   * 11.7
-    * 1, 3, 5, 7, 11, 13, 15, 19, 23
+    * 1, 3, 5, **7**, 11, 13, 15, 19, 23, 31, **37**, **46**,47
 
 ## 11.8
 * write the definition of power series in x.
@@ -77,7 +77,7 @@ one of the following three types:
 * Find the interval of convergence and radius of convergence of
 $$\sum _{n=0} ^{ \infty} \frac{(-3)^nx^n}{\sqrt{n+1}}$$
 * **exercise revice**
-  * 7, 23, 25, 37
+  * 7, 23, 25, 37, 43, 45
 
 ## 11.9
 * express $\frac{1}{1+x^2}$ as the sum of power series, and also write the interval of convergence.
@@ -119,7 +119,7 @@ determine its radius of convergence.
 * and for alternating series, but the $b_n$ is not necessary positive, we notice that 
 $$|S-S_n|\le |b_{n+1}|$$
 * **exercise revice**
-  * 5, 13, 19, 25, 28
+  * 5, 13, 19, **25**, 26, 28
 
 # chap10 (Part 2)
 
@@ -136,14 +136,14 @@ $$|S-S_n|\le |b_{n+1}|$$
 $g(t) ≥ 0$ is
 * write the arc length formula for the parametric curve $x = f(t), y = g(t), a ≤ t ≤ b,$
 * **exercise revice**
-  * 5, 7, 19, 23, 29, 35, 37, 39, 47
+  * 5, 7, 19, 23, 29, 35, **37**, 39, 47
 
 ## 10.3
 * write the definition of polar coordinates
 * write the polar graph expression of limacons, and cardioid
 * write the expression of roses, how to determine hoe many leafs are this roses have.
 * **exercise revice**
-  * 3, 5, 7, 9
+  * 3, 5, 7, 9,65
 
 ## 10.4
 * how to find the area of region in polar coordinates, (write the formula)
